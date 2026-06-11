@@ -24,6 +24,7 @@ export const LoveStoryScene: typeof import("../components/scenes/LoveStoryScene.
 export const OpeningScene: typeof import("../components/scenes/OpeningScene.vue")['default']
 export const QuizScene: typeof import("../components/scenes/QuizScene.vue")['default']
 export const RSVPScene: typeof import("../components/scenes/RSVPScene.vue")['default']
+export const StatsScene: typeof import("../components/scenes/StatsScene.vue")['default']
 export const LoadingScreen: typeof import("../components/ui/LoadingScreen.vue")['default']
 export const MusicToggle: typeof import("../components/ui/MusicToggle.vue")['default']
 export const ToastNotification: typeof import("../components/ui/ToastNotification.vue")['default']
@@ -60,6 +61,7 @@ export const LazyLoveStoryScene: LazyComponent<typeof import("../components/scen
 export const LazyOpeningScene: LazyComponent<typeof import("../components/scenes/OpeningScene.vue")['default']>
 export const LazyQuizScene: LazyComponent<typeof import("../components/scenes/QuizScene.vue")['default']>
 export const LazyRSVPScene: LazyComponent<typeof import("../components/scenes/RSVPScene.vue")['default']>
+export const LazyStatsScene: LazyComponent<typeof import("../components/scenes/StatsScene.vue")['default']>
 export const LazyLoadingScreen: LazyComponent<typeof import("../components/ui/LoadingScreen.vue")['default']>
 export const LazyMusicToggle: LazyComponent<typeof import("../components/ui/MusicToggle.vue")['default']>
 export const LazyToastNotification: LazyComponent<typeof import("../components/ui/ToastNotification.vue")['default']>

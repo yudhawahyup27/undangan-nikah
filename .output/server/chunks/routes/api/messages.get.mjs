@@ -1,4 +1,4 @@
-import { c as defineEventHandler, j as listMessageEntries } from '../../_/nitro.mjs';
+import { c as defineEventHandler, m as listMessageEntries } from '../../_/nitro.mjs';
 import 'fs/promises';
 import 'path';
 import 'node:http';

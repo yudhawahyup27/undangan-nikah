@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  compatibilityDate: '2026-06-11',
+  devtools: { enabled: false },
+  experimental: {
+    // Fix dev crash "No entry found in rollupOptions.input" saat ssr: false (Nuxt 3.21.8)
+    viteEnvironmentApi: true,
+  },
   runtimeConfig: {
     supabaseUrl: process.env.SUPABASE_URL || process.env.NUXT_SUPABASE_URL || '',
     supabaseServiceRoleKey:

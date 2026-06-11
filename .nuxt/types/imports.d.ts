@@ -6,6 +6,7 @@ declare global {
   const GROOM_LABEL: typeof import('../../composables/useQuizGame').GROOM_LABEL
   const GROOM_NAME: typeof import('../../composables/useQuizGame').GROOM_NAME
   const QUIZ_ROUND_SIZE: typeof import('../../composables/useQuizGame').QUIZ_ROUND_SIZE
+  const RELATIONSHIP_START_DATE: typeof import('../../composables/useWeddingStats').RELATIONSHIP_START_DATE
   const RSVP_ATTENDING_MESSAGES: typeof import('../../composables/useRsvpResponses').RSVP_ATTENDING_MESSAGES
   const RSVP_NOT_ATTENDING_MESSAGES: typeof import('../../composables/useRsvpResponses').RSVP_NOT_ATTENDING_MESSAGES
   const abortNavigation: typeof import('../../node_modules/nuxt/dist/app/composables/router').abortNavigation
@@ -35,14 +36,19 @@ declare global {
   const downloadAppleCalendar: typeof import('../../composables/useWeddingCalendar').downloadAppleCalendar
   const effect: typeof import('vue').effect
   const effectScope: typeof import('vue').effectScope
+  const eventDisclaimer: typeof import('../../composables/useWeddingStats').eventDisclaimer
+  const formatDaysTogether: typeof import('../../composables/useWeddingStats').formatDaysTogether
+  const funFacts: typeof import('../../composables/useWeddingStats').funFacts
   const getAppManifest: typeof import('../../node_modules/nuxt/dist/app/composables/manifest').getAppManifest
   const getCurrentInstance: typeof import('vue').getCurrentInstance
   const getCurrentScope: typeof import('vue').getCurrentScope
+  const getDaysTogether: typeof import('../../composables/useWeddingStats').getDaysTogether
   const getGoogleCalendarUrl: typeof import('../../composables/useWeddingCalendar').getGoogleCalendarUrl
   const getOutlookCalendarUrl: typeof import('../../composables/useWeddingCalendar').getOutlookCalendarUrl
   const getRandomRsvpResponse: typeof import('../../composables/useRsvpResponses').getRandomRsvpResponse
   const getResultMessage: typeof import('../../composables/useQuizGame').getResultMessage
   const getRouteRules: typeof import('../../node_modules/nuxt/dist/app/composables/manifest').getRouteRules
+  const groomStats: typeof import('../../composables/useWeddingStats').groomStats
   const h: typeof import('vue').h
   const hasInjectionContext: typeof import('vue').hasInjectionContext
   const inject: typeof import('vue').inject
@@ -58,6 +64,7 @@ declare global {
   const isVue3: typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi').isVue3
   const loadPayload: typeof import('../../node_modules/nuxt/dist/app/composables/payload').loadPayload
   const markRaw: typeof import('vue').markRaw
+  const marriageAchievement: typeof import('../../composables/useWeddingStats').marriageAchievement
   const navigateTo: typeof import('../../node_modules/nuxt/dist/app/composables/router').navigateTo
   const nextTick: typeof import('vue').nextTick
   const onActivated: typeof import('vue').onActivated
@@ -78,6 +85,7 @@ declare global {
   const onUnmounted: typeof import('vue').onUnmounted
   const onUpdated: typeof import('vue').onUpdated
   const onWatcherCleanup: typeof import('vue').onWatcherCleanup
+  const pickRandomFunFact: typeof import('../../composables/useWeddingStats').pickRandomFunFact
   const pickRandomQuestions: typeof import('../../composables/useQuizGame').pickRandomQuestions
   const prefetchComponents: typeof import('../../node_modules/nuxt/dist/app/composables/preload').prefetchComponents
   const preloadComponents: typeof import('../../node_modules/nuxt/dist/app/composables/preload').preloadComponents
@@ -92,6 +100,7 @@ declare global {
   const ref: typeof import('vue').ref
   const refreshCookie: typeof import('../../node_modules/nuxt/dist/app/composables/cookie').refreshCookie
   const refreshNuxtData: typeof import('../../node_modules/nuxt/dist/app/composables/asyncData').refreshNuxtData
+  const relationshipStatusQuote: typeof import('../../composables/useWeddingStats').relationshipStatusQuote
   const reloadNuxtApp: typeof import('../../node_modules/nuxt/dist/app/composables/chunk').reloadNuxtApp
   const requestIdleCallback: typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback').requestIdleCallback
   const resolveComponent: typeof import('vue').resolveComponent
@@ -107,6 +116,7 @@ declare global {
   const toRef: typeof import('vue').toRef
   const toRefs: typeof import('vue').toRefs
   const toValue: typeof import('vue').toValue
+  const todayTargets: typeof import('../../composables/useWeddingStats').todayTargets
   const triggerRef: typeof import('vue').triggerRef
   const tryUseNuxtApp: typeof import('../../node_modules/nuxt/dist/app/nuxt').tryUseNuxtApp
   const unref: typeof import('vue').unref
@@ -226,6 +236,9 @@ declare global {
   // @ts-ignore
   export type { QuizAnswer, QuizQuestion } from '../../composables/useQuizGame'
   import('../../composables/useQuizGame')
+  // @ts-ignore
+  export type { GroomStat, FunFact, TodayTarget } from '../../composables/useWeddingStats'
+  import('../../composables/useWeddingStats')
 }
 // for vue template auto import
 import { UnwrapRef } from 'vue'
@@ -236,6 +249,7 @@ declare module 'vue' {
     readonly GROOM_LABEL: UnwrapRef<typeof import('../../composables/useQuizGame')['GROOM_LABEL']>
     readonly GROOM_NAME: UnwrapRef<typeof import('../../composables/useQuizGame')['GROOM_NAME']>
     readonly QUIZ_ROUND_SIZE: UnwrapRef<typeof import('../../composables/useQuizGame')['QUIZ_ROUND_SIZE']>
+    readonly RELATIONSHIP_START_DATE: UnwrapRef<typeof import('../../composables/useWeddingStats')['RELATIONSHIP_START_DATE']>
     readonly RSVP_ATTENDING_MESSAGES: UnwrapRef<typeof import('../../composables/useRsvpResponses')['RSVP_ATTENDING_MESSAGES']>
     readonly RSVP_NOT_ATTENDING_MESSAGES: UnwrapRef<typeof import('../../composables/useRsvpResponses')['RSVP_NOT_ATTENDING_MESSAGES']>
     readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['abortNavigation']>
@@ -265,14 +279,19 @@ declare module 'vue' {
     readonly downloadAppleCalendar: UnwrapRef<typeof import('../../composables/useWeddingCalendar')['downloadAppleCalendar']>
     readonly effect: UnwrapRef<typeof import('vue')['effect']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly eventDisclaimer: UnwrapRef<typeof import('../../composables/useWeddingStats')['eventDisclaimer']>
+    readonly formatDaysTogether: UnwrapRef<typeof import('../../composables/useWeddingStats')['formatDaysTogether']>
+    readonly funFacts: UnwrapRef<typeof import('../../composables/useWeddingStats')['funFacts']>
     readonly getAppManifest: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/manifest')['getAppManifest']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly getDaysTogether: UnwrapRef<typeof import('../../composables/useWeddingStats')['getDaysTogether']>
     readonly getGoogleCalendarUrl: UnwrapRef<typeof import('../../composables/useWeddingCalendar')['getGoogleCalendarUrl']>
     readonly getOutlookCalendarUrl: UnwrapRef<typeof import('../../composables/useWeddingCalendar')['getOutlookCalendarUrl']>
     readonly getRandomRsvpResponse: UnwrapRef<typeof import('../../composables/useRsvpResponses')['getRandomRsvpResponse']>
     readonly getResultMessage: UnwrapRef<typeof import('../../composables/useQuizGame')['getResultMessage']>
     readonly getRouteRules: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/manifest')['getRouteRules']>
+    readonly groomStats: UnwrapRef<typeof import('../../composables/useWeddingStats')['groomStats']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly hasInjectionContext: UnwrapRef<typeof import('vue')['hasInjectionContext']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -288,6 +307,7 @@ declare module 'vue' {
     readonly isVue3: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/vue-demi')['isVue3']>
     readonly loadPayload: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/payload')['loadPayload']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
+    readonly marriageAchievement: UnwrapRef<typeof import('../../composables/useWeddingStats')['marriageAchievement']>
     readonly navigateTo: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['navigateTo']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
@@ -308,6 +328,7 @@ declare module 'vue' {
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
     readonly onWatcherCleanup: UnwrapRef<typeof import('vue')['onWatcherCleanup']>
+    readonly pickRandomFunFact: UnwrapRef<typeof import('../../composables/useWeddingStats')['pickRandomFunFact']>
     readonly pickRandomQuestions: UnwrapRef<typeof import('../../composables/useQuizGame')['pickRandomQuestions']>
     readonly prefetchComponents: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/preload')['prefetchComponents']>
     readonly preloadComponents: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/preload')['preloadComponents']>
@@ -322,6 +343,7 @@ declare module 'vue' {
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly refreshCookie: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/cookie')['refreshCookie']>
     readonly refreshNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['refreshNuxtData']>
+    readonly relationshipStatusQuote: UnwrapRef<typeof import('../../composables/useWeddingStats')['relationshipStatusQuote']>
     readonly reloadNuxtApp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/chunk')['reloadNuxtApp']>
     readonly requestIdleCallback: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/compat/idle-callback')['requestIdleCallback']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
@@ -337,6 +359,7 @@ declare module 'vue' {
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
     readonly toRefs: UnwrapRef<typeof import('vue')['toRefs']>
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
+    readonly todayTargets: UnwrapRef<typeof import('../../composables/useWeddingStats')['todayTargets']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly tryUseNuxtApp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/nuxt')['tryUseNuxtApp']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>

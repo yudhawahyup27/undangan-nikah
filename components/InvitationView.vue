@@ -24,6 +24,7 @@
       <EventScene />
       <GalleryScene />
       <QuizScene />
+      <StatsScene />
       <RSVPScene />
       <GiftScene />
       <ClosingScene />

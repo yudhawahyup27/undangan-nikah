@@ -50,6 +50,7 @@ declare global {
   const fromPlainHandler: typeof import('../../node_modules/h3').fromPlainHandler
   const fromWebHandler: typeof import('../../node_modules/h3').fromWebHandler
   const getCookie: typeof import('../../node_modules/h3').getCookie
+  const getErrorMessage: typeof import('../../server/utils/supabase').getErrorMessage
   const getHeader: typeof import('../../node_modules/h3').getHeader
   const getHeaders: typeof import('../../node_modules/h3').getHeaders
   const getMethod: typeof import('../../node_modules/h3').getMethod
@@ -169,4 +170,4 @@ export { defineAppConfig } from 'C:/Users/ogi-developer/OneDrive/Pictures/weddin
 export { useImage } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/node_modules/@nuxt/image/dist/runtime/server/utils/image';
 export { normalizeGuestKey, findGuestByCode, findGuestBySlug, findGuestByName, listGuests } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/server/utils/guests';
 export { listRsvpEntries, createRsvpEntry, listMessageEntries } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/server/utils/rsvpStore';
-export { getSupabaseConfig, isSupabaseConfigured, getSupabase, isServerlessProduction } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/server/utils/supabase';
+export { getSupabaseConfig, isSupabaseConfigured, getSupabase, isServerlessProduction, getErrorMessage } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/server/utils/supabase';

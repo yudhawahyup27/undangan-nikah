@@ -38,4 +38,5 @@ export { useStarField } from '../composables/useThree';
 export { useToast } from '../composables/useToast';
 export { weddingEvent, getGoogleCalendarUrl, getOutlookCalendarUrl, buildIcsContent, downloadAppleCalendar, useWeddingCalendar } from '../composables/useWeddingCalendar';
 export { useWeddingMusic } from '../composables/useWeddingMusic';
+export { RELATIONSHIP_START_DATE, relationshipStatusQuote, groomStats, funFacts, todayTargets, eventDisclaimer, marriageAchievement, getDaysTogether, formatDaysTogether, pickRandomFunFact, GroomStat, FunFact, TodayTarget } from '../composables/useWeddingStats';
 export { useImage } from '../node_modules/@nuxt/image/dist/runtime/composables';

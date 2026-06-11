@@ -1,4 +1,4 @@
-import { c as defineEventHandler, k as listRsvpEntries } from '../../_/nitro.mjs';
+import { c as defineEventHandler, n as listRsvpEntries } from '../../_/nitro.mjs';
 import 'fs/promises';
 import 'path';
 import 'node:http';

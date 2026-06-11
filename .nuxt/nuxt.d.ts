@@ -1,5 +1,4 @@
 /// <reference types="@nuxtjs/tailwindcss" />
-/// <reference types="@nuxt/devtools" />
 /// <reference types="@nuxt/telemetry" />
 /// <reference types="@nuxt/image" />
 /// <reference path="types/nitro-layouts.d.ts" />

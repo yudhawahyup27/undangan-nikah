@@ -24,6 +24,7 @@ interface _GlobalComponents {
   OpeningScene: typeof import("../../components/scenes/OpeningScene.vue")['default']
   QuizScene: typeof import("../../components/scenes/QuizScene.vue")['default']
   RSVPScene: typeof import("../../components/scenes/RSVPScene.vue")['default']
+  StatsScene: typeof import("../../components/scenes/StatsScene.vue")['default']
   LoadingScreen: typeof import("../../components/ui/LoadingScreen.vue")['default']
   MusicToggle: typeof import("../../components/ui/MusicToggle.vue")['default']
   ToastNotification: typeof import("../../components/ui/ToastNotification.vue")['default']
@@ -60,6 +61,7 @@ interface _GlobalComponents {
   LazyOpeningScene: LazyComponent<typeof import("../../components/scenes/OpeningScene.vue")['default']>
   LazyQuizScene: LazyComponent<typeof import("../../components/scenes/QuizScene.vue")['default']>
   LazyRSVPScene: LazyComponent<typeof import("../../components/scenes/RSVPScene.vue")['default']>
+  LazyStatsScene: LazyComponent<typeof import("../../components/scenes/StatsScene.vue")['default']>
   LazyLoadingScreen: LazyComponent<typeof import("../../components/ui/LoadingScreen.vue")['default']>
   LazyMusicToggle: LazyComponent<typeof import("../../components/ui/MusicToggle.vue")['default']>
   LazyToastNotification: LazyComponent<typeof import("../../components/ui/ToastNotification.vue")['default']>

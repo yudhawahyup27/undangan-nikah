@@ -1,4 +1,4 @@
-import { c as defineEventHandler, r as readBody, e as createError, m as createRsvpEntry } from '../../_/nitro.mjs';
+import { c as defineEventHandler, r as readBody, e as createError, o as createRsvpEntry, p as getErrorMessage } from '../../_/nitro.mjs';
 import 'fs/promises';
 import 'path';
 import 'node:http';
@@ -26,7 +26,10 @@ const rsvp_post = defineEventHandler(async (event) => {
     return { success: true, data: entry };
   } catch (error) {
     console.error("[rsvp.post]", error);
-    throw createError({ statusCode: 500, message: "Gagal menyimpan konfirmasi kehadiran" });
+    throw createError({
+      statusCode: 500,
+      message: getErrorMessage(error)
+    });
   }
 });
 

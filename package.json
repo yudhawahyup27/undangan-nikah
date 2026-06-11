@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt prepare && nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "echo skip postinstall",
+    "postinstall": "nuxt prepare",
+    "prebuild": "nuxt prepare",
     "migrate:rsvp": "node scripts/migrate-rsvp-to-supabase.mjs"
   },
   "dependencies": {
