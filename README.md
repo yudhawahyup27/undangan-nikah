@@ -1,75 +1,157 @@
-# Nuxt Minimal Starter
+# 💍 Wedding Invitation — Cinematic Anime Experience
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+**Nur Kotimah & Yudha Wahyu Pratama**
 
-## Setup
+> An immersive, cinematic wedding invitation built with Nuxt 3, GSAP ScrollTrigger, and Three.js.
 
-Make sure to install dependencies:
+---
+
+## ✨ Features
+
+- **Three.js Star Field** — Cinematic zoom-in/out through stars on open & close
+- **GSAP ScrollTrigger** — Smooth scene transitions, parallax, text reveals
+- **Parallax Layers** — Foreground / midground / background depth
+- **Sakura Petals** — Floating animated petals
+- **Guest Personalization** — `/undangan?to=NamaTamu`
+- **RSVP System** — Form with local JSON persistence
+- **Digital Gift / Amplop** — Copy-to-clipboard with toast
+- **Background Music** — Toggle with visual bars
+- **Countdown Timer** — Live countdown to wedding day
+- **Mobile-First** — Optimized for WhatsApp sharing
+- **Scroll Progress Bar** — Gold top progress indicator
+
+---
+
+## 🚀 Quick Start
 
 ```bash
-# npm
+# Install dependencies
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+# Development server
 npm run dev
 
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
+# Open: http://localhost:3000/undangan?to=NamaTamu
 ```
 
-## Production
+---
 
-Build the application for production:
+## 🌐 Deployment
 
+### Vercel (Recommended)
 ```bash
-# npm
+npm i -g vercel
+vercel --prod
+```
+
+### VPS / PM2
+```bash
 npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+node .output/server/index.mjs
 ```
 
-Locally preview production build:
+---
 
-```bash
-# npm
-npm run preview
+## 🎵 Background Music
 
-# pnpm
-pnpm preview
+1. Place your audio file at: `public/audio/wedding-bgm.mp3`
+2. Recommended: soft instrumental, ~3-5 min loop
+3. Suggested search: "wedding piano instrumental royalty free"
 
-# yarn
-yarn preview
+---
 
-# bun
-bun run preview
+## 🖼️ Gallery Photos
+
+Replace placeholders in `GalleryScene.vue` with real photos:
+```
+public/images/photo-1.jpg
+public/images/photo-2.jpg
+...
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+---
+
+## 📁 Project Structure
+
+```
+wedding-invitation/
+├── components/
+│   ├── scenes/
+│   │   ├── OpeningScene.vue    # Three.js star field + hero
+│   │   ├── IntroScene.vue      # Parallax sakura scene
+│   │   ├── LoveStoryScene.vue  # Timeline story
+│   │   ├── EventScene.vue      # Date / venue / countdown
+│   │   ├── GalleryScene.vue    # Photo gallery
+│   │   ├── RSVPScene.vue       # Form + messages
+│   │   ├── GiftScene.vue       # Digital envelope
+│   │   └── ClosingScene.vue    # Outro + quote
+│   └── ui/
+│       ├── LoadingScreen.vue
+│       ├── MusicToggle.vue
+│       └── ToastNotification.vue
+├── composables/
+│   ├── useGSAP.ts              # GSAP helpers
+│   └── useThree.ts             # Three.js star field
+├── pages/
+│   ├── index.vue               # Redirect to /undangan
+│   └── undangan.vue            # Main page orchestrator
+├── server/
+│   ├── api/
+│   │   ├── guests.get.ts
+│   │   ├── rsvp.post.ts
+│   │   ├── messages.get.ts
+│   │   └── gift-click.post.ts
+│   └── data/                   # JSON data storage
+│       ├── guests.json
+│       ├── rsvp.json
+│       └── messages.json
+└── assets/css/global.css
+```
+
+---
+
+## 🎨 Customization
+
+### Wedding Details (`EventScene.vue`)
+```ts
+const weddingDate = new Date('2025-02-15T08:00:00')
+```
+
+### Bank Info (`GiftScene.vue`)
+```ts
+const banks = [
+  { bank: 'BCA', name: 'Yudha Wahyu Pratama', number: '1234567890' },
+  { bank: 'Mandiri', name: 'Nur Kotimah', number: '9876543210' },
+]
+```
+
+### Love Story (`LoveStoryScene.vue`)
+Edit the `stories` array with your real timeline.
+
+### Map (`EventScene.vue`)
+Replace Google Maps embed `src` with the actual venue coordinates.
+
+---
+
+## 📱 WhatsApp Share URL
+
+```
+https://yourdomain.com/undangan?to=Budi%20Santoso
+```
+
+---
+
+## 🛠️ Tech Stack
+
+| Technology | Purpose |
+|-----------|---------|
+| Nuxt 3 | Vue 3 SSR/SPA framework |
+| GSAP + ScrollTrigger | Scroll animations, parallax |
+| Three.js | 3D star field, cinematic camera |
+| TailwindCSS | Utility-first styling |
+| Nitro | Backend API server |
+| JSON files | Simple data persistence |
+
+---
+
+*Made with ❤️ — Clean, elegant, cinematic.*

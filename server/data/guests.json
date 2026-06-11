@@ -1,0 +1,2354 @@
+[
+  {
+    "code": "IMA001",
+    "name": "Pak Galih (BPR)",
+    "slug": "pak-galih-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA002",
+    "name": "Pak Sudirman (BPR)",
+    "slug": "pak-sudirman-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA003",
+    "name": "Bu Ilma (BPR)",
+    "slug": "bu-ilma-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA004",
+    "name": "Tiara (BPR)",
+    "slug": "tiara-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA005",
+    "name": "Mba Kiki (BPR)",
+    "slug": "mba-kiki-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA006",
+    "name": "Mba Dini (BPR)",
+    "slug": "mba-dini-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA007",
+    "name": "Bu Dian (BPR)",
+    "slug": "bu-dian-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA008",
+    "name": "Bu Harnik (BPR)",
+    "slug": "bu-harnik-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA009",
+    "name": "Bu Nia (BPR)",
+    "slug": "bu-nia-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA010",
+    "name": "Bu Reni (BPR)",
+    "slug": "bu-reni-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA011",
+    "name": "Tazkia (BPR)",
+    "slug": "tazkia-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA012",
+    "name": "Bu Nita (BPR)",
+    "slug": "bu-nita-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA013",
+    "name": "Pak Adik (BPR)",
+    "slug": "pak-adik-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA014",
+    "name": "Pak Podi (BPR)",
+    "slug": "pak-podi-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA015",
+    "name": "Pak Yusuf (BPR)",
+    "slug": "pak-yusuf-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA016",
+    "name": "Pak Fajar Pusat (BPR)",
+    "slug": "pak-fajar-pusat-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA017",
+    "name": "Mas Angga (BPR)",
+    "slug": "mas-angga-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA018",
+    "name": "Pak Chandra (BPR)",
+    "slug": "pak-chandra-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA019",
+    "name": "Pak Iswanto (BPR)",
+    "slug": "pak-iswanto-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA020",
+    "name": "Pak Rosi (BPR)",
+    "slug": "pak-rosi-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA021",
+    "name": "Pak Imam (BPR)",
+    "slug": "pak-imam-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA022",
+    "name": "Pak Bagus (BPR)",
+    "slug": "pak-bagus-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA023",
+    "name": "Pak Bagus Kolek baru (BPR)",
+    "slug": "pak-bagus-kolek-baru-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA024",
+    "name": "Pak Prih (BPR)",
+    "slug": "pak-prih-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA025",
+    "name": "Pak Taslim (BPR)",
+    "slug": "pak-taslim-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA026",
+    "name": "Pak Excy (BPR)",
+    "slug": "pak-excy-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA027",
+    "name": "Bu Endah (BPR)",
+    "slug": "bu-endah-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA028",
+    "name": "Bu Inu (BPR)",
+    "slug": "bu-inu-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA029",
+    "name": "Bu Yuli (BPR)",
+    "slug": "bu-yuli-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA030",
+    "name": "Bu Yuni (BPR)",
+    "slug": "bu-yuni-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA031",
+    "name": "Mba Desy (BPR)",
+    "slug": "mba-desy-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA032",
+    "name": "Mba Rara (BPR)",
+    "slug": "mba-rara-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA033",
+    "name": "Bu Ari (BPR)",
+    "slug": "bu-ari-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA034",
+    "name": "Mba Natasha (BPR)",
+    "slug": "mba-natasha-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA035",
+    "name": "Pak Linggih (BPR)",
+    "slug": "pak-linggih-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA036",
+    "name": "Pak Yudha (BPR)",
+    "slug": "pak-yudha-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA037",
+    "name": "Pak Rohmat (BPR)",
+    "slug": "pak-rohmat-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA038",
+    "name": "Pak Zainul (BPR)",
+    "slug": "pak-zainul-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA039",
+    "name": "Pak Fajar Cabang (BPR)",
+    "slug": "pak-fajar-cabang-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA040",
+    "name": "Pak Bro (BPR)",
+    "slug": "pak-bro-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA041",
+    "name": "Mba Lili (BPR)",
+    "slug": "mba-lili-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA042",
+    "name": "Maulana (BPR)",
+    "slug": "maulana-bpr",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA043",
+    "name": "Bu Tiwi (SSS)",
+    "slug": "bu-tiwi-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA044",
+    "name": "Mba Diana (SSS)",
+    "slug": "mba-diana-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA045",
+    "name": "Silfiana (SSS)",
+    "slug": "silfiana-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA046",
+    "name": "Irza (SSS)",
+    "slug": "irza-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA047",
+    "name": "Zahro (SSS)",
+    "slug": "zahro-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA048",
+    "name": "Mba Widya (SSS)",
+    "slug": "mba-widya-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA049",
+    "name": "Fahri (SSS)",
+    "slug": "fahri-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA050",
+    "name": "Aryan (SSS)",
+    "slug": "aryan-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA051",
+    "name": "Mba Santi",
+    "slug": "mba-santi",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA052",
+    "name": "Agil",
+    "slug": "agil",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA053",
+    "name": "Aini (SMP)",
+    "slug": "aini-smp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA054",
+    "name": "Amala (SD)",
+    "slug": "amala-sd",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA055",
+    "name": "Fitri (SD)",
+    "slug": "fitri-sd",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA056",
+    "name": "Nanik (SD)",
+    "slug": "nanik-sd",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA057",
+    "name": "Novi (SD)",
+    "slug": "novi-sd",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA058",
+    "name": "Fitha (SMP)",
+    "slug": "fitha-smp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA059",
+    "name": "Yesra (SMP)",
+    "slug": "yesra-smp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA060",
+    "name": "Awa teman Kpop",
+    "slug": "awa-teman-kpop",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA061",
+    "name": "Ayu (SD)",
+    "slug": "ayu-sd",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA062",
+    "name": "Juned (FBII)",
+    "slug": "juned-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA063",
+    "name": "Adinda Billa (SMA)",
+    "slug": "adinda-billa-sma",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA064",
+    "name": "Yunita (SMA)",
+    "slug": "yunita-sma",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA065",
+    "name": "Sofia (UNP)",
+    "slug": "sofia-unp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA066",
+    "name": "Cony (SMP)",
+    "slug": "cony-smp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA067",
+    "name": "Laela (SMP)",
+    "slug": "laela-smp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA068",
+    "name": "Dana (UNP)",
+    "slug": "dana-unp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA069",
+    "name": "Mba Aniq (PMII)",
+    "slug": "mba-aniq-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA070",
+    "name": "Mbak Dina (UNP)",
+    "slug": "mbak-dina-unp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA071",
+    "name": "Dita (CV Rak)",
+    "slug": "dita-cv-rak",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA072",
+    "name": "Aca (CV Rak)",
+    "slug": "aca-cv-rak",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA073",
+    "name": "Eva (PMII)",
+    "slug": "eva-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA074",
+    "name": "Mba Bella (PMII)",
+    "slug": "mba-bella-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA075",
+    "name": "Mba Monika (PMII)",
+    "slug": "mba-monika-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA076",
+    "name": "Salsa (PMII)",
+    "slug": "salsa-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA077",
+    "name": "Mas Riski (PMII)",
+    "slug": "mas-riski-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA078",
+    "name": "Mba Nabila (PMII)",
+    "slug": "mba-nabila-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA079",
+    "name": "Rizqa (PMII)",
+    "slug": "rizqa-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA080",
+    "name": "Rizal Cirebon (PMII)",
+    "slug": "rizal-cirebon-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA081",
+    "name": "Rizal Palembang (PMII)",
+    "slug": "rizal-palembang-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA082",
+    "name": "Mba Tya (SSS)",
+    "slug": "mba-tya-sss",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA083",
+    "name": "Fitri (PMII)",
+    "slug": "fitri-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA084",
+    "name": "Icha (SMA)",
+    "slug": "icha-sma",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA085",
+    "name": "Kholifah (UNP)",
+    "slug": "kholifah-unp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA086",
+    "name": "Obet (UNP)",
+    "slug": "obet-unp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA087",
+    "name": "Kom Dhayu (PMII)",
+    "slug": "kom-dhayu-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA088",
+    "name": "Magda (FBII)",
+    "slug": "magda-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA089",
+    "name": "Mba Ima (FBII)",
+    "slug": "mba-ima-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA090",
+    "name": "Mba Omi (FBII)",
+    "slug": "mba-omi-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA091",
+    "name": "Mba Onik (FBII)",
+    "slug": "mba-onik-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA092",
+    "name": "Zalfa (FBII)",
+    "slug": "zalfa-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA093",
+    "name": "Suci (FBII)",
+    "slug": "suci-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA094",
+    "name": "Mba Intan (PNM)",
+    "slug": "mba-intan-pnm",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA095",
+    "name": "Mas Galang",
+    "slug": "mas-galang",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA096",
+    "name": "Mba Asnal",
+    "slug": "mba-asnal",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA097",
+    "name": "Mba Dian MTK (UNP)",
+    "slug": "mba-dian-mtk-unp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA098",
+    "name": "Mba Laila",
+    "slug": "mba-laila",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA099",
+    "name": "Mba Nikma (PMII)",
+    "slug": "mba-nikma-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA100",
+    "name": "Norinta (SMP)",
+    "slug": "norinta-smp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA101",
+    "name": "Mba Ocha (FBII)",
+    "slug": "mba-ocha-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA102",
+    "name": "Mba Faida (PMII)",
+    "slug": "mba-faida-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA103",
+    "name": "Mba Refi",
+    "slug": "mba-refi",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA104",
+    "name": "Mba Putri (PMII)",
+    "slug": "mba-putri-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA105",
+    "name": "Mba Tari (PNM)",
+    "slug": "mba-tari-pnm",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA106",
+    "name": "Mba Tera (PMII)",
+    "slug": "mba-tera-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA107",
+    "name": "Mba Tika (PMII)",
+    "slug": "mba-tika-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA108",
+    "name": "Mba Yuli (PMII)",
+    "slug": "mba-yuli-pmii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA109",
+    "name": "Mba Zyan (FBII)",
+    "slug": "mba-zyan-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA110",
+    "name": "Vina Oktaviana (SMP)",
+    "slug": "vina-oktaviana-smp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA111",
+    "name": "Mei Teman Kpop",
+    "slug": "mei-teman-kpop",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA112",
+    "name": "Mimin (UNP)",
+    "slug": "mimin-unp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA113",
+    "name": "Nisa (UNP)",
+    "slug": "nisa-unp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA114",
+    "name": "Ragil (SMA)",
+    "slug": "ragil-sma",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA115",
+    "name": "Rismalia (SMA)",
+    "slug": "rismalia-sma",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA116",
+    "name": "Sasa (FBII)",
+    "slug": "sasa-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA117",
+    "name": "Tiara (SMA)",
+    "slug": "tiara-sma",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA118",
+    "name": "Vina (UNP)",
+    "slug": "vina-unp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA119",
+    "name": "Yessinta (SMA)",
+    "slug": "yessinta-sma",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA120",
+    "name": "Nopan (SMA)",
+    "slug": "nopan-sma",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA121",
+    "name": "Wahyu (SSS)",
+    "slug": "wahyu-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA122",
+    "name": "Dian (SSS)",
+    "slug": "dian-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA123",
+    "name": "Neina (SSS)",
+    "slug": "neina-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA124",
+    "name": "Mba Evi (PNM)",
+    "slug": "mba-evi-pnm",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA125",
+    "name": "Mba Tita (PNM)",
+    "slug": "mba-tita-pnm",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA126",
+    "name": "Aprerica Sagita (SMA)",
+    "slug": "aprerica-sagita-sma",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA127",
+    "name": "Mba Siska (SSS)",
+    "slug": "mba-siska-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA128",
+    "name": "Aris (SSS)",
+    "slug": "aris-sss",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA129",
+    "name": "Wicke (SD)",
+    "slug": "wicke-sd",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA130",
+    "name": "Nike Wulandari (UNP)",
+    "slug": "nike-wulandari-unp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA131",
+    "name": "Dita Damayanti (UNP)",
+    "slug": "dita-damayanti-unp",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA132",
+    "name": "Mba Saffa (FBII)",
+    "slug": "mba-saffa-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA133",
+    "name": "Ir Jawahirul Kpop",
+    "slug": "ir-jawahirul-kpop",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA134",
+    "name": "Andi Manajemen D (UNP)",
+    "slug": "andi-manajemen-d-unp",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA135",
+    "name": "Andi Manajemen H (UNP)",
+    "slug": "andi-manajemen-h-unp",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA136",
+    "name": "Pak Paidi (Pace)",
+    "slug": "pak-paidi-pace",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA137",
+    "name": "Mbah Nem (Pace)",
+    "slug": "mbah-nem-pace",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA138",
+    "name": "Lek Yon dan Istri (Pace)",
+    "slug": "lek-yon-dan-istri-pace",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA139",
+    "name": "Mbak Nur dan Suami (Pace)",
+    "slug": "mbak-nur-dan-suami-pace",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA140",
+    "name": "Mas Arif dan Istri",
+    "slug": "mas-arif-dan-istri",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA141",
+    "name": "Mustaqim",
+    "slug": "mustaqim",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA142",
+    "name": "Mbah Pandi dan Istri (Pace)",
+    "slug": "mbah-pandi-dan-istri-pace",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA143",
+    "name": "Bibi Feni dan Lek Yanto",
+    "slug": "bibi-feni-dan-lek-yanto",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA144",
+    "name": "Mbak Sri dan Suami",
+    "slug": "mbak-sri-dan-suami",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA145",
+    "name": "Lek Yaskur dan Suami",
+    "slug": "lek-yaskur-dan-suami",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA146",
+    "name": "Mbak Lika dan Suami",
+    "slug": "mbak-lika-dan-suami",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA147",
+    "name": "Lek Su dan Lek Mubin",
+    "slug": "lek-su-dan-lek-mubin",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA148",
+    "name": "Mbak Ulfia",
+    "slug": "mbak-ulfia",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA149",
+    "name": "Mas Munir dan Suami",
+    "slug": "mas-munir-dan-suami",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA150",
+    "name": "Mbak Sikah",
+    "slug": "mbak-sikah",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA151",
+    "name": "Mas Budi dan Istri",
+    "slug": "mas-budi-dan-istri",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA152",
+    "name": "Mbak Umayah dan Mas Pri",
+    "slug": "mbak-umayah-dan-mas-pri",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD001",
+    "name": "Pak rudi",
+    "slug": "pak-rudi",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD002",
+    "name": "Pak Indra (Kantor)",
+    "slug": "pak-indra-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD003",
+    "name": "Pak Budi (Kantor)",
+    "slug": "pak-budi-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD004",
+    "name": "Mas Fathur (Kantor)",
+    "slug": "mas-fathur-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD005",
+    "name": "Mas Adhe (Kantor)",
+    "slug": "mas-adhe-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD006",
+    "name": "Mas Kito (Kantor)",
+    "slug": "mas-kito-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD007",
+    "name": "Mas Ridho (Kantor)",
+    "slug": "mas-ridho-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD008",
+    "name": "Kak vania (Kantor)",
+    "slug": "kak-vania-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD009",
+    "name": "Marco (Kantor)",
+    "slug": "marco-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD010",
+    "name": "Pak Surya (Kantor)",
+    "slug": "pak-surya-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD011",
+    "name": "Ica (Kantor)",
+    "slug": "ica-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD012",
+    "name": "Alma (Kantor)",
+    "slug": "alma-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD013",
+    "name": "Risa (Kantor)",
+    "slug": "risa-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD014",
+    "name": "Febri (Kantor)",
+    "slug": "febri-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD015",
+    "name": "Prasss (Kantor)",
+    "slug": "prasss-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD016",
+    "name": "Malisa (Kantor)",
+    "slug": "malisa-kantor",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD017",
+    "name": "Mas Yongki (Pramuka)",
+    "slug": "mas-yongki-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD018",
+    "name": "Mas Agus & Devi (Pramuka)",
+    "slug": "mas-agus-devi-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD019",
+    "name": "Mas Mario (Pramuka)",
+    "slug": "mas-mario-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD020",
+    "name": "Mas Bayu (Pramuka)",
+    "slug": "mas-bayu-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD021",
+    "name": "Mas Bayu Ajidin (Pramuka)",
+    "slug": "mas-bayu-ajidin-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD022",
+    "name": "Mas Sandro (Pramuka)",
+    "slug": "mas-sandro-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD023",
+    "name": "Mbak Indah (Pramuka)",
+    "slug": "mbak-indah-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD024",
+    "name": "Mbak Ima (Pramuka)",
+    "slug": "mbak-ima-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD025",
+    "name": "Mas Firman (Pramuka)",
+    "slug": "mas-firman-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD026",
+    "name": "Mas Novan (Pramuka)",
+    "slug": "mas-novan-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD027",
+    "name": "Mbak Jihan (Pramuka)",
+    "slug": "mbak-jihan-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD028",
+    "name": "Georgeos (Pramuka)",
+    "slug": "georgeos-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD029",
+    "name": "Mas Syahrul (Pramuka) & Mbak Fadila (Pramuka)",
+    "slug": "mas-syahrul-pramuka-mbak-fadila-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD030",
+    "name": "Mbak Digna (Pramuka)",
+    "slug": "mbak-digna-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD031",
+    "name": "Mbak Syafira (Pramuka)",
+    "slug": "mbak-syafira-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD032",
+    "name": "Mbak Endah (Pramuka)",
+    "slug": "mbak-endah-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD033",
+    "name": "Mbak Aulia (Pramuka)",
+    "slug": "mbak-aulia-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD034",
+    "name": "Mas Latul (Pramuka)",
+    "slug": "mas-latul-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD035",
+    "name": "Clara (Pramuka)",
+    "slug": "clara-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD036",
+    "name": "Flafiska (Pramuka)",
+    "slug": "flafiska-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD037",
+    "name": "Fajar (Pramuka)",
+    "slug": "fajar-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD038",
+    "name": "Mantous (Pramuka)",
+    "slug": "mantous-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD039",
+    "name": "Irena (Pramuka)",
+    "slug": "irena-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD040",
+    "name": "Lux Luim (Pramuka)",
+    "slug": "lux-luim-pramuka",
+    "side": "yudha",
+    "relation": "TY",
+    "status": "pending"
+  },
+  {
+    "code": "YUD041",
+    "name": "Bang Najib (Kalibata)",
+    "slug": "bang-najib-kalibata",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD042",
+    "name": "Bang Wahyu (Kalibata)",
+    "slug": "bang-wahyu-kalibata",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD043",
+    "name": "Bang Yudha",
+    "slug": "bang-yudha",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD044",
+    "name": "Deny Kurniawan",
+    "slug": "deny-kurniawan",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD045",
+    "name": "Mas Drajat",
+    "slug": "mas-drajat",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD046",
+    "name": "Mas Rayhan",
+    "slug": "mas-rayhan",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD047",
+    "name": "Mas Billi",
+    "slug": "mas-billi",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD048",
+    "name": "Mas Adam",
+    "slug": "mas-adam",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD049",
+    "name": "Mas Angga x Mbak Fatma",
+    "slug": "mas-angga-x-mbak-fatma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD050",
+    "name": "Andini (SMA)",
+    "slug": "andini-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD051",
+    "name": "Redita (SMA)",
+    "slug": "redita-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD052",
+    "name": "Cahyo (SMA)",
+    "slug": "cahyo-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD053",
+    "name": "Alfina (SMA)",
+    "slug": "alfina-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD054",
+    "name": "Lisa (SMA)",
+    "slug": "lisa-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD055",
+    "name": "Muklis (SMA)",
+    "slug": "muklis-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD056",
+    "name": "Mas Fajar (Kantor)",
+    "slug": "mas-fajar-kantor",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD057",
+    "name": "Rindi (SMA)",
+    "slug": "rindi-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD058",
+    "name": "Candra (SMA)",
+    "slug": "candra-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD059",
+    "name": "Cha Cha (SMA)",
+    "slug": "cha-cha-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD060",
+    "name": "Diaz (SMA)",
+    "slug": "diaz-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD061",
+    "name": "Dewi Retno (SMA)",
+    "slug": "dewi-retno-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD062",
+    "name": "Mas Erwin",
+    "slug": "mas-erwin",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD063",
+    "name": "Ilham (SMA)",
+    "slug": "ilham-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD064",
+    "name": "Larisa (SMA)",
+    "slug": "larisa-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD065",
+    "name": "Saddam (SMA)",
+    "slug": "saddam-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD066",
+    "name": "Mareta (SMA)",
+    "slug": "mareta-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD067",
+    "name": "Sefri (SMA)",
+    "slug": "sefri-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD068",
+    "name": "Natria (SMA)",
+    "slug": "natria-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD069",
+    "name": "Niken (SMA)",
+    "slug": "niken-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD070",
+    "name": "Putri Puji (SMA)",
+    "slug": "putri-puji-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD071",
+    "name": "Raviko (SMA)",
+    "slug": "raviko-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD072",
+    "name": "Tegar (SMA)",
+    "slug": "tegar-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD073",
+    "name": "Titen (SMA)",
+    "slug": "titen-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD074",
+    "name": "Yusuf (SMA)",
+    "slug": "yusuf-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD075",
+    "name": "Kharis (SMA)",
+    "slug": "kharis-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD076",
+    "name": "Rijal (SMA)",
+    "slug": "rijal-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD077",
+    "name": "Mas Gading (SAN)",
+    "slug": "mas-gading-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD078",
+    "name": "Mbak Devi (SAN)",
+    "slug": "mbak-devi-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD079",
+    "name": "Mas Eko (SAN)",
+    "slug": "mas-eko-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD080",
+    "name": "FIFI (SAN)",
+    "slug": "fifi-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD081",
+    "name": "Mas Hilmi (Livin)",
+    "slug": "mas-hilmi-livin",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD082",
+    "name": "Mas Affani (Pramuka)",
+    "slug": "mas-affani-pramuka",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD083",
+    "name": "Mbak Dhina (SAN)",
+    "slug": "mbak-dhina-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD084",
+    "name": "Indras (SMA)",
+    "slug": "indras-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD085",
+    "name": "Alifta (SMA)",
+    "slug": "alifta-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD086",
+    "name": "Nunung (SMA)",
+    "slug": "nunung-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD087",
+    "name": "Aca (Pramuka)",
+    "slug": "aca-pramuka",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD088",
+    "name": "Istiqomah (SMA)",
+    "slug": "istiqomah-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD089",
+    "name": "Mas Galuh",
+    "slug": "mas-galuh",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD090",
+    "name": "Risky (Pramuka)",
+    "slug": "risky-pramuka",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD091",
+    "name": "Cici (Pramuka)",
+    "slug": "cici-pramuka",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD092",
+    "name": "Adela (Pramuka)",
+    "slug": "adela-pramuka",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD093",
+    "name": "Surya (Pramuka)",
+    "slug": "surya-pramuka",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD094",
+    "name": "Desi (Pramuka)",
+    "slug": "desi-pramuka",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD095",
+    "name": "Nafa (Pramuka)",
+    "slug": "nafa-pramuka",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD096",
+    "name": "Verly (Pramuka)",
+    "slug": "verly-pramuka",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD097",
+    "name": "Nanda G (Pramuka)",
+    "slug": "nanda-g-pramuka",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD098",
+    "name": "Laila (PMR)",
+    "slug": "laila-pmr",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD099",
+    "name": "Femi (Pramuka)",
+    "slug": "femi-pramuka",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD100",
+    "name": "Putri Ayu (SMA)",
+    "slug": "putri-ayu-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD101",
+    "name": "Wahyu (Polinema)",
+    "slug": "wahyu-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD102",
+    "name": "Rico (Polinema)",
+    "slug": "rico-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD103",
+    "name": "Apip (Polinema)",
+    "slug": "apip-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD104",
+    "name": "Pandu (Polinema)",
+    "slug": "pandu-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD105",
+    "name": "Adista (Polinema)",
+    "slug": "adista-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD106",
+    "name": "Alftis (Polinema)",
+    "slug": "alftis-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD107",
+    "name": "Lintang (Polinema)",
+    "slug": "lintang-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD108",
+    "name": "Andika dafa (Polinema)",
+    "slug": "andika-dafa-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD109",
+    "name": "mbak Faca (Kantor)",
+    "slug": "mbak-faca-kantor",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD110",
+    "name": "Mas Rendy Livin",
+    "slug": "mas-rendy-livin",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD111",
+    "name": "brahmanditia (Smp)",
+    "slug": "brahmanditia-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD112",
+    "name": "Richo (SmP)",
+    "slug": "richo-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD113",
+    "name": "Alvin (SMP)",
+    "slug": "alvin-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD114",
+    "name": "Vigar (Polinema)",
+    "slug": "vigar-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD115",
+    "name": "Bima Akbar (Polinema)",
+    "slug": "bima-akbar-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD116",
+    "name": "Firmas (SD)",
+    "slug": "firmas-sd",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD117",
+    "name": "Rama sakti (Polinema)",
+    "slug": "rama-sakti-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD118",
+    "name": "Devi SAN",
+    "slug": "devi-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD119",
+    "name": "Mas Akbar (SMA)",
+    "slug": "mas-akbar-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD120",
+    "name": "Mas Rendi",
+    "slug": "mas-rendi",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD121",
+    "name": "Dhima (SAN)",
+    "slug": "dhima-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD122",
+    "name": "Dimas Barnas",
+    "slug": "dimas-barnas",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD123",
+    "name": "Mas Yusuf (Idn Blogger)",
+    "slug": "mas-yusuf-idn-blogger",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD124",
+    "name": "Mas Ilham Wahyudi (Polinema)",
+    "slug": "mas-ilham-wahyudi-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD125",
+    "name": "Dinda valentine (Polinema)",
+    "slug": "dinda-valentine-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD126",
+    "name": "Faradela (Polinema)",
+    "slug": "faradela-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD127",
+    "name": "Irma (Polinema)",
+    "slug": "irma-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD128",
+    "name": "Iva (Polinema)",
+    "slug": "iva-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD129",
+    "name": "Juan (Polinema)",
+    "slug": "juan-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD130",
+    "name": "Nabila (Polinema)",
+    "slug": "nabila-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD131",
+    "name": "Putri Eka (Polinema)",
+    "slug": "putri-eka-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD132",
+    "name": "Yusuf (Polinema)",
+    "slug": "yusuf-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD133",
+    "name": "Kiki (SMP)",
+    "slug": "kiki-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD134",
+    "name": "Lavio (SMP)",
+    "slug": "lavio-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD135",
+    "name": "Brian (SMP)",
+    "slug": "brian-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD136",
+    "name": "Devi (SMP)",
+    "slug": "devi-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD137",
+    "name": "Saddam (SMP)",
+    "slug": "saddam-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD138",
+    "name": "Rachel (SMP)",
+    "slug": "rachel-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD139",
+    "name": "Hilwa (Polinema)",
+    "slug": "hilwa-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD140",
+    "name": "Dimas Tri (Polinema)",
+    "slug": "dimas-tri-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD141",
+    "name": "Anam (Polinema)",
+    "slug": "anam-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD142",
+    "name": "Delta Yuna (Polinema)",
+    "slug": "delta-yuna-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+]
