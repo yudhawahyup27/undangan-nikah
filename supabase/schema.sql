@@ -14,10 +14,17 @@ create index if not exists rsvp_created_at_idx on public.rsvp (created_at desc);
 
 alter table public.rsvp enable row level security;
 
--- API server memakai service role key (bypass RLS).
--- Policy ini opsional jika nanti ingin baca langsung dari client:
+drop policy if exists "Public can read rsvp" on public.rsvp;
+drop policy if exists "Public can insert rsvp" on public.rsvp;
+
 create policy "Public can read rsvp"
   on public.rsvp
   for select
-  to anon, authenticated
+  to anon, authenticated, service_role
   using (true);
+
+create policy "Public can insert rsvp"
+  on public.rsvp
+  for insert
+  to anon, authenticated, service_role
+  with check (true);

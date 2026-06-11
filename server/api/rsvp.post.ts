@@ -15,6 +15,9 @@ export default defineEventHandler(async (event) => {
     return { success: true, data: entry }
   } catch (error) {
     console.error('[rsvp.post]', error)
-    throw createError({ statusCode: 500, message: 'Gagal menyimpan konfirmasi kehadiran' })
+    throw createError({
+      statusCode: 500,
+      message: getErrorMessage(error),
+    })
   }
 })

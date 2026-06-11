@@ -2,8 +2,12 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
-    supabaseUrl: '',
-    supabaseServiceRoleKey: '',
+    supabaseUrl: process.env.SUPABASE_URL || process.env.NUXT_SUPABASE_URL || '',
+    supabaseServiceRoleKey:
+      process.env.SUPABASE_SERVICE_ROLE_KEY ||
+      process.env.SUPABASE_SECRET_KEY ||
+      process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY ||
+      '',
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://nikah.ywp.my.id',
     },

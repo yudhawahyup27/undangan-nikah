@@ -60,7 +60,7 @@ export const listRsvpEntries = async (): Promise<RsvpEntry[]> => {
       throw error
     }
 
-    return (data as RsvpRow[]).map(mapRow)
+    return (data as RsvpRow[] | null)?.map(mapRow) ?? []
   }
 
   const entries = await readJsonEntries()
@@ -70,7 +70,7 @@ export const listRsvpEntries = async (): Promise<RsvpEntry[]> => {
 export const createRsvpEntry = async (input: CreateRsvpInput): Promise<RsvpEntry> => {
   const payload = {
     name: input.name.trim(),
-    attending: input.attending,
+    attending: Boolean(input.attending),
     message: (input.message || '').trim(),
   }
 
@@ -80,14 +80,20 @@ export const createRsvpEntry = async (input: CreateRsvpInput): Promise<RsvpEntry
       .from(TABLE)
       .insert(payload)
       .select('id, name, attending, message, created_at')
-      .single()
 
     if (error) {
       console.error('[rsvpStore.createRsvpEntry]', error)
       throw error
     }
 
-    return mapRow(data as RsvpRow)
+    const row = (data as RsvpRow[] | null)?.[0]
+    if (!row) {
+      throw new Error(
+        'Insert RSVP gagal. Pastikan tabel public.rsvp sudah dibuat dan policy insert aktif di Supabase.'
+      )
+    }
+
+    return mapRow(row)
   }
 
   if (isServerlessProduction()) {
