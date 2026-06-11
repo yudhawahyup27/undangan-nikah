@@ -93,6 +93,29 @@
         dan mendoakan pernikahan kami dalam ikatan suci yang penuh kasih.
       </p>
 
+      <!-- Mempelai -->
+      <div ref="coupleRef" class="max-w-2xl mx-auto mt-14 intro-couple">
+        <div class="grid md:grid-cols-2 gap-8 md:gap-10">
+          <div class="couple-card glass-card p-8 text-center">
+            <p class="font-josefin text-xs tracking-[0.35em] text-gold/50 uppercase mb-4">Mempelai Wanita</p>
+            <h3 class="font-cormorant text-cream mb-4" style="font-size:clamp(1.6rem,3vw,2rem)">Nur Kotimah</h3>
+            <p class="font-cormorant text-cream/55" style="font-size:clamp(0.95rem,1.8vw,1.05rem); line-height:1.8">
+              Putri dari Bapak Wakiran (Alm)<br/>
+              dan Ibu Gemi (Almh)
+            </p>
+          </div>
+
+          <div class="couple-card glass-card p-8 text-center">
+            <p class="font-josefin text-xs tracking-[0.35em] text-gold/50 uppercase mb-4">Mempelai Pria</p>
+            <h3 class="font-cormorant text-cream mb-4" style="font-size:clamp(1.6rem,3vw,2rem)">Yudha Wahyu Pratama</h3>
+            <p class="font-cormorant text-cream/55" style="font-size:clamp(0.95rem,1.8vw,1.05rem); line-height:1.8">
+              Putra dari Bapak Harso Udiono (Nono Ban)<br/>
+              dan Ibu Luluk Yunita
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div class="flex items-center justify-center gap-4 mt-10 intro-line">
         <div class="w-12 h-px bg-gradient-to-r from-transparent to-gold/40" />
         <span class="text-gold/40 text-xs">✦</span>
@@ -112,6 +135,7 @@ const fgLayerRef = ref<HTMLElement | null>(null)
 const contentRef = ref<HTMLElement | null>(null)
 const titleRef = ref<HTMLElement | null>(null)
 const bodyRef = ref<HTMLElement | null>(null)
+const coupleRef = ref<HTMLElement | null>(null)
 
 // Generate petals
 const petals = Array.from({ length: 18 }, (_, i) => ({
@@ -160,7 +184,8 @@ onMounted(async () => {
   const els = [
     ...scene.querySelectorAll('.intro-subtitle, .intro-line'),
     ...(titleRef.value ? [titleRef.value] : []),
-    ...(bodyRef.value ? [bodyRef.value] : [])
+    ...(bodyRef.value ? [bodyRef.value] : []),
+    ...(coupleRef.value ? [coupleRef.value] : [])
   ]
   gsap.fromTo(els,
     { opacity: 0, y: 50 },

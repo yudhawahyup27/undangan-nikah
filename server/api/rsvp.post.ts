@@ -39,6 +39,7 @@ export default defineEventHandler(async (event) => {
       id: `msg_${Date.now()}`,
       name: body.name,
       message: body.message,
+      attending: body.attending,
       timestamp: new Date().toISOString()
     })
     await writeFile(msgPath, JSON.stringify(msgs, null, 2))

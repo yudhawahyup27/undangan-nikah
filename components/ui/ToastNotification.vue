@@ -1,22 +1,18 @@
 <template>
-  <div class="toast" :class="{ show: visible }" role="status">
-    {{ message }}
-  </div>
+  <Transition name="toast-fade">
+    <div
+      v-if="toastVisible"
+      class="toast show"
+      role="status"
+      @click="hide"
+    >
+      {{ toastMessage }}
+    </div>
+  </Transition>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { useToast } from '~/composables/useToast'
 
-const visible = ref(false)
-const message = ref('')
-let timer: ReturnType<typeof setTimeout> | null = null
-
-const show = (msg: string, duration = 2500) => {
-  message.value = msg
-  visible.value = true
-  if (timer) clearTimeout(timer)
-  timer = setTimeout(() => { visible.value = false }, duration)
-}
-
-defineExpose({ show })
+const { toastMessage, toastVisible, hide } = useToast()
 </script>

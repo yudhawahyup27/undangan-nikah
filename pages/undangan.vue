@@ -38,7 +38,7 @@
       <RSVPScene />
 
       <!-- Amplop Digital / Gift -->
-      <GiftScene @toast="showToast" />
+      <GiftScene />
 
       <!-- Closing Scene -->
       <ClosingScene />
@@ -48,7 +48,7 @@
     <MusicToggle v-if="loadingDone" />
 
     <!-- Toast -->
-    <ToastNotification ref="toastRef" />
+    <ToastNotification />
 
     <!-- Scroll progress bar -->
     <div
@@ -64,7 +64,6 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const isOpen = ref(false)
 const loadingDone = ref(false)
-const toastRef = ref<any>(null)
 const { playOpening, preloadMusic } = useWeddingMusic()
 
 const onLoadingDone = () => {
@@ -111,10 +110,6 @@ const openInvitation = async () => {
   const { ScrollTrigger } = await import('gsap/ScrollTrigger')
   gsap.registerPlugin(ScrollTrigger)
   ScrollTrigger.refresh()
-}
-
-const showToast = (msg: string) => {
-  toastRef.value?.show(msg)
 }
 
 // Scroll-linked depth effect on scroll

@@ -81,6 +81,7 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
+import { useToast } from '~/composables/useToast'
 
 const titleRef = ref<HTMLElement | null>(null)
 const introRef = ref<HTMLElement | null>(null)
@@ -93,24 +94,23 @@ const banks = reactive<Bank[]>([
   { bank: 'Mandiri', name: 'Nur Kotimah', number: '9876543210', copied: false },
 ])
 
-const emit = defineEmits(['toast'])
+const { show: showToast } = useToast()
 
 const copyNumber = async (bank: Bank) => {
   try {
     await navigator.clipboard.writeText(bank.number)
     bank.copied = true
-    emit('toast', `Nomor ${bank.bank} berhasil disalin ✓`)
+    showToast(`Nomor ${bank.bank} berhasil disalin ✓`)
 
-    setTimeout(() => { bank.copied = false }, 3000)
+    setTimeout(() => { bank.copied = false }, 2500)
 
-    // Track click
     fetch('/api/gift-click', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ bank: bank.bank })
     }).catch(() => {})
   } catch {
-    emit('toast', 'Gagal menyalin, salin manual')
+    showToast('Gagal menyalin, salin manual')
   }
 }
 

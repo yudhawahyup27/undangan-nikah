@@ -44,17 +44,17 @@
                 type="button"
                 class="radio-option flex-1 text-center"
                 :class="{ selected: form.attending === true }"
-                @click="form.attending = true"
+                @click="selectAttending(true)"
               >
-                ✓ &nbsp; Hadir
+                ✓ &nbsp; Akan Hadir
               </button>
               <button
                 type="button"
                 class="radio-option flex-1 text-center"
                 :class="{ selected: form.attending === false }"
-                @click="form.attending = false"
+                @click="selectAttending(false)"
               >
-                ✗ &nbsp; Tidak Hadir
+                ✗ &nbsp; Tidak Bisa Hadir
               </button>
             </div>
           </div>
@@ -82,8 +82,8 @@
 
           <!-- Success -->
           <div v-if="submitSuccess" class="text-center py-4">
-            <p class="font-cormorant text-gold/80 italic" style="font-size:1rem">
-              Terima kasih! Konfirmasi Anda telah diterima. 💛
+            <p class="font-cormorant text-gold/80 italic" style="font-size:1rem; line-height:1.7">
+              {{ successMessage }}
             </p>
           </div>
         </form>
@@ -97,23 +97,40 @@
 
         <div class="space-y-4 max-h-[500px] overflow-y-auto pr-2" style="scrollbar-width:thin; scrollbar-color: rgba(201,168,76,0.3) transparent">
           <div
-            v-for="msg in messages"
-            :key="msg.id"
+            v-for="entry in entries"
+            :key="entry.id"
             class="message-card glass-card p-6"
           >
             <div class="flex items-start gap-4">
               <div class="avatar flex-shrink-0">
-                {{ msg.name.charAt(0).toUpperCase() }}
+                {{ entry.name.charAt(0).toUpperCase() }}
               </div>
-              <div>
-                <p class="font-josefin text-xs tracking-[0.2em] text-gold/70 uppercase mb-2">{{ msg.name }}</p>
-                <p class="font-cormorant text-cream/70" style="font-size:1rem; line-height:1.7">{{ msg.message }}</p>
-                <p class="font-josefin text-xs text-cream/25 mt-2">{{ formatDate(msg.timestamp) }}</p>
+              <div class="min-w-0 flex-1">
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                  <p class="font-josefin text-xs tracking-[0.2em] text-gold/70 uppercase">{{ entry.name }}</p>
+                  <span
+                    class="attendance-badge"
+                    :class="entry.attending ? 'attendance-badge--yes' : 'attendance-badge--no'"
+                  >
+                    {{ entry.attending ? '✓ Akan Hadir' : '✗ Tidak Bisa Hadir' }}
+                  </span>
+                </div>
+                <p
+                  v-if="entry.message"
+                  class="font-cormorant text-cream/70"
+                  style="font-size:1rem; line-height:1.7"
+                >
+                  {{ entry.message }}
+                </p>
+                <p v-else class="font-cormorant text-cream/35 italic" style="font-size:0.95rem">
+                  Konfirmasi kehadiran tanpa ucapan.
+                </p>
+                <p class="font-josefin text-xs text-cream/25 mt-2">{{ formatDate(entry.timestamp) }}</p>
               </div>
             </div>
           </div>
 
-          <div v-if="messages.length === 0" class="text-center py-8">
+          <div v-if="entries.length === 0" class="text-center py-8">
             <p class="font-cormorant text-cream/30 italic">Belum ada ucapan. Jadilah yang pertama!</p>
           </div>
         </div>
@@ -124,6 +141,16 @@
 
 <script setup lang="ts">
 import { ref, reactive, onMounted, watch } from 'vue'
+import { useToast } from '~/composables/useToast'
+import { getRandomRsvpResponse } from '~/composables/useRsvpResponses'
+
+type RsvpEntry = {
+  id: string
+  name: string
+  attending: boolean
+  message: string
+  timestamp: string
+}
 
 const titleRef = ref<HTMLElement | null>(null)
 const formRef = ref<HTMLElement | null>(null)
@@ -132,8 +159,17 @@ const messagesRef = ref<HTMLElement | null>(null)
 const form = reactive({ name: '', attending: true as boolean | null, message: '' })
 const isSubmitting = ref(false)
 const submitSuccess = ref(false)
-const messages = ref<any[]>([])
+const successMessage = ref('')
+const entries = ref<RsvpEntry[]>([])
 const { guestName } = useGuest()
+const { show: showToast } = useToast()
+
+const selectAttending = (attending: boolean) => {
+  form.attending = attending
+  submitSuccess.value = false
+}
+
+const pickSuccessMessage = (attending: boolean) => getRandomRsvpResponse(attending)
 
 watch(guestName, (name) => {
   if (name && !form.name) form.name = name
@@ -145,10 +181,10 @@ const formatDate = (ts: string) => {
   } catch { return '' }
 }
 
-const fetchMessages = async () => {
+const fetchEntries = async () => {
   try {
-    const res = await fetch('/api/messages')
-    if (res.ok) messages.value = await res.json()
+    const res = await fetch('/api/rsvp')
+    if (res.ok) entries.value = await res.json()
   } catch {}
 }
 
@@ -162,18 +198,21 @@ const handleSubmit = async () => {
       body: JSON.stringify(form)
     })
     if (res.ok) {
+      const attending = form.attending!
+      successMessage.value = pickSuccessMessage(attending)
       submitSuccess.value = true
+      showToast(successMessage.value, 4000)
       form.name = ''
       form.attending = true
       form.message = ''
-      await fetchMessages()
+      await fetchEntries()
     }
   } catch {}
   isSubmitting.value = false
 }
 
 onMounted(async () => {
-  await fetchMessages()
+  await fetchEntries()
   if (!process.client) return
   const { gsap } = await import('gsap')
   const { ScrollTrigger } = await import('gsap/ScrollTrigger')
@@ -219,5 +258,27 @@ onMounted(async () => {
 }
 .message-card:hover {
   border-color: rgba(201,168,76,0.3);
+}
+.attendance-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 100px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+.attendance-badge--yes {
+  color: #8FAF8A;
+  background: rgba(143, 175, 138, 0.12);
+  border-color: rgba(143, 175, 138, 0.35);
+}
+.attendance-badge--no {
+  color: rgba(245, 238, 215, 0.45);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(245, 238, 215, 0.15);
 }
 </style>

@@ -58,7 +58,7 @@ const yudhaGuests = [
   ['Mbak Endah (Pramuka)', 'TY'], ['Mbak Aulia (Pramuka)', 'TY'], ['Mas Latul (Pramuka)', 'TY'], ['Clara (Pramuka)', 'TY'],
   ['Flafiska (Pramuka)', 'TY'], ['Fajar (Pramuka)', 'TY'], ['Mantous (Pramuka)', 'TY'], ['Irena (Pramuka)', 'TY'],
   ['Lux Luim (Pramuka)', 'TY'], ['Bang Najib (Kalibata)', ''], ['Bang Wahyu (Kalibata)', ''], ['Bang Yudha', ''],
-  ['Deny Kurniawan', ''], ['Mas Drajat', ''], ['Mas Rayhan', ''], ['Mas Billi', ''], ['Mas Adam', ''],
+  ['Deny Kurniawan', ''], ['Mas Drajat', ''], ['Mas Rayhan', ''], ['Mas Billiy', ''], ['Mas Adam', ''],
   ['Mas Angga x Mbak Fatma', ''], ['Andini (SMA)', ''], ['Redita (SMA)', ''], ['Cahyo (SMA)', ''], ['Alfina (SMA)', ''],
   ['Lisa (SMA)', ''], ['Muklis (SMA)', ''], ['Mas Fajar (Kantor)', ''], ['Rindi (SMA)', ''], ['Candra (SMA)', ''],
   ['Cha Cha (SMA)', ''], ['Diaz (SMA)', ''], ['Dewi Retno (SMA)', ''], ['Mas Erwin', ''], ['Ilham (SMA)', ''],
