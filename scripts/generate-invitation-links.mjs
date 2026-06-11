@@ -5,14 +5,16 @@ import { fileURLToPath } from 'url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const guests = JSON.parse(readFileSync(join(__dirname, '../server/data/guests.json'), 'utf-8'))
 
+const SITE_URL = (process.env.NUXT_PUBLIC_SITE_URL || 'https://nikah.ywp.my.id').replace(/\/$/, '')
+
 const lines = [
-  'Kode,Nama,Sisi,Relasi,Link Undangan',
+  'Kode,Nama,Slug,Sisi,Relasi,Link Undangan',
   ...guests.map((guest) => {
-    const link = `https://yourdomain.com/undangan?code=${guest.code}`
+    const link = `${SITE_URL}/${guest.slug}`
     const relation = guest.relation || ''
-    return `${guest.code},"${guest.name}",${guest.side},${relation},${link}`
+    return `${guest.code},"${guest.name}",${guest.slug},${guest.side},${relation},${link}`
   }),
 ]
 
 writeFileSync(join(__dirname, '../server/data/daftar-link-undangan.csv'), lines.join('\n'), 'utf-8')
-console.log(`Generated ${guests.length} invitation links`)
+console.log(`Generated ${guests.length} invitation links for ${SITE_URL}`)

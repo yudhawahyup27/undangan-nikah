@@ -7,10 +7,12 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "migrate:rsvp": "node scripts/migrate-rsvp-to-firestore.mjs"
   },
   "dependencies": {
     "@nuxt/image": "^1.7.0",
+    "firebase-admin": "^14.0.0",
     "gsap": "^3.12.5",
     "nuxt": "^3.12.4",
     "three": "^0.167.1",

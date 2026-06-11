@@ -1,6 +1,14 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
+  runtimeConfig: {
+    firebaseProjectId: process.env.FIREBASE_PROJECT_ID || '',
+    firebaseClientEmail: process.env.FIREBASE_CLIENT_EMAIL || '',
+    firebasePrivateKey: process.env.FIREBASE_PRIVATE_KEY || '',
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://nikah.ywp.my.id',
+    },
+  },
   modules: ['@nuxtjs/tailwindcss', '@nuxt/image'],
   components: [
     { path: '~/components', pathPrefix: false }

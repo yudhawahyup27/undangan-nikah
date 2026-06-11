@@ -9,62 +9,42 @@ export type Guest = {
 
 export function useGuest() {
   const route = useRoute()
+  const config = useRuntimeConfig()
   const guest = ref<Guest | null>(null)
 
-  const guestQuery = computed(() => {
-    const code = route.query.code
-    const to = route.query.to
-    const slug = route.query.slug
-
-    if (typeof code === 'string' && code.trim()) {
-      return { type: 'code' as const, value: code.trim() }
+  const guestSlug = computed(() => {
+    const param = route.params.slug
+    if (typeof param === 'string' && param.trim()) {
+      return param.trim()
     }
-
-    if (typeof slug === 'string' && slug.trim()) {
-      return { type: 'slug' as const, value: slug.trim() }
-    }
-
-    if (typeof to === 'string' && to.trim()) {
-      return { type: 'to' as const, value: to.trim() }
-    }
-
     return null
   })
 
-  watch(guestQuery, async (query) => {
-    if (!query) {
+  watch(guestSlug, async (slug) => {
+    if (!slug) {
       guest.value = null
       return
     }
 
     try {
-      const params = new URLSearchParams()
-      if (query.type === 'code') params.set('code', query.value)
-      if (query.type === 'slug') params.set('slug', query.value)
-      if (query.type === 'to') params.set('to', query.value)
-
-      guest.value = await $fetch<Guest>(`/api/guests?${params.toString()}`)
+      guest.value = await $fetch<Guest>(`/api/guests?slug=${encodeURIComponent(slug)}`)
     } catch {
       guest.value = null
     }
   }, { immediate: true })
 
-  const guestName = computed(() => {
-    if (guest.value?.name) return guest.value.name
+  const guestName = computed(() => guest.value?.name ?? null)
 
-    const query = guestQuery.value
-    if (query?.type === 'to') return decodeURIComponent(query.value)
+  const siteUrl = (config.public.siteUrl as string || 'https://nikah.ywp.my.id').replace(/\/$/, '')
 
-    return null
-  })
-
-  const invitationUrl = (item: Guest, origin = '') =>
-    `${origin}/undangan?code=${item.code}`
+  const invitationUrl = (item: Guest, origin = siteUrl) =>
+    `${origin.replace(/\/$/, '')}/${item.slug}`
 
   return {
     guest,
     guestName,
-    guestQuery,
+    guestSlug,
     invitationUrl,
+    siteUrl,
   }
 }
