@@ -11,6 +11,7 @@ export function useGuest() {
   const route = useRoute()
   const config = useRuntimeConfig()
   const guest = ref<Guest | null>(null)
+  const pending = ref(false)
 
   const guestSlug = computed(() => {
     const param = route.params.slug
@@ -23,13 +24,17 @@ export function useGuest() {
   watch(guestSlug, async (slug) => {
     if (!slug) {
       guest.value = null
+      pending.value = false
       return
     }
 
+    pending.value = true
     try {
       guest.value = await $fetch<Guest>(`/api/guests?slug=${encodeURIComponent(slug)}`)
     } catch {
       guest.value = null
+    } finally {
+      pending.value = false
     }
   }, { immediate: true })
 
@@ -44,6 +49,7 @@ export function useGuest() {
     guest,
     guestName,
     guestSlug,
+    pending,
     invitationUrl,
     siteUrl,
   }

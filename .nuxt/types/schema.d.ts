@@ -11,12 +11,18 @@ import { NuxtModule, ModuleDependencyMeta } from '@nuxt/schema'
       cdnURL: string,
    },
 
+   firebaseProjectId: string,
+
+   firebaseClientEmail: string,
+
+   firebasePrivateKey: string,
+
    nitro: {
       envPrefix: string,
    },
   }
   interface SharedPublicRuntimeConfig {
-
+   siteUrl: string,
   }
 declare module '@nuxt/schema' {
   interface ModuleDependencies {

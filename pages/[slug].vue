@@ -1,18 +1,20 @@
 <template>
-  <InvitationView />
+  <InvitationView v-if="!showNotFound" />
 </template>
 
 <script setup lang="ts">
-const route = useRoute()
-const slug = String(route.params.slug || '').trim()
+const { guest, guestSlug, pending } = useGuest()
 
-if (!slug) {
-  throw createError({ statusCode: 404, statusMessage: 'Tamu tidak ditemukan' })
-}
+const showNotFound = computed(() =>
+  Boolean(guestSlug.value && !pending.value && !guest.value)
+)
 
-try {
-  await $fetch(`/api/guests?slug=${encodeURIComponent(slug)}`)
-} catch {
-  throw createError({ statusCode: 404, statusMessage: 'Tamu tidak ditemukan' })
-}
+watch(showNotFound, (notFound) => {
+  if (notFound) {
+    showError({
+      statusCode: 404,
+      statusMessage: 'Tamu tidak ditemukan',
+    })
+  }
+}, { immediate: true })
 </script>

@@ -6,6 +6,8 @@ declare global {
   const GROOM_LABEL: typeof import('../../composables/useQuizGame').GROOM_LABEL
   const GROOM_NAME: typeof import('../../composables/useQuizGame').GROOM_NAME
   const QUIZ_ROUND_SIZE: typeof import('../../composables/useQuizGame').QUIZ_ROUND_SIZE
+  const RSVP_ATTENDING_MESSAGES: typeof import('../../composables/useRsvpResponses').RSVP_ATTENDING_MESSAGES
+  const RSVP_NOT_ATTENDING_MESSAGES: typeof import('../../composables/useRsvpResponses').RSVP_NOT_ATTENDING_MESSAGES
   const abortNavigation: typeof import('../../node_modules/nuxt/dist/app/composables/router').abortNavigation
   const addRouteMiddleware: typeof import('../../node_modules/nuxt/dist/app/composables/router').addRouteMiddleware
   const answerLabel: typeof import('../../composables/useQuizGame').answerLabel
@@ -38,6 +40,7 @@ declare global {
   const getCurrentScope: typeof import('vue').getCurrentScope
   const getGoogleCalendarUrl: typeof import('../../composables/useWeddingCalendar').getGoogleCalendarUrl
   const getOutlookCalendarUrl: typeof import('../../composables/useWeddingCalendar').getOutlookCalendarUrl
+  const getRandomRsvpResponse: typeof import('../../composables/useRsvpResponses').getRandomRsvpResponse
   const getResultMessage: typeof import('../../composables/useQuizGame').getResultMessage
   const getRouteRules: typeof import('../../node_modules/nuxt/dist/app/composables/manifest').getRouteRules
   const h: typeof import('vue').h
@@ -130,7 +133,6 @@ declare global {
   const useModel: typeof import('vue').useModel
   const useNuxtApp: typeof import('../../node_modules/nuxt/dist/app/nuxt').useNuxtApp
   const useNuxtData: typeof import('../../node_modules/nuxt/dist/app/composables/asyncData').useNuxtData
-  const useNuxtDevTools: typeof import('../../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools').useNuxtDevTools
   const useParallax: typeof import('../../composables/useGSAP').useParallax
   const usePreviewMode: typeof import('../../node_modules/nuxt/dist/app/composables/preview').usePreviewMode
   const useRequestEvent: typeof import('../../node_modules/nuxt/dist/app/composables/ssr').useRequestEvent
@@ -184,6 +186,7 @@ declare global {
   const useState: typeof import('../../node_modules/nuxt/dist/app/composables/state').useState
   const useTemplateRef: typeof import('vue').useTemplateRef
   const useTextReveal: typeof import('../../composables/useGSAP').useTextReveal
+  const useToast: typeof import('../../composables/useToast').useToast
   const useTransitionState: typeof import('vue').useTransitionState
   const useWeddingCalendar: typeof import('../../composables/useWeddingCalendar').useWeddingCalendar
   const useWeddingMusic: typeof import('../../composables/useWeddingMusic').useWeddingMusic
@@ -220,6 +223,8 @@ declare module 'vue' {
     readonly GROOM_LABEL: UnwrapRef<typeof import('../../composables/useQuizGame')['GROOM_LABEL']>
     readonly GROOM_NAME: UnwrapRef<typeof import('../../composables/useQuizGame')['GROOM_NAME']>
     readonly QUIZ_ROUND_SIZE: UnwrapRef<typeof import('../../composables/useQuizGame')['QUIZ_ROUND_SIZE']>
+    readonly RSVP_ATTENDING_MESSAGES: UnwrapRef<typeof import('../../composables/useRsvpResponses')['RSVP_ATTENDING_MESSAGES']>
+    readonly RSVP_NOT_ATTENDING_MESSAGES: UnwrapRef<typeof import('../../composables/useRsvpResponses')['RSVP_NOT_ATTENDING_MESSAGES']>
     readonly abortNavigation: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['abortNavigation']>
     readonly addRouteMiddleware: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/router')['addRouteMiddleware']>
     readonly answerLabel: UnwrapRef<typeof import('../../composables/useQuizGame')['answerLabel']>
@@ -252,6 +257,7 @@ declare module 'vue' {
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getGoogleCalendarUrl: UnwrapRef<typeof import('../../composables/useWeddingCalendar')['getGoogleCalendarUrl']>
     readonly getOutlookCalendarUrl: UnwrapRef<typeof import('../../composables/useWeddingCalendar')['getOutlookCalendarUrl']>
+    readonly getRandomRsvpResponse: UnwrapRef<typeof import('../../composables/useRsvpResponses')['getRandomRsvpResponse']>
     readonly getResultMessage: UnwrapRef<typeof import('../../composables/useQuizGame')['getResultMessage']>
     readonly getRouteRules: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/manifest')['getRouteRules']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
@@ -344,7 +350,6 @@ declare module 'vue' {
     readonly useModel: UnwrapRef<typeof import('vue')['useModel']>
     readonly useNuxtApp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/nuxt')['useNuxtApp']>
     readonly useNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['useNuxtData']>
-    readonly useNuxtDevTools: UnwrapRef<typeof import('../../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools')['useNuxtDevTools']>
     readonly useParallax: UnwrapRef<typeof import('../../composables/useGSAP')['useParallax']>
     readonly usePreviewMode: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/preview')['usePreviewMode']>
     readonly useRequestEvent: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['useRequestEvent']>
@@ -398,6 +403,7 @@ declare module 'vue' {
     readonly useState: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/state')['useState']>
     readonly useTemplateRef: UnwrapRef<typeof import('vue')['useTemplateRef']>
     readonly useTextReveal: UnwrapRef<typeof import('../../composables/useGSAP')['useTextReveal']>
+    readonly useToast: UnwrapRef<typeof import('../../composables/useToast')['useToast']>
     readonly useTransitionState: UnwrapRef<typeof import('vue')['useTransitionState']>
     readonly useWeddingCalendar: UnwrapRef<typeof import('../../composables/useWeddingCalendar')['useWeddingCalendar']>
     readonly useWeddingMusic: UnwrapRef<typeof import('../../composables/useWeddingMusic')['useWeddingMusic']>

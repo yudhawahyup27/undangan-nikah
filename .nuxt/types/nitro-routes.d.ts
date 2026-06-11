@@ -10,6 +10,7 @@ declare module "nitropack/types" {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/messages.get').default>>>>
     }
     '/api/rsvp': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/rsvp.get').default>>>>
       'post': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/rsvp.post').default>>>>
     }
     '/__nuxt_error': {

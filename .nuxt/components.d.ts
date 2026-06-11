@@ -14,6 +14,7 @@ type HydrationStrategies = {
 type LazyComponent<T> = DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }> & T
 
 
+export const InvitationView: typeof import("../components/InvitationView.vue")['default']
 export const ClosingScene: typeof import("../components/scenes/ClosingScene.vue")['default']
 export const EventScene: typeof import("../components/scenes/EventScene.vue")['default']
 export const GalleryScene: typeof import("../components/scenes/GalleryScene.vue")['default']
@@ -49,6 +50,7 @@ export const Head: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const Html: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Html']
 export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/components")['Body']
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
+export const LazyInvitationView: LazyComponent<typeof import("../components/InvitationView.vue")['default']>
 export const LazyClosingScene: LazyComponent<typeof import("../components/scenes/ClosingScene.vue")['default']>
 export const LazyEventScene: LazyComponent<typeof import("../components/scenes/EventScene.vue")['default']>
 export const LazyGalleryScene: LazyComponent<typeof import("../components/scenes/GalleryScene.vue")['default']>
