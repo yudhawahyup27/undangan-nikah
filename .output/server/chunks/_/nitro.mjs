@@ -83,12 +83,14 @@ const HASH_RE = /#/g;
 const AMPERSAND_RE = /&/g;
 const SLASH_RE = /\//g;
 const EQUAL_RE = /=/g;
+const IM_RE = /\?/g;
 const PLUS_RE = /\+/g;
 const ENC_CARET_RE = /%5e/gi;
 const ENC_BACKTICK_RE = /%60/gi;
 const ENC_PIPE_RE = /%7c/gi;
 const ENC_SPACE_RE = /%20/gi;
 const ENC_SLASH_RE = /%2f/gi;
+const ENC_ENC_SLASH_RE = /%252f/gi;
 function encode(text) {
   return encodeURI("" + text).replace(ENC_PIPE_RE, "|");
 }
@@ -97,6 +99,9 @@ function encodeQueryValue(input) {
 }
 function encodeQueryKey(text) {
   return encodeQueryValue(text).replace(EQUAL_RE, "%3D");
+}
+function encodePath(text) {
+  return encode(text).replace(HASH_RE, "%23").replace(IM_RE, "%3F").replace(ENC_ENC_SLASH_RE, "%2F").replace(AMPERSAND_RE, "%26").replace(PLUS_RE, "%2B");
 }
 function decode(text = "") {
   try {
@@ -217,8 +222,8 @@ function withoutBase(input, base) {
   if (nextChar && nextChar !== "/" && nextChar !== "?") {
     return input;
   }
-  const trimmed = input.slice(_base.length);
-  return trimmed[0] === "/" ? trimmed : "/" + trimmed;
+  const trimmed = input.slice(_base.length).replace(/^\/+/, "");
+  return "/" + trimmed;
 }
 function withQuery(input, query) {
   const parsed = parseURL(input);
@@ -4167,7 +4172,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "7971e39f-a937-4f6d-81be-de5159a9c5a1",
+    "buildId": "64c16404-0dd3-41f7-b1c9-855b15c2de2c",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -4197,9 +4202,8 @@ const _inlineRuntimeConfig = {
   "public": {
     "siteUrl": "https://nikah.ywp.my.id"
   },
-  "firebaseProjectId": "nikah-yudha-ima",
-  "firebaseClientEmail": "firebase-adminsdk-fbsvc@nikah-yudha-ima.iam.gserviceaccount.com",
-  "firebasePrivateKey": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDdJm1CKFRAmvq+\n5OlhoGEbwq5tu0SW9sQQMD3eUhGjC4wTp7v+tVIh6+OVspBOg6SnU883yfv+V+zC\nrbOYT+sfp8WbQdhVc+gocMQO+ohguUizrr/vtx+EhsEQ9IEYaWI/G7drhW7Oh2Bw\nDQYroKbmlS2sDy5mej0ZJHKc6FQVZvIjJyajQnCivKdHUBLWHSfmKJJzIZpwTfYd\n5aI4wFJGoil78nARy4MU/akFpQJvHmVz++hXFJydRFg9F5OYOCNomgAvxX1nHLR7\nsIShkZs8QVLAl+pxE9eDmpZi6zUJbeQTHhiaSly/pqJT+Ry15Aqa46IJ+AxOLTMi\ncPb4g6WBAgMBAAECggEAP2n77XsUAbyPBzsrwu9SuTufed63odRbz0qOCxicbxTq\nE17HNRf4V7rE9VGROLpd9g89vcEhDcNXpFFbzOKpyNd6ffUpHAPS//mp9qOXhKjM\ntJ148zufAYkEhqCd/gqF/hOsClxmNDm0iRzq9oqoITmIsaxewUrvBy0g4mZqagIl\nFleuw3jbLJ44XaLMf8tMt7QHqaSntAr7zawH7oYBLr9O9TehlVD6QaHPkuIEXO5K\nRFi+OPe7tXUlOVi0mGGJeRPIGxYb8/GmKVCIJOWMT5Vdey7LUyIJ9XOXeiDVj6Ww\nGqsQhgu/wwko50qFlp9xomgHxiNfs44JaeOFRBsSywKBgQDxp4ZzBZ43yk+dvLIU\nNSoH7dXGDdVmPjMhWKciSRxEEchZt147Bd4UwCDygM2cTC26f2axGRMUQIJIU7/k\niuQ/RxLlb9FJuy1vrfKa4l9bGKc2smnJd623eNvhzmz4x4XlJD4o4saJ436QbRcU\nK2jFH6fDCKp/ArG/De8LgySeCwKBgQDqR0scO/CKNLS0ihAu25Vf/toecP66b33q\niXwUIlE266hRg73cT4VxZuB/SLXs3QAV8b4Rj0O4xiE2aJ46fYb6MqJTk+OfbmvK\nSmX3kVxlRafeDVhwpye7qj/lGal4cRPQ22tqAs1y6AXS60wx3pfLF6wCOv+zqBrZ\nqC7Ap65eIwKBgDXuL0FIRbEpw27uh8eevcybNZRHzhJNW1fb0yEBs/81AMOU+sCt\nZIy4/CFiwYBaN/JhMGfhsrJYWzsNBcxZeursT7lIpSqRTWiZJ4WNc75+2AKK+rTt\nsqU5ocjZKtSyop0q43x4b9qiHMLatcXYkj87+1K5gmNqFIUQ9QJauDdVAoGBAKt9\n1oBra+9vF1wUuDXkrNphLn8cDYqhdFWLoFUIrdR6+nH48rDjUPYq7Wie6/Tf7WEi\n3RPzgAowlj1CpZiBLJ3XFLYDSpr49FRW038+W5kSPQgxUqzb3xzjSfRFLaWpeGzp\nQR6PwJ49M44qiVLz8r9Kq7HSSDzVcBoln1uNIvlrAoGBALSIm4xSEitemaKGgXs+\nbPbY1C26tQgLs+qzbhCSF7VpVBtccj54Ns/YrHN5NdTQtLFbmgA39lHJ/eaMb8PH\nwNC+boumn8jVDHHoz7ouyqT8nmOlQLlBjphdn2lc2smavJRPFW7JMnAPd85lpmhk\n+dm1JvmgkvwEkwvHuWtm72o5\n-----END PRIVATE KEY-----\n",
+  "supabaseUrl": "",
+  "supabaseServiceRoleKey": "",
   "ipx": {
     "baseURL": "/_ipx",
     "alias": {},
@@ -4255,6 +4259,17 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
   }
 });
 
+function isPathInScope(pathname, base) {
+  let canonical;
+  try {
+    const pre = pathname.replace(/%2f/gi, "/").replace(/%5c/gi, "\\");
+    canonical = new URL(pre, "http://_").pathname;
+  } catch {
+    return false;
+  }
+  return !base || canonical === base || canonical.startsWith(base + "/");
+}
+
 const config = useRuntimeConfig();
 const _routeRulesMatcher = toRouteMatcher(
   createRouter$1({ routes: config.nitro.routeRules })
@@ -4271,7 +4286,12 @@ function createRouteRulesHandler(ctx) {
         let targetPath = event.path;
         const strpBase = routeRules.redirect._redirectStripBase;
         if (strpBase) {
+          if (!isPathInScope(event.path.split("?")[0], strpBase)) {
+            throw createError$1({ statusCode: 400 });
+          }
           targetPath = withoutBase(targetPath, strpBase);
+        } else if (targetPath.startsWith("//")) {
+          targetPath = targetPath.replace(/^\/+/, "/");
         }
         target = joinURL(target.slice(0, -3), targetPath);
       } else if (event.path.includes("?")) {
@@ -4286,7 +4306,12 @@ function createRouteRulesHandler(ctx) {
         let targetPath = event.path;
         const strpBase = routeRules.proxy._proxyStripBase;
         if (strpBase) {
+          if (!isPathInScope(event.path.split("?")[0], strpBase)) {
+            throw createError$1({ statusCode: 400 });
+          }
           targetPath = withoutBase(targetPath, strpBase);
+        } else if (targetPath.startsWith("//")) {
+          targetPath = targetPath.replace(/^\/+/, "/");
         }
         target = joinURL(target.slice(0, -3), targetPath);
       } else if (event.path.includes("?")) {
@@ -4357,11 +4382,8 @@ function normalizeCookieHeaders(headers) {
   return outgoingHeaders;
 }
 
-/**
-* Nitro internal functions extracted from https://github.com/nitrojs/nitro/blob/v2/src/runtime/internal/utils.ts
-*/
 function isJsonRequest(event) {
-	// If the client specifically requests HTML, then avoid classifying as JSON.
+	
 	if (hasReqHeader(event, "accept", "text/html")) {
 		return false;
 	}
@@ -4374,12 +4396,12 @@ function hasReqHeader(event, name, includes) {
 
 const errorHandler$0 = (async function errorhandler(error, event, { defaultHandler }) {
 	if (event.handled || isJsonRequest(event)) {
-		// let Nitro handle JSON errors
+		
 		return;
 	}
-	// invoke default Nitro error handler (which will log appropriately if required)
+	
 	const defaultRes = await defaultHandler(error, event, { json: true });
-	// let Nitro handle redirect if appropriate
+	
 	const status = error.status || error.statusCode || 500;
 	if (status === 404 && defaultRes.status === 302) {
 		setResponseHeaders(event, defaultRes.headers);
@@ -4387,22 +4409,26 @@ const errorHandler$0 = (async function errorhandler(error, event, { defaultHandl
 		return send(event, JSON.stringify(defaultRes.body, null, 2));
 	}
 	const errorObject = defaultRes.body;
-	// remove proto/hostname/port from URL
+	
 	const url = new URL(errorObject.url);
 	errorObject.url = withoutBase(url.pathname, useRuntimeConfig(event).app.baseURL) + url.search + url.hash;
-	// add default server message (keep sanitized for unhandled errors)
+	
 	errorObject.message = error.unhandled ? errorObject.message || "Server Error" : error.message || errorObject.message || "Server Error";
-	// we will be rendering this error internally so we can pass along the error.data safely
+	
 	errorObject.data ||= error.data;
 	errorObject.statusText ||= error.statusText || error.statusMessage;
 	delete defaultRes.headers["content-type"];
 	delete defaultRes.headers["content-security-policy"];
 	setResponseHeaders(event, defaultRes.headers);
-	// Access request headers
+	
 	const reqHeaders = getRequestHeaders(event);
-	// Detect to avoid recursion in SSR rendering of errors
-	const isRenderingError = event.path.startsWith("/__nuxt_error") || !!reqHeaders["x-nuxt-error"];
-	// HTML response (via SSR)
+	
+	const isRenderingError = event.path.startsWith("/__nuxt_error") || !!reqHeaders["x-nuxt-error"] || !!event.context.nuxt?.["~rendering-error"];
+	if (!isRenderingError) {
+		event.context.nuxt ||= {};
+		event.context.nuxt["~rendering-error"] = true;
+	}
+	
 	const res = isRenderingError ? null : await useNitroApp().localFetch(withQuery(joinURL(useRuntimeConfig(event).app.baseURL, "/__nuxt_error"), errorObject), {
 		headers: {
 			...reqHeaders,
@@ -4413,7 +4439,7 @@ const errorHandler$0 = (async function errorhandler(error, event, { defaultHandl
 	if (event.handled) {
 		return;
 	}
-	// Fallback to static rendered error page
+	
 	if (!res) {
 		const { template } = await import('./error-500.mjs');
 		setResponseHeader(event, "Content-Type", "text/html;charset=UTF-8");
@@ -4518,20 +4544,6 @@ const plugins = [
 ];
 
 const assets = {
-  "/audio/README.txt": {
-    "type": "text/plain; charset=utf-8",
-    "etag": "\"144-kV5Ch2jcx+Xhcrj5KQaIfbtCBnk\"",
-    "mtime": "2026-06-11T05:01:15.566Z",
-    "size": 324,
-    "path": "../public/audio/README.txt"
-  },
-  "/audio/ucapan pembukaan.ogg": {
-    "type": "audio/ogg",
-    "etag": "\"83f0-Vn097/jJibqQVfJtBrywdTjMZaM\"",
-    "mtime": "2026-06-11T04:56:38.840Z",
-    "size": 33776,
-    "path": "../public/audio/ucapan pembukaan.ogg"
-  },
   "/images/photo-2.jpeg": {
     "type": "image/jpeg",
     "etag": "\"119a2-hRmTFASMzHSDZ2jgeCKSqAANdm8\"",
@@ -4553,68 +4565,19 @@ const assets = {
     "size": 225755,
     "path": "../public/images/photo-1.jpeg"
   },
+  "/audio/README.txt": {
+    "type": "text/plain; charset=utf-8",
+    "etag": "\"144-kV5Ch2jcx+Xhcrj5KQaIfbtCBnk\"",
+    "mtime": "2026-06-11T05:01:15.566Z",
+    "size": 324,
+    "path": "../public/audio/README.txt"
+  },
   "/images/photo-3.jpeg": {
     "type": "image/jpeg",
     "etag": "\"2632a-rhsSzurn8ortycwLcFFOOOYC8Fo\"",
     "mtime": "2026-06-11T05:17:34.821Z",
     "size": 156458,
     "path": "../public/images/photo-3.jpeg"
-  },
-  "/_nuxt/0qGfLKiI.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"19d-KERYihCQX+LQWGZ9TEX6iuNCbXY\"",
-    "mtime": "2026-06-11T14:03:50.928Z",
-    "size": 413,
-    "path": "../public/_nuxt/0qGfLKiI.js"
-  },
-  "/_nuxt/BrDuEirF.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"aa1b-ZuSbf+8O1nb2sXocoItz8Np2CMw\"",
-    "mtime": "2026-06-11T14:03:50.903Z",
-    "size": 43547,
-    "path": "../public/_nuxt/BrDuEirF.js"
-  },
-  "/_nuxt/BYjPrFTM.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"236b-B4gtPt1/QsiT4eLb7YqycHJP8Lg\"",
-    "mtime": "2026-06-11T14:03:50.928Z",
-    "size": 9067,
-    "path": "../public/_nuxt/BYjPrFTM.js"
-  },
-  "/_nuxt/CcTtEcdz.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"27a-jFWjvy3yqYXRpZb5Zlk5WDEpAa0\"",
-    "mtime": "2026-06-11T14:03:50.913Z",
-    "size": 634,
-    "path": "../public/_nuxt/CcTtEcdz.js"
-  },
-  "/_nuxt/CgAXP8uT.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"111eb-x7jd1OLVKHvjv+ouUDXfxR6f5gk\"",
-    "mtime": "2026-06-11T14:03:50.913Z",
-    "size": 70123,
-    "path": "../public/_nuxt/CgAXP8uT.js"
-  },
-  "/_nuxt/CO6bEAD0.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"105b7-hpLGRxS2BWE77+j5TYi4iuwDZvc\"",
-    "mtime": "2026-06-11T14:03:50.928Z",
-    "size": 66999,
-    "path": "../public/_nuxt/CO6bEAD0.js"
-  },
-  "/_nuxt/Bzgzv_7O.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"f7-NJF8jpoPQT+2U6txi3WrsKPMNvI\"",
-    "mtime": "2026-06-11T14:03:50.928Z",
-    "size": 247,
-    "path": "../public/_nuxt/Bzgzv_7O.js"
-  },
-  "/_nuxt/CYNKPuKz.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"d40-54Tk67iBSXqal6QSKVkoFZD9n2A\"",
-    "mtime": "2026-06-11T14:03:50.928Z",
-    "size": 3392,
-    "path": "../public/_nuxt/CYNKPuKz.js"
   },
   "/images/photo-4.jpeg": {
     "type": "image/jpeg",
@@ -4623,66 +4586,129 @@ const assets = {
     "size": 184441,
     "path": "../public/images/photo-4.jpeg"
   },
+  "/audio/ucapan pembukaan.ogg": {
+    "type": "audio/ogg",
+    "etag": "\"83f0-Vn097/jJibqQVfJtBrywdTjMZaM\"",
+    "mtime": "2026-06-11T04:56:38.840Z",
+    "size": 33776,
+    "path": "../public/audio/ucapan pembukaan.ogg"
+  },
+  "/_nuxt/BrDuEirF.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"aa1b-ZuSbf+8O1nb2sXocoItz8Np2CMw\"",
+    "mtime": "2026-06-11T15:30:47.783Z",
+    "size": 43547,
+    "path": "../public/_nuxt/BrDuEirF.js"
+  },
+  "/_nuxt/BKZacYIl.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"2af45-TKlrpN74/q4PXvDbgGxvE/yES6U\"",
+    "mtime": "2026-06-11T15:30:47.794Z",
+    "size": 175941,
+    "path": "../public/_nuxt/BKZacYIl.js"
+  },
+  "/_nuxt/Ch2zI6e9.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"f7-C5xPHc5693QbMtODpya+xkVZVx0\"",
+    "mtime": "2026-06-11T15:30:47.794Z",
+    "size": 247,
+    "path": "../public/_nuxt/Ch2zI6e9.js"
+  },
+  "/_nuxt/CZXYvSmt.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"19d-NIAa8/ZhA82SCxvENuNgBJoRzaA\"",
+    "mtime": "2026-06-11T15:30:47.795Z",
+    "size": 413,
+    "path": "../public/_nuxt/CZXYvSmt.js"
+  },
+  "/_nuxt/C2jfVaPA.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"d40-tSgmMXBJgGlFrPS7XN7Aid/1FJM\"",
+    "mtime": "2026-06-11T15:30:47.795Z",
+    "size": 3392,
+    "path": "../public/_nuxt/C2jfVaPA.js"
+  },
+  "/_nuxt/CgAXP8uT.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"111eb-x7jd1OLVKHvjv+ouUDXfxR6f5gk\"",
+    "mtime": "2026-06-11T15:30:47.779Z",
+    "size": 70123,
+    "path": "../public/_nuxt/CgAXP8uT.js"
+  },
+  "/_nuxt/DjtYLLHq.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"27a-vF9zMOyMwDDXblP5/Ox4EpfzuUM\"",
+    "mtime": "2026-06-11T15:30:47.796Z",
+    "size": 634,
+    "path": "../public/_nuxt/DjtYLLHq.js"
+  },
+  "/_nuxt/Del23NVa.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"105b3-o6aZskUuoSnyZYuPSFLgut+00rc\"",
+    "mtime": "2026-06-11T15:30:47.795Z",
+    "size": 66995,
+    "path": "../public/_nuxt/Del23NVa.js"
+  },
+  "/_nuxt/Dym_UFJs.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"b9-y2A6VqR1vzt5crmKapa7wiaeppw\"",
+    "mtime": "2026-06-11T15:30:47.795Z",
+    "size": 185,
+    "path": "../public/_nuxt/Dym_UFJs.js"
+  },
+  "/_nuxt/Ci7F2oGf.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"249f-xnJ2VK7aGLDVx9Ox7I8PZyzXE9g\"",
+    "mtime": "2026-06-11T15:30:47.794Z",
+    "size": 9375,
+    "path": "../public/_nuxt/Ci7F2oGf.js"
+  },
   "/_nuxt/error-404.DL_4WIao.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"dca-KnjyV0UbpsrliiJzZx69defY74k\"",
-    "mtime": "2026-06-11T14:03:50.926Z",
+    "mtime": "2026-06-11T15:30:47.794Z",
     "size": 3530,
     "path": "../public/_nuxt/error-404.DL_4WIao.css"
   },
-  "/_nuxt/DtYx34uG.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"b9-WvBuEH1LS/SaS8F/h2EUibwn8dQ\"",
-    "mtime": "2026-06-11T14:03:50.926Z",
-    "size": 185,
-    "path": "../public/_nuxt/DtYx34uG.js"
+  "/_nuxt/builds/latest.json": {
+    "type": "application/json",
+    "etag": "\"47-g94dwk9U2BgAmAiSrCrGleqCIh0\"",
+    "mtime": "2026-06-11T15:30:48.407Z",
+    "size": 71,
+    "path": "../public/_nuxt/builds/latest.json"
+  },
+  "/_nuxt/builds/meta/64c16404-0dd3-41f7-b1c9-855b15c2de2c.json": {
+    "type": "application/json",
+    "etag": "\"58-exiKIw6RyLqiqv5By6AsiUDN7tE\"",
+    "mtime": "2026-06-11T15:30:48.408Z",
+    "size": 88,
+    "path": "../public/_nuxt/builds/meta/64c16404-0dd3-41f7-b1c9-855b15c2de2c.json"
   },
   "/_nuxt/error-500.I1Dtv2V5.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"75a-vEGyJqldBVJrnMfcLsrGaHcxYl0\"",
-    "mtime": "2026-06-11T14:03:50.926Z",
+    "mtime": "2026-06-11T15:30:47.794Z",
     "size": 1882,
     "path": "../public/_nuxt/error-500.I1Dtv2V5.css"
-  },
-  "/_nuxt/builds/latest.json": {
-    "type": "application/json",
-    "etag": "\"47-8wMWD4vDUXdvwUJzYrpoB5wU6bA\"",
-    "mtime": "2026-06-11T14:03:51.433Z",
-    "size": 71,
-    "path": "../public/_nuxt/builds/latest.json"
-  },
-  "/_nuxt/builds/meta/7971e39f-a937-4f6d-81be-de5159a9c5a1.json": {
-    "type": "application/json",
-    "etag": "\"58-kcmcRTqDu48geW7998vl0MAfj8g\"",
-    "mtime": "2026-06-11T14:03:51.435Z",
-    "size": 88,
-    "path": "../public/_nuxt/builds/meta/7971e39f-a937-4f6d-81be-de5159a9c5a1.json"
   },
   "/_nuxt/entry.D_wU-zop.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"46ef-hb2jxjHW6c/GZ7vcQbJgFhDuuzE\"",
-    "mtime": "2026-06-11T14:03:50.926Z",
+    "mtime": "2026-06-11T15:30:47.789Z",
     "size": 18159,
     "path": "../public/_nuxt/entry.D_wU-zop.css"
   },
   "/_nuxt/InvitationView.CZTI9vux.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"25dd-l4dLCUvMWN83zXyDnJwnuqmd6Io\"",
-    "mtime": "2026-06-11T14:03:50.919Z",
+    "mtime": "2026-06-11T15:30:47.794Z",
     "size": 9693,
     "path": "../public/_nuxt/InvitationView.CZTI9vux.css"
-  },
-  "/_nuxt/D5S2Zf2a.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"2a650-ZpH8fAN0mBc0a9cvY9xxBmAsnBo\"",
-    "mtime": "2026-06-11T14:03:50.928Z",
-    "size": 173648,
-    "path": "../public/_nuxt/D5S2Zf2a.js"
   },
   "/_nuxt/D1zK5Eov.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"a6275-MN3K7klplmAH9Kor6Ev0aSgJoUQ\"",
-    "mtime": "2026-06-11T14:03:50.928Z",
+    "mtime": "2026-06-11T15:30:47.796Z",
     "size": 680565,
     "path": "../public/_nuxt/D1zK5Eov.js"
   },
@@ -4927,14 +4953,14 @@ function defineRenderHandler(render) {
 }
 
 function buildAssetsDir() {
-	// TODO: support passing event to `useRuntimeConfig`
+	
 	return useRuntimeConfig().app.buildAssetsDir;
 }
 function buildAssetsURL(...path) {
 	return joinRelativeURL(publicAssetsURL(), buildAssetsDir(), ...path);
 }
 function publicAssetsURL(...path) {
-	// TODO: support passing event to `useRuntimeConfig`
+	
 	const app = useRuntimeConfig().app;
 	const publicBase = app.cdnURL || app.baseURL;
 	return path.length ? joinRelativeURL(publicBase, ...path) : publicBase;
@@ -7314,39 +7340,44 @@ const findGuestByName = (name) => {
 };
 const listGuests = () => guests;
 
-const COLLECTION = "rsvp";
-const JSON_PATH = join$1(process.cwd(), "server/data/rsvp.json");
-const isFirebaseConfigured = () => {
+let supabaseClient = null;
+const getSupabaseConfig = () => {
   const config = useRuntimeConfig();
-  return Boolean(
-    config.firebaseProjectId && config.firebaseClientEmail && config.firebasePrivateKey
-  );
-};
-const getFirestoreDb = async () => {
-  const { initializeApp, getApps, cert } = await import('firebase-admin/app');
-  const { getFirestore } = await import('firebase-admin/firestore');
-  if (!getApps().length) {
-    const config = useRuntimeConfig();
-    initializeApp({
-      credential: cert({
-        projectId: config.firebaseProjectId,
-        clientEmail: config.firebaseClientEmail,
-        privateKey: config.firebasePrivateKey.replace(/\\n/g, "\n")
-      })
-    });
-  }
-  return getFirestore();
-};
-const mapDoc = (id, data) => {
-  var _a, _b, _c;
+  const url = process.env.SUPABASE_URL || process.env.NUXT_SUPABASE_URL || config.supabaseUrl;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NUXT_SUPABASE_SERVICE_ROLE_KEY || config.supabaseServiceRoleKey;
+  if (!url || !serviceRoleKey) return null;
   return {
-    id,
-    name: String((_a = data.name) != null ? _a : ""),
-    attending: Boolean(data.attending),
-    message: String((_b = data.message) != null ? _b : ""),
-    timestamp: String((_c = data.timestamp) != null ? _c : (/* @__PURE__ */ new Date()).toISOString())
+    url: String(url).trim(),
+    serviceRoleKey: String(serviceRoleKey).trim()
   };
 };
+const isSupabaseConfigured = () => Boolean(getSupabaseConfig());
+const getSupabase = async () => {
+  if (supabaseClient) return supabaseClient;
+  const credentials = getSupabaseConfig();
+  if (!credentials) {
+    throw new Error("Supabase belum dikonfigurasi. Set SUPABASE_URL dan SUPABASE_SERVICE_ROLE_KEY.");
+  }
+  const { createClient } = await import('@supabase/supabase-js');
+  supabaseClient = createClient(credentials.url, credentials.serviceRoleKey, {
+    auth: {
+      persistSession: false,
+      autoRefreshToken: false
+    }
+  });
+  return supabaseClient;
+};
+const isServerlessProduction = () => Boolean(process.env.VERCEL || process.env.NETLIFY || process.env.AWS_LAMBDA_FUNCTION_NAME);
+
+const TABLE = "rsvp";
+const JSON_PATH = join$1(process.cwd(), "server/data/rsvp.json");
+const mapRow = (row) => ({
+  id: row.id,
+  name: row.name,
+  attending: row.attending,
+  message: row.message || "",
+  timestamp: row.created_at
+});
 const readJsonEntries = async () => {
   try {
     const raw = await readFile$1(JSON_PATH, "utf-8");
@@ -7359,32 +7390,43 @@ const writeJsonEntries = async (entries) => {
   await writeFile$1(JSON_PATH, JSON.stringify(entries, null, 2));
 };
 const listRsvpEntries = async () => {
-  if (isFirebaseConfigured()) {
-    const db = await getFirestoreDb();
-    const snapshot = await db.collection(COLLECTION).orderBy("timestamp", "desc").get();
-    return snapshot.docs.map((doc) => mapDoc(doc.id, doc.data()));
+  if (isSupabaseConfigured()) {
+    const supabase = await getSupabase();
+    const { data, error } = await supabase.from(TABLE).select("id, name, attending, message, created_at").order("created_at", { ascending: false });
+    if (error) {
+      console.error("[rsvpStore.listRsvpEntries]", error);
+      throw error;
+    }
+    return data.map(mapRow);
   }
   const entries = await readJsonEntries();
   return entries.slice().reverse();
 };
 const createRsvpEntry = async (input) => {
-  const entry = {
-    id: `rsvp_${Date.now()}`,
+  const payload = {
     name: input.name.trim(),
     attending: input.attending,
-    message: (input.message || "").trim(),
+    message: (input.message || "").trim()
+  };
+  if (isSupabaseConfigured()) {
+    const supabase = await getSupabase();
+    const { data, error } = await supabase.from(TABLE).insert(payload).select("id, name, attending, message, created_at").single();
+    if (error) {
+      console.error("[rsvpStore.createRsvpEntry]", error);
+      throw error;
+    }
+    return mapRow(data);
+  }
+  if (isServerlessProduction()) {
+    throw new Error(
+      "Supabase belum dikonfigurasi di production. Set SUPABASE_URL dan SUPABASE_SERVICE_ROLE_KEY di Vercel."
+    );
+  }
+  const entry = {
+    id: `rsvp_${Date.now()}`,
+    ...payload,
     timestamp: (/* @__PURE__ */ new Date()).toISOString()
   };
-  if (isFirebaseConfigured()) {
-    const db = await getFirestoreDb();
-    const docRef = await db.collection(COLLECTION).add({
-      name: entry.name,
-      attending: entry.attending,
-      message: entry.message,
-      timestamp: entry.timestamp
-    });
-    return { ...entry, id: docRef.id };
-  }
   const existing = await readJsonEntries();
   existing.push(entry);
   await writeJsonEntries(existing);
@@ -7818,5 +7860,5 @@ function setupGracefulShutdown(listener, nitroApp) {
   });
 }
 
-export { trapUnhandledNodeErrors as a, useNitroApp as b, defineEventHandler as c, destr as d, createError$1 as e, findGuestByCode as f, getQuery as g, findGuestBySlug as h, findGuestByName as i, listMessageEntries as j, listRsvpEntries as k, listGuests as l, createRsvpEntry as m, buildAssetsURL as n, getResponseStatusText as o, getResponseStatus as p, defineRenderHandler as q, readBody as r, setupGracefulShutdown as s, toNodeListener as t, useRuntimeConfig as u, publicAssetsURL as v, getRouteRules as w, joinURL as x };
+export { trapUnhandledNodeErrors as a, useNitroApp as b, defineEventHandler as c, destr as d, createError$1 as e, findGuestByCode as f, getQuery as g, findGuestBySlug as h, findGuestByName as i, listMessageEntries as j, listRsvpEntries as k, listGuests as l, createRsvpEntry as m, buildAssetsURL as n, encodePath as o, publicAssetsURL as p, defineRenderHandler as q, readBody as r, setupGracefulShutdown as s, toNodeListener as t, useRuntimeConfig as u, getRouteRules as v, getResponseStatusText as w, getResponseStatus as x };
 //# sourceMappingURL=nitro.mjs.map

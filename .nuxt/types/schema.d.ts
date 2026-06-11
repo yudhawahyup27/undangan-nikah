@@ -11,11 +11,9 @@ import { NuxtModule, ModuleDependencyMeta } from '@nuxt/schema'
       cdnURL: string,
    },
 
-   firebaseProjectId: string,
+   supabaseUrl: string,
 
-   firebaseClientEmail: string,
-
-   firebasePrivateKey: string,
+   supabaseServiceRoleKey: string,
 
    nitro: {
       envPrefix: string,

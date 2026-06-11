@@ -72,6 +72,8 @@ declare global {
   const getRouterParam: typeof import('../../node_modules/h3').getRouterParam
   const getRouterParams: typeof import('../../node_modules/h3').getRouterParams
   const getSession: typeof import('../../node_modules/h3').getSession
+  const getSupabase: typeof import('../../server/utils/supabase').getSupabase
+  const getSupabaseConfig: typeof import('../../server/utils/supabase').getSupabaseConfig
   const getValidatedQuery: typeof import('../../node_modules/h3').getValidatedQuery
   const getValidatedRouterParams: typeof import('../../node_modules/h3').getValidatedRouterParams
   const handleCacheHeaders: typeof import('../../node_modules/h3').handleCacheHeaders
@@ -82,7 +84,9 @@ declare global {
   const isEventHandler: typeof import('../../node_modules/h3').isEventHandler
   const isMethod: typeof import('../../node_modules/h3').isMethod
   const isPreflightRequest: typeof import('../../node_modules/h3').isPreflightRequest
+  const isServerlessProduction: typeof import('../../server/utils/supabase').isServerlessProduction
   const isStream: typeof import('../../node_modules/h3').isStream
+  const isSupabaseConfigured: typeof import('../../server/utils/supabase').isSupabaseConfigured
   const isWebResponse: typeof import('../../node_modules/h3').isWebResponse
   const lazyEventHandler: typeof import('../../node_modules/h3').lazyEventHandler
   const listGuests: typeof import('../../server/utils/guests').listGuests
@@ -165,3 +169,4 @@ export { defineAppConfig } from 'C:/Users/ogi-developer/OneDrive/Pictures/weddin
 export { useImage } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/node_modules/@nuxt/image/dist/runtime/server/utils/image';
 export { normalizeGuestKey, findGuestByCode, findGuestBySlug, findGuestByName, listGuests } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/server/utils/guests';
 export { listRsvpEntries, createRsvpEntry, listMessageEntries } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/server/utils/rsvpStore';
+export { getSupabaseConfig, isSupabaseConfigured, getSupabase, isServerlessProduction } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/server/utils/supabase';

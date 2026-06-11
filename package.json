@@ -8,11 +8,11 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "echo skip postinstall",
-    "migrate:rsvp": "node scripts/migrate-rsvp-to-firestore.mjs"
+    "migrate:rsvp": "node scripts/migrate-rsvp-to-supabase.mjs"
   },
   "dependencies": {
     "@nuxt/image": "^1.7.0",
-    "firebase-admin": "^14.0.0",
+    "@supabase/supabase-js": "^2.108.1",
     "gsap": "^3.12.5",
     "nuxt": "^3.12.4",
     "three": "^0.167.1",

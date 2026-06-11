@@ -15,42 +15,23 @@ export type CreateRsvpInput = {
   message?: string
 }
 
-const COLLECTION = 'rsvp'
+const TABLE = 'rsvp'
 const JSON_PATH = join(process.cwd(), 'server/data/rsvp.json')
 
-const isFirebaseConfigured = () => {
-  const config = useRuntimeConfig()
-  return Boolean(
-    config.firebaseProjectId &&
-    config.firebaseClientEmail &&
-    config.firebasePrivateKey
-  )
+type RsvpRow = {
+  id: string
+  name: string
+  attending: boolean
+  message: string | null
+  created_at: string
 }
 
-const getFirestoreDb = async () => {
-  const { initializeApp, getApps, cert } = await import('firebase-admin/app')
-  const { getFirestore } = await import('firebase-admin/firestore')
-
-  if (!getApps().length) {
-    const config = useRuntimeConfig()
-    initializeApp({
-      credential: cert({
-        projectId: config.firebaseProjectId,
-        clientEmail: config.firebaseClientEmail,
-        privateKey: config.firebasePrivateKey.replace(/\\n/g, '\n'),
-      }),
-    })
-  }
-
-  return getFirestore()
-}
-
-const mapDoc = (id: string, data: Record<string, unknown>): RsvpEntry => ({
-  id,
-  name: String(data.name ?? ''),
-  attending: Boolean(data.attending),
-  message: String(data.message ?? ''),
-  timestamp: String(data.timestamp ?? new Date().toISOString()),
+const mapRow = (row: RsvpRow): RsvpEntry => ({
+  id: row.id,
+  name: row.name,
+  attending: row.attending,
+  message: row.message || '',
+  timestamp: row.created_at,
 })
 
 const readJsonEntries = async (): Promise<RsvpEntry[]> => {
@@ -67,14 +48,19 @@ const writeJsonEntries = async (entries: RsvpEntry[]) => {
 }
 
 export const listRsvpEntries = async (): Promise<RsvpEntry[]> => {
-  if (isFirebaseConfigured()) {
-    const db = await getFirestoreDb()
-    const snapshot = await db
-      .collection(COLLECTION)
-      .orderBy('timestamp', 'desc')
-      .get()
+  if (isSupabaseConfigured()) {
+    const supabase = await getSupabase()
+    const { data, error } = await supabase
+      .from(TABLE)
+      .select('id, name, attending, message, created_at')
+      .order('created_at', { ascending: false })
 
-    return snapshot.docs.map(doc => mapDoc(doc.id, doc.data()))
+    if (error) {
+      console.error('[rsvpStore.listRsvpEntries]', error)
+      throw error
+    }
+
+    return (data as RsvpRow[]).map(mapRow)
   }
 
   const entries = await readJsonEntries()
@@ -82,24 +68,38 @@ export const listRsvpEntries = async (): Promise<RsvpEntry[]> => {
 }
 
 export const createRsvpEntry = async (input: CreateRsvpInput): Promise<RsvpEntry> => {
-  const entry: RsvpEntry = {
-    id: `rsvp_${Date.now()}`,
+  const payload = {
     name: input.name.trim(),
     attending: input.attending,
     message: (input.message || '').trim(),
-    timestamp: new Date().toISOString(),
   }
 
-  if (isFirebaseConfigured()) {
-    const db = await getFirestoreDb()
-    const docRef = await db.collection(COLLECTION).add({
-      name: entry.name,
-      attending: entry.attending,
-      message: entry.message,
-      timestamp: entry.timestamp,
-    })
+  if (isSupabaseConfigured()) {
+    const supabase = await getSupabase()
+    const { data, error } = await supabase
+      .from(TABLE)
+      .insert(payload)
+      .select('id, name, attending, message, created_at')
+      .single()
 
-    return { ...entry, id: docRef.id }
+    if (error) {
+      console.error('[rsvpStore.createRsvpEntry]', error)
+      throw error
+    }
+
+    return mapRow(data as RsvpRow)
+  }
+
+  if (isServerlessProduction()) {
+    throw new Error(
+      'Supabase belum dikonfigurasi di production. Set SUPABASE_URL dan SUPABASE_SERVICE_ROLE_KEY di Vercel.'
+    )
+  }
+
+  const entry: RsvpEntry = {
+    id: `rsvp_${Date.now()}`,
+    ...payload,
+    timestamp: new Date().toISOString(),
   }
 
   const existing = await readJsonEntries()
