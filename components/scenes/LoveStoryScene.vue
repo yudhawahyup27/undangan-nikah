@@ -84,8 +84,7 @@ const stories = [
     id: 3,
     year: '2021 - 2025',
     title: 'Lima Tahun Menjaga Cinta dalam Jarak',
-    text: 'Kami menjalani hubungan jarak jauh (LDR), dipisahkan oleh kota, kesibukan, dan berbagai tantangan kehidupan. Ada rindu yang harus ditahan, pertemuan yang harus ditunggu, serta banyak momen yang hanya bisa dibagikan melalui layar.
-Namun dari jarak itu kami belajar bahwa cinta bukan tentang seberapa sering bertemu, melainkan tentang seberapa kuat bertahan. Kami belajar untuk saling percaya, saling menguatkan, dan tetap memilih satu sama lain setiap harinya'
+    text: 'Kami menjalani hubungan jarak jauh (LDR), dipisahkan oleh kota, kesibukan, dan berbagai tantangan kehidupan. Ada rindu yang harus ditahan, pertemuan yang harus ditunggu, serta banyak momen yang hanya bisa dibagikan melalui layar. Namun dari jarak itu kami belajar bahwa cinta bukan tentang seberapa sering bertemu, melainkan tentang seberapa kuat bertahan. Kami belajar untuk saling percaya, saling menguatkan, dan tetap memilih satu sama lain setiap harinya'
   },
   {
     id: 4,
