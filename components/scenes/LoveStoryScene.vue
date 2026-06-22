@@ -70,33 +70,37 @@ const storyRefs = ref<HTMLElement[]>([])
 const stories = [
   {
     id: 1,
-    year: '2018',
+    year: '2021',
     title: 'Pertemuan Pertama',
-    text: 'Di sebuah seminar kampus yang tidak disengaja, dua jiwa bertemu. Pandangan pertama yang mengubah segalanya — sebuah awal yang sederhana namun penuh makna.'
+    text: 'Pertemuan yang Tak Disangka Di tengah kegiatan kemanusiaan mengajar di panti asuhan, Allah mempertemukan kami dalam satu tujuan yang sama: berbagi manfaat untuk sesama. Dari pertemuan yang sederhana, tumbuh rasa nyaman yang perlahan mengubah dua perjalanan hidup menjadi satu cerita.'
   },
   {
     id: 2,
-    year: '2019',
-    title: 'Jatuh Cinta',
-    text: 'Percakapan demi percakapan mengalir seperti air. Tawa yang tulus, cerita yang terbagi, dan dua hati yang perlahan menyatu dalam getaran yang sama.'
+    year: '18 Desember 2021',
+    title: 'Memilih untuk Bersama',
+    text: 'Kami memutuskan untuk memulai hubungan yang lebih serius. Hari itu menjadi awal perjalanan kami untuk saling mengenal lebih dalam, tumbuh bersama, dan belajar mencintai dengan tulus.'
   },
   {
     id: 3,
-    year: '2021',
-    title: 'Melewati Badai',
-    text: 'Jarak dan waktu menguji cinta kami. Namun setiap ujian justru menjadi fondasi yang semakin kokoh — membuktikan bahwa cinta sejati tak pernah menyerah.'
+    year: '2021 - 2025',
+    title: 'Lima Tahun Menjaga Cinta dalam Jarak',
+    text: '
+
+
+Kami menjalani hubungan jarak jauh (LDR), dipisahkan oleh kota, kesibukan, dan berbagai tantangan kehidupan. Ada rindu yang harus ditahan, pertemuan yang harus ditunggu, serta banyak momen yang hanya bisa dibagikan melalui layar.
+Namun dari jarak itu kami belajar bahwa cinta bukan tentang seberapa sering bertemu, melainkan tentang seberapa kuat bertahan. Kami belajar untuk saling percaya, saling menguatkan, dan tetap memilih satu sama lain setiap harinya'
   },
   {
     id: 4,
-    year: '2024',
+    year: '25 Desember 2025',
     title: 'Lamaran',
-    text: 'Dengan segenap keberanian dan cinta yang telah lama tersimpan, sebuah pertanyaan diajukan di bawah langit berbintang. Satu kata "iya" yang mengubah selamanya.'
+    text: 'Hari itu menjadi bukti bahwa setiap penantian, perjuangan, dan pengorbanan selama bertahun-tahun tidaklah sia-sia.'
   },
   {
     id: 5,
-    year: '2025',
+    year: '29 November 2026',
     title: 'Pernikahan',
-    text: 'Kini kami berdiri di gerbang babak baru. Bersama, kami siap menuliskan lembaran cerita panjang yang penuh syukur, kasih, dan berkah.'
+    text: 'Kini, dengan penuh rasa syukur kepada Allah SWT, kami siap mengikat janji suci pernikahan. Dari sebuah pertemuan di organisasi kemanusiaan, perjalanan cinta jarak jauh selama lima tahun, hingga akhirnya dipersatukan dalam ikatan yang halal.'
   },
 ]
 
