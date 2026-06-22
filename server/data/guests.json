@@ -1216,11 +1216,27 @@
     "status": "pending"
   },
   {
+    "code": "IMA153",
+    "name": "Amalan (SD)",
+    "slug": "amalan-sd",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA154",
+    "name": "Puput Magicion",
+    "slug": "puput-magicion",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
     "code": "IMA155",
     "name": "Meyta",
     "slug": "meyta",
     "side": "ima",
-    "relation": "TI",
+    "relation": null,
     "status": "pending"
   },
   {
