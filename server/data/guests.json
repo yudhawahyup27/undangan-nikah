@@ -1216,6 +1216,14 @@
     "status": "pending"
   },
   {
+    "code": "IMA155",
+    "name": "Meyta",
+    "slug": "meyta",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
     "code": "YUD001",
     "name": "Pak rudi",
     "slug": "pak-rudi",
