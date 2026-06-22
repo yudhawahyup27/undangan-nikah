@@ -32,22 +32,24 @@
       </h1>
 
       <!-- Date preview -->
-     <!-- <div class="flex items-center justify-center gap-4 mt-8 mb-12">
+     <!-- 
+<div class="flex items-center justify-center gap-4 mt-8 mb-12">
         <div class="w-16 h-px bg-gradient-to-r from-transparent to-gold/50" />
         <span class="font-josefin text-xs tracking-[0.35em] text-gold/60">29 . 11 . 2026</span>
         <div class="w-16 h-px bg-gradient-to-l from-transparent to-gold/50" />
-      </div>
+</div>
+-->
 
       <!-- CTA Button -->
       <button
         ref="btnRef"
-        class="btn-primary open-btn"
+        class="btn-primary open-btn mt-10"
         @click="handleOpen"
         style="opacity:0; transform:translateY(20px)"
       >
         Buka Undangan
       </button>
-    </div> -->
+    </div>
 
     <!-- Floating particles -->
     <div class="particle-field absolute inset-0" style="z-index:2; pointer-events:none">
