@@ -90,8 +90,8 @@ const cardsRef = ref<HTMLElement | null>(null)
 interface Bank { bank: string; name: string; number: string; copied: boolean }
 
 const banks = reactive<Bank[]>([
-  { bank: 'BCA', name: 'Yudha Wahyu Pratama', number: '1234567890', copied: false },
-  { bank: 'Mandiri', name: 'Nur Kotimah', number: '9876543210', copied: false },
+  { bank: 'BCA', name: 'Yudha Wahyu Pratama', number: '6580775568', copied: false },
+  { bank: 'BCA', name: 'Nur Kotimah', number: '0332872131', copied: false },
 ])
 
 const { show: showToast } = useToast()
