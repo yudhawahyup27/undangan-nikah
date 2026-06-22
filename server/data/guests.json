@@ -2374,5 +2374,230 @@
     "side": "yudha",
     "relation": null,
     "status": "pending"
+  },
+  {
+    "code": "YUD143",
+    "name": "mbak gita (bernas)",
+    "slug": "mbak-gita-bernas",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD144",
+    "name": "Mas Ardi (Polinema)",
+    "slug": "mas-ardi-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD145",
+    "name": "Mas Prayoga (FBII)",
+    "slug": "mas-prayoga-fbii",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }, 
+  {
+    "code": "YUD146",
+    "name": "Bintang (Pancaran)",
+    "slug": "bintang-pancaran",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD147",
+    "name": "Salma (SD)",
+    "slug": "salma-sd",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD148",
+    "name": "Nita (SD)",
+    "slug": "nita-sd",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD149",
+    "name": "Jaya (SD)",
+    "slug": "jaya-sd",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD150",
+    "name": "Siwi (SD)",
+    "slug": "siwi-sd",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD151",
+    "name": "Ara (PMR)",
+    "slug": "ara-pmr",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },  
+  {
+    "code": "YUD152",
+    "name": "Annesa (PMR)",
+    "slug": "annesa-pmr",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD153",
+    "name": "iqbal (PMR)",
+    "slug": "iqbal-pmr",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD154",
+    "name": "Rama (PMR)",
+    "slug": "rama-pmr",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD155",
+    "name": "Salma (PMR)",
+    "slug": "salma-pmr",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD156",
+    "name": "Angelita (PMR)",
+    "slug": "angelita-pmr",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD157",
+    "name": "Friza (PMR)",
+    "slug": "friza-pmr",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD157",
+    "name": "dian (GIBEI)",
+    "slug": "dian-gibeI",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },  
+  {
+    "code": "YUD157",
+    "name": "alfredo (GIBEI)",
+    "slug": "alfredo-gibeI",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD157",
+    "name": "alza (GIBEI)",
+    "slug": "alza-gibeI",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD157",
+    "name": "dinda (GIBEI)",
+    "slug": "dinda-gibeI",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD158",
+    "name": "Ilham (GIBEI)",
+    "slug": "ilham-gibeI",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD159",
+    "name": "Gabriella (GIBEI)",
+    "slug": "gabriella-gibeI",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD160",
+    "name": "Okta (GIBEI)",
+    "slug": "okta-gibeI",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },{
+    "code": "YUD161",
+    "name": "yasmin (GIBEI)",
+    "slug": "yasmin-gibeI",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD162",
+    "name": "wili (GIBEI)",
+    "slug": "wili-gibeI",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+    {
+      "code": "YUD163",
+      "name": "zidy (GIBEI)",
+      "slug": "zidy-gibeI",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    },
+  {
+    "code": "YUD164",
+    "name": "nawang (GIBEI)",
+    "slug": "nawang-gibeI",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD164",
+    "name": "Candra(Mesin)",
+    "slug": "candra-mesin",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
   }
+  ,
+  {
+    "code": "YUD165",
+    "name": "Rizky Abdi",
+    "slug": "rizky-abdi",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  
 ]
