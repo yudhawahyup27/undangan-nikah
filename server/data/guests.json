@@ -2599,5 +2599,14 @@
     "relation": null,
     "status": "pending"
   }
+  ,
+  {
+    "code": "YUD166",
+    "name": "Mas Fahri ",
+    "slug": "Mas Fahri",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
   
 ]
