@@ -1,4 +1,4 @@
-import { c as defineEventHandler, r as readBody, e as createError, o as createRsvpEntry, p as getErrorMessage } from '../../_/nitro.mjs';
+globalThis.__timing__.logStart('Load chunks/routes/api/rsvp.post');import { c as defineEventHandler, r as readBody, e as createError, o as createRsvpEntry, p as getErrorMessage } from '../../_/nitro.mjs';
 import 'fs/promises';
 import 'path';
 import 'node:http';
@@ -17,11 +17,15 @@ const rsvp_post = defineEventHandler(async (event) => {
   if (!(body == null ? void 0 : body.name) || body.attending === void 0) {
     throw createError({ statusCode: 400, message: "Name and attending status are required" });
   }
+  if (typeof body.name !== "string" || typeof body.attending !== "boolean") {
+    throw createError({ statusCode: 400, message: "Data konfirmasi tidak valid" });
+  }
   try {
     const entry = await createRsvpEntry({
       name: body.name,
       attending: body.attending,
-      message: body.message
+      message: body.message,
+      guestSlug: typeof body.guestSlug === "string" ? body.guestSlug : void 0
     });
     return { success: true, data: entry };
   } catch (error) {
@@ -33,5 +37,5 @@ const rsvp_post = defineEventHandler(async (event) => {
   }
 });
 
-export { rsvp_post as default };
+export { rsvp_post as default };;globalThis.__timing__.logEnd('Load chunks/routes/api/rsvp.post');
 //# sourceMappingURL=rsvp.post.mjs.map

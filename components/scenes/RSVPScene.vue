@@ -23,6 +23,11 @@
           Isi Konfirmasi Anda
         </h3>
 
+        <div v-if="guestAttendanceLabel" class="mb-6 rounded border border-gold/20 bg-gold/5 px-4 py-3">
+          <p class="font-josefin text-[0.62rem] tracking-[0.2em] uppercase text-gold/60">Status Kehadiran Anda</p>
+          <p class="mt-1 font-cormorant text-cream/85">{{ guestAttendanceLabel }}</p>
+        </div>
+
         <form @submit.prevent="handleSubmit" class="space-y-6">
           <!-- Name -->
           <div>
@@ -150,6 +155,7 @@ type RsvpEntry = {
   attending: boolean
   message: string
   timestamp: string
+  guestSlug?: string
 }
 
 const titleRef = ref<HTMLElement | null>(null)
@@ -161,8 +167,18 @@ const isSubmitting = ref(false)
 const submitSuccess = ref(false)
 const successMessage = ref('')
 const entries = ref<RsvpEntry[]>([])
-const { guestName } = useGuest()
+const { guestName, guestSlug } = useGuest()
 const { show: showToast } = useToast()
+
+const guestAttendance = computed<boolean | null>(() => {
+  if (!guestSlug.value) return null
+  return entries.value.find(entry => entry.guestSlug === guestSlug.value)?.attending ?? null
+})
+
+const guestAttendanceLabel = computed(() => {
+  if (guestAttendance.value === null) return 'Belum dikonfirmasi'
+  return guestAttendance.value ? '✓ Akan Hadir' : '✗ Tidak Bisa Hadir'
+})
 
 const selectAttending = (attending: boolean) => {
   form.attending = attending
@@ -195,7 +211,7 @@ const handleSubmit = async () => {
     const res = await fetch('/api/rsvp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(form)
+      body: JSON.stringify({ ...form, guestSlug: guestSlug.value })
     })
     if (res.ok) {
       const attending = form.attending!
@@ -206,9 +222,15 @@ const handleSubmit = async () => {
       form.attending = true
       form.message = ''
       await fetchEntries()
+    } else {
+      const error = await res.json().catch(() => null)
+      showToast(error?.statusMessage || error?.message || 'Konfirmasi gagal dikirim.', 4000)
     }
-  } catch {}
-  isSubmitting.value = false
+  } catch {
+    showToast('Tidak dapat menghubungi server. Silakan coba lagi.', 4000)
+  } finally {
+    isSubmitting.value = false
+  }
 }
 
 onMounted(async () => {

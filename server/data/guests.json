@@ -1361,8 +1361,8 @@
   },
   {
     "code": "YUD016",
-    "name": "Malisa (Kantor)",
-    "slug": "malisa-kantor",
+    "name": "claudias (manggala)",
+    "slug": "claudias-manggala",
     "side": "yudha",
     "relation": "TY",
     "status": "pending"
@@ -2081,8 +2081,8 @@
   },
   {
     "code": "YUD106",
-    "name": "Alftis (Polinema)",
-    "slug": "alftis-polinema",
+    "name": "Alfris (Polinema)",
+    "slug": "alfris-polinema",
     "side": "yudha",
     "relation": null,
     "status": "pending"
@@ -2137,8 +2137,8 @@
   },
   {
     "code": "YUD113",
-    "name": "Alvin (SMP)",
-    "slug": "alvin-smp",
+    "name": "Alvin Kusuma (Tanggerang)",
+    "slug": "alvin-kusuma-tanggerang",
     "side": "yudha",
     "relation": null,
     "status": "pending"
@@ -2161,8 +2161,8 @@
   },
   {
     "code": "YUD116",
-    "name": "Firmas (SD)",
-    "slug": "firmas-sd",
+    "name": "Firman (SD)",
+    "slug": "firman-sd",
     "side": "yudha",
     "relation": null,
     "status": "pending"
@@ -2201,8 +2201,8 @@
   },
   {
     "code": "YUD121",
-    "name": "Dhima (SAN)",
-    "slug": "dhima-san",
+    "name": "dimas manggala",
+    "slug": "dimas-manggala",
     "side": "yudha",
     "relation": null,
     "status": "pending"
@@ -2561,7 +2561,7 @@
   {
     "code": "YUD162",
     "name": "wili (GIBEI)",
-    "slug": "wili-gibeI",
+    "slug": "wili-gibei",
     "side": "yudha",
     "relation": null,
     "status": "pending"
@@ -2608,5 +2608,302 @@
     "relation": null,
     "status": "pending"
   }
-  
+  ,
+  {
+    "code": "YUD167",
+    "name": "Ulima & Ulil (SMP) ",
+    "slug": "ulima-ulil-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD168",
+    "name": "Sandi (SMP) ",
+    "slug": "sandi-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD169",
+    "name": "Syfa (SMP) ",
+    "slug": "syfa-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD170",
+    "name": "rico (SMA)",
+    "slug": "rico-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD171",
+    "name": "David Pras (IDN Blogger) ",
+    "slug": "david-pras-idn-blogger",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD172",
+    "name": "Eka Efendi (SMA) ",
+    "slug": "eka-efendi-sma",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD173",
+    "name": "Alfin (PMR) ",
+    "slug": "alfin-pmr",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD174",
+    "name": "siska (PMR) ",
+    "slug": "siska-pmr",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD175",
+    "name": "Rahmadani (PMR) ",
+    "slug": "rahmadani-pmr",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD176",
+    "name": "dani (smp) ",
+    "slug": "dani-smp",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD177",
+    "name": "hanung (polinema) ",
+    "slug": "hanung-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD178",
+    "name": "amelia(polinema) ",
+    "slug": "amelia-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD179",
+    "name": "mas Aji(kura-kura) ",
+    "slug": "mas-aji-kura-kura",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD180",
+    "name": "Dicky (kura-kura) ",
+    "slug": "dicky-kura-kura",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "YUD181",
+    "name": "Mas agra (kura-kura) ",
+    "slug": "Mas-agra-kura-kura",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD182",
+    "name": "Mas yogi (pare) ",
+    "slug": "mas-yogi-pare",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD183",
+    "name": "Mas ichal ",
+    "slug": "mas-ichal",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD184",
+    "name": "Ichsan (Rohis) ",
+    "slug": "ichsan-rohis",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD185",
+    "name": "Dimas (San) ",
+    "slug": "dimas-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD186",
+    "name": "resti (San) ",
+    "slug": "resti-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD187",
+    "name": "Wildan Towil (San) ",
+    "slug": "wildan-towil-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD188",
+    "name": "Shofilullah (Polinema) ",
+    "slug": "shofilullah-polinema",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD189",
+    "name": "Mbak Mellyana (San) ",
+    "slug": "mbak-mellyana-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD190",
+    "name": "Sadewa (San) ",
+    "slug": "sadewa-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD191",
+    "name": "Deni(San) ",
+    "slug": "deni-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+  ,
+  {
+    "code": "YUD192",
+    "name": "Deni(San) ",
+    "slug": "deni-san",
+    "side": "yudha",
+    "relation": null,
+    "status": "pending"
+  }
+    ,
+    {
+      "code": "YUD193",
+      "name": "Mas Amin ",
+      "slug": "mas-amin",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    }
+    ,
+    {
+      "code": "YUD194",
+      "name": "yanuar (San) ",
+      "slug": "yanuar-san",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    }
+    ,
+    {
+      "code": "YUD195",
+      "name": "Fadhil ",
+      "slug": "fadhil",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    }
+    ,
+    {
+      "code": "YUD196",
+      "name": "dimas SMP ",
+      "slug": "dimas-smp",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    }
+    ,
+    {
+      "code": "YUD197",
+      "name": "Iyan ",
+      "slug": "iyan",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    }
+    ,
+    {
+      "code": "YUD198",
+      "name": "Arya ",
+      "slug": "Arya ",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    }
+    ,
+    {
+      "code": "YUD199",
+      "name": "Mas Drajat ",
+      "slug": "Mas-Drajat ",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    }
+    ,
+    {
+      "code": "YUD200",
+      "name": "Mas teo ",
+      "slug": "Mas-Teo ",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    }
 ]

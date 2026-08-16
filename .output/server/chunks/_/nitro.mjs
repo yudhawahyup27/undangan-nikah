@@ -1,4 +1,4 @@
-import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};import { readFile as readFile$1, writeFile as writeFile$1 } from 'fs/promises';
+import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};globalThis.__timing__.logStart('Load chunks/_/nitro');import { readFile as readFile$1, writeFile as writeFile$1 } from 'fs/promises';
 import { join as join$1 } from 'path';
 import http from 'node:http';
 import https from 'node:https';
@@ -2200,6 +2200,53 @@ function createHooks() {
   return new Hookable();
 }
 
+const isBrowser = "undefined" !== "undefined";
+function createDebugger(hooks, _options = {}) {
+  const options = {
+    inspect: isBrowser,
+    group: isBrowser,
+    filter: () => true,
+    ..._options
+  };
+  const _filter = options.filter;
+  const filter = typeof _filter === "string" ? (name) => name.startsWith(_filter) : _filter;
+  const _tag = options.tag ? `[${options.tag}] ` : "";
+  const logPrefix = (event) => _tag + event.name + "".padEnd(event._id, "\0");
+  const _idCtr = {};
+  const unsubscribeBefore = hooks.beforeEach((event) => {
+    if (filter !== void 0 && !filter(event.name)) {
+      return;
+    }
+    _idCtr[event.name] = _idCtr[event.name] || 0;
+    event._id = _idCtr[event.name]++;
+    console.time(logPrefix(event));
+  });
+  const unsubscribeAfter = hooks.afterEach((event) => {
+    if (filter !== void 0 && !filter(event.name)) {
+      return;
+    }
+    if (options.group) {
+      console.groupCollapsed(event.name);
+    }
+    if (options.inspect) {
+      console.timeLog(logPrefix(event), event.args);
+    } else {
+      console.timeEnd(logPrefix(event));
+    }
+    if (options.group) {
+      console.groupEnd();
+    }
+    _idCtr[event.name]--;
+  });
+  return {
+    /** Stop debugging and remove listeners */
+    close: () => {
+      unsubscribeBefore();
+      unsubscribeAfter();
+    }
+  };
+}
+
 const s$1=globalThis.Headers,i=globalThis.AbortController,l=globalThis.fetch||(()=>{throw new Error("[node-fetch-native] Failed to fetch: `globalThis.fetch` is not available!")});
 
 class FetchError extends Error {
@@ -4172,7 +4219,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "3b976599-637a-4488-975e-53e376e6c0e2",
+    "buildId": "679eba49-40f2-407c-ae03-1a3073438a51",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -4539,8 +4586,45 @@ async function errorHandler(error, event) {
   // H3 will handle fallback
 }
 
+function defineNitroPlugin(def) {
+  return def;
+}
+
+const _5dWkuzF77Ddqm6lABhXmIpmmE2Pku3YPvyvf1j5KTY = defineNitroPlugin((nitro) => {
+  createDebugger(nitro.hooks, { tag: "nitro-runtime" });
+});
+
+const globalTiming = globalThis.__timing__ || {
+  start: () => 0,
+  end: () => 0,
+  metrics: []
+};
+const timingMiddleware = eventHandler((event) => {
+  const start = globalTiming.start();
+  const _end = event.node.res.end;
+  event.node.res.end = function(chunk, encoding, cb) {
+    const metrics = [
+      ["Generate", globalTiming.end(start)],
+      ...globalTiming.metrics
+    ];
+    const serverTiming = metrics.map((m) => `-;dur=${m[1]};desc="${encodeURIComponent(m[0])}"`).join(", ");
+    if (!event.node.res.headersSent) {
+      event.node.res.setHeader("Server-Timing", serverTiming);
+    }
+    _end.call(event.node.res, chunk, encoding, cb);
+    return this;
+  }.bind(event.node.res);
+});
+const _fCDWq73oVYTo3JwP9LwcYXH8vknZjEUe0QWRBRuJYc = defineNitroPlugin((nitro) => {
+  nitro.h3App.stack.unshift({
+    route: "/",
+    handler: timingMiddleware
+  });
+});
+
 const plugins = [
-  
+  _5dWkuzF77Ddqm6lABhXmIpmmE2Pku3YPvyvf1j5KTY,
+_fCDWq73oVYTo3JwP9LwcYXH8vknZjEUe0QWRBRuJYc
 ];
 
 const assets = {
@@ -4557,6 +4641,13 @@ const assets = {
     "mtime": "2026-06-11T04:56:38.840Z",
     "size": 33776,
     "path": "../public/audio/ucapan pembukaan.ogg"
+  },
+  "/images/photo-1.jpeg": {
+    "type": "image/jpeg",
+    "etag": "\"371db-E/ibHbUJSIilvt9X8Y03cim+2Wg\"",
+    "mtime": "2026-06-11T05:17:43.368Z",
+    "size": 225755,
+    "path": "../public/images/photo-1.jpeg"
   },
   "/images/photo-2.jpeg": {
     "type": "image/jpeg",
@@ -4579,13 +4670,6 @@ const assets = {
     "size": 184441,
     "path": "../public/images/photo-4.jpeg"
   },
-  "/_nuxt/BR-809gG.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"27a-Fq/AOlWM3Puk24tUpSH9M1BFuOQ\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
-    "size": 634,
-    "path": "../public/_nuxt/BR-809gG.js"
-  },
   "/images/README.txt": {
     "type": "text/plain; charset=utf-8",
     "etag": "\"1b9-Oa+WW1yvVxOaY94/hdqrxiSRH14\"",
@@ -4593,124 +4677,110 @@ const assets = {
     "size": 441,
     "path": "../public/images/README.txt"
   },
-  "/images/photo-1.jpeg": {
-    "type": "image/jpeg",
-    "etag": "\"371db-E/ibHbUJSIilvt9X8Y03cim+2Wg\"",
-    "mtime": "2026-06-11T05:17:43.368Z",
-    "size": 225755,
-    "path": "../public/images/photo-1.jpeg"
+  "/_nuxt/B1LIdUDx.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"b9-6TORCkoYucLn6qJrMcS0kF9zr8E\"",
+    "mtime": "2026-08-16T07:03:24.693Z",
+    "size": 185,
+    "path": "../public/_nuxt/B1LIdUDx.js"
+  },
+  "/_nuxt/Bjqrshi_.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"19d-rF1C55tjRvJaWE6iDV9RzavUiNc\"",
+    "mtime": "2026-08-16T07:03:24.692Z",
+    "size": 413,
+    "path": "../public/_nuxt/Bjqrshi_.js"
+  },
+  "/_nuxt/BiV-shLi.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"d40-Jb0p9CnrCSlJSrstK5aitJNSY8o\"",
+    "mtime": "2026-08-16T07:03:24.693Z",
+    "size": 3392,
+    "path": "../public/_nuxt/BiV-shLi.js"
+  },
+  "/_nuxt/C2tdr64X.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"249f-vnntH9BH4ud4iUdEqA5OWsksDHA\"",
+    "mtime": "2026-08-16T07:03:24.692Z",
+    "size": 9375,
+    "path": "../public/_nuxt/C2tdr64X.js"
   },
   "/_nuxt/BrDuEirF.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"aa1b-ZuSbf+8O1nb2sXocoItz8Np2CMw\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
+    "mtime": "2026-08-16T07:03:24.693Z",
     "size": 43547,
     "path": "../public/_nuxt/BrDuEirF.js"
   },
-  "/_nuxt/CgAXP8uT.js": {
+  "/_nuxt/DGPWu_4b.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"111eb-x7jd1OLVKHvjv+ouUDXfxR6f5gk\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
-    "size": 70123,
-    "path": "../public/_nuxt/CgAXP8uT.js"
-  },
-  "/_nuxt/CDHD0SA4.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"132c5-8OOEFo5jM9M2omvA2Ikaq+sy8W0\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
-    "size": 78533,
-    "path": "../public/_nuxt/CDHD0SA4.js"
-  },
-  "/_nuxt/CjXWORJh.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"f7-Odjf4vbuOpwp983JFym8g0bLnuE\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
+    "etag": "\"f7-+XwOLmroja4P4S81LovOydlOgrY\"",
+    "mtime": "2026-08-16T07:03:24.692Z",
     "size": 247,
-    "path": "../public/_nuxt/CjXWORJh.js"
+    "path": "../public/_nuxt/DGPWu_4b.js"
   },
-  "/_nuxt/D0KErAAh.js": {
+  "/_nuxt/DKrAAKaY.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"19d-s+JWVZBjBNs6kT35jPlGxyF3Jhg\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
-    "size": 413,
-    "path": "../public/_nuxt/D0KErAAh.js"
+    "etag": "\"27a-OxzFuiBmh/V6y8GYAc0EhNP/g5M\"",
+    "mtime": "2026-08-16T07:03:24.693Z",
+    "size": 634,
+    "path": "../public/_nuxt/DKrAAKaY.js"
   },
-  "/_nuxt/CBVTN7Wb.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"2af45-U6pP/mcsVvjFD1eW+BcJOxAhDdg\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
-    "size": 175941,
-    "path": "../public/_nuxt/CBVTN7Wb.js"
-  },
-  "/_nuxt/DARF6Gs0.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"b9-IG9N6H1xuGCAy+MOuZKPwhl2kG0\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
-    "size": 185,
-    "path": "../public/_nuxt/DARF6Gs0.js"
-  },
-  "/_nuxt/DSTefl0V.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"d40-gIat+aKHSSkMXZOSGL9cYs2ENYM\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
-    "size": 3392,
-    "path": "../public/_nuxt/DSTefl0V.js"
+  "/_nuxt/entry.CnvpvC6K.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"495e-BiHNLak6oU+LlBSctbQpCxD5EW4\"",
+    "mtime": "2026-08-16T07:03:24.686Z",
+    "size": 18782,
+    "path": "../public/_nuxt/entry.CnvpvC6K.css"
   },
   "/_nuxt/error-404.DL_4WIao.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"dca-KnjyV0UbpsrliiJzZx69defY74k\"",
-    "mtime": "2026-06-11T16:19:24.393Z",
+    "mtime": "2026-08-16T07:03:24.692Z",
     "size": 3530,
     "path": "../public/_nuxt/error-404.DL_4WIao.css"
-  },
-  "/_nuxt/OQr5-naO.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"249f-fUK5Aw6ZXmuPMIh792cNbdryb54\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
-    "size": 9375,
-    "path": "../public/_nuxt/OQr5-naO.js"
-  },
-  "/_nuxt/entry.RPFClWYV.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"48a2-szop8i6VJ9m+7hm1NeANkwA9qUw\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
-    "size": 18594,
-    "path": "../public/_nuxt/entry.RPFClWYV.css"
   },
   "/_nuxt/error-500.I1Dtv2V5.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"75a-vEGyJqldBVJrnMfcLsrGaHcxYl0\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
+    "mtime": "2026-08-16T07:03:24.692Z",
     "size": 1882,
     "path": "../public/_nuxt/error-500.I1Dtv2V5.css"
   },
-  "/_nuxt/InvitationView.CtrK5ULj.css": {
+  "/_nuxt/InvitationView.B-_xTLre.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"3d8c-oRcPwbQA/JYHwjFvdNwRBpsl4mc\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
+    "etag": "\"3d8c-5jyAZczdKwKp6+Ugj3r0yLypeAo\"",
+    "mtime": "2026-08-16T07:03:24.692Z",
     "size": 15756,
-    "path": "../public/_nuxt/InvitationView.CtrK5ULj.css"
+    "path": "../public/_nuxt/InvitationView.B-_xTLre.css"
   },
   "/_nuxt/builds/latest.json": {
     "type": "application/json",
-    "etag": "\"47-nOAn5K4UW5lMEj1rUUxEIepKFfA\"",
-    "mtime": "2026-06-11T16:19:24.498Z",
+    "etag": "\"47-IvvTYy9VXVXftk8aPFVbQTV0JYw\"",
+    "mtime": "2026-08-16T07:03:25.383Z",
     "size": 71,
     "path": "../public/_nuxt/builds/latest.json"
   },
-  "/_nuxt/builds/meta/3b976599-637a-4488-975e-53e376e6c0e2.json": {
+  "/_nuxt/builds/meta/679eba49-40f2-407c-ae03-1a3073438a51.json": {
     "type": "application/json",
-    "etag": "\"58-ArcJ/HkNWGWijMWGIuOzLuqbcYQ\"",
-    "mtime": "2026-06-11T16:19:24.498Z",
+    "etag": "\"58-IGgeoCMCeJh3e5mmrglkHba3/Ng\"",
+    "mtime": "2026-08-16T07:03:25.384Z",
     "size": 88,
-    "path": "../public/_nuxt/builds/meta/3b976599-637a-4488-975e-53e376e6c0e2.json"
+    "path": "../public/_nuxt/builds/meta/679eba49-40f2-407c-ae03-1a3073438a51.json"
   },
   "/_nuxt/D1zK5Eov.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"a6275-MN3K7klplmAH9Kor6Ev0aSgJoUQ\"",
-    "mtime": "2026-06-11T16:19:24.398Z",
+    "mtime": "2026-08-16T07:03:24.698Z",
     "size": 680565,
     "path": "../public/_nuxt/D1zK5Eov.js"
+  },
+  "/_nuxt/_jl-Wl2x.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"13674-OtydPFAUDPOVigxj49RgwXhnShQ\"",
+    "mtime": "2026-08-16T07:03:24.693Z",
+    "size": 79476,
+    "path": "../public/_nuxt/_jl-Wl2x.js"
   },
   "/audio/lagu.mp3": {
     "type": "audio/mpeg",
@@ -4718,6 +4788,20 @@ const assets = {
     "mtime": "2026-04-18T14:59:51.393Z",
     "size": 8990522,
     "path": "../public/audio/lagu.mp3"
+  },
+  "/_nuxt/CgAXP8uT.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"111eb-x7jd1OLVKHvjv+ouUDXfxR6f5gk\"",
+    "mtime": "2026-08-16T07:03:24.694Z",
+    "size": 70123,
+    "path": "../public/_nuxt/CgAXP8uT.js"
+  },
+  "/_nuxt/CsA96CrL.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"2d273-Bx/P5d0LCGW0DK1uWpkseHZGAyg\"",
+    "mtime": "2026-08-16T07:03:24.693Z",
+    "size": 184947,
+    "path": "../public/_nuxt/CsA96CrL.js"
   }
 };
 
@@ -6184,6 +6268,30 @@ const guestsData = [
 		status: "pending"
 	},
 	{
+		code: "IMA153",
+		name: "Amalan (SD)",
+		slug: "amalan-sd",
+		side: "ima",
+		relation: "TI",
+		status: "pending"
+	},
+	{
+		code: "IMA154",
+		name: "Puput Magicion",
+		slug: "puput-magicion",
+		side: "ima",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "IMA155",
+		name: "Meyta",
+		slug: "meyta",
+		side: "ima",
+		relation: null,
+		status: "pending"
+	},
+	{
 		code: "YUD001",
 		name: "Pak rudi",
 		slug: "pak-rudi",
@@ -7025,8 +7133,8 @@ const guestsData = [
 	},
 	{
 		code: "YUD106",
-		name: "Alftis (Polinema)",
-		slug: "alftis-polinema",
+		name: "Alfris (Polinema)",
+		slug: "alfris-polinema",
 		side: "yudha",
 		relation: null,
 		status: "pending"
@@ -7081,8 +7189,8 @@ const guestsData = [
 	},
 	{
 		code: "YUD113",
-		name: "Alvin (SMP)",
-		slug: "alvin-smp",
+		name: "Alvin Kusuma (Tanggerang)",
+		slug: "alvin-kusuma-tanggerang",
 		side: "yudha",
 		relation: null,
 		status: "pending"
@@ -7105,8 +7213,8 @@ const guestsData = [
 	},
 	{
 		code: "YUD116",
-		name: "Firmas (SD)",
-		slug: "firmas-sd",
+		name: "Firman (SD)",
+		slug: "firman-sd",
 		side: "yudha",
 		relation: null,
 		status: "pending"
@@ -7318,6 +7426,494 @@ const guestsData = [
 		side: "yudha",
 		relation: null,
 		status: "pending"
+	},
+	{
+		code: "YUD143",
+		name: "mbak gita (bernas)",
+		slug: "mbak-gita-bernas",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD144",
+		name: "Mas Ardi (Polinema)",
+		slug: "mas-ardi-polinema",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD145",
+		name: "Mas Prayoga (FBII)",
+		slug: "mas-prayoga-fbii",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD146",
+		name: "Bintang (Pancaran)",
+		slug: "bintang-pancaran",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD147",
+		name: "Salma (SD)",
+		slug: "salma-sd",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD148",
+		name: "Nita (SD)",
+		slug: "nita-sd",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD149",
+		name: "Jaya (SD)",
+		slug: "jaya-sd",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD150",
+		name: "Siwi (SD)",
+		slug: "siwi-sd",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD151",
+		name: "Ara (PMR)",
+		slug: "ara-pmr",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD152",
+		name: "Annesa (PMR)",
+		slug: "annesa-pmr",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD153",
+		name: "iqbal (PMR)",
+		slug: "iqbal-pmr",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD154",
+		name: "Rama (PMR)",
+		slug: "rama-pmr",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD155",
+		name: "Salma (PMR)",
+		slug: "salma-pmr",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD156",
+		name: "Angelita (PMR)",
+		slug: "angelita-pmr",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD157",
+		name: "Friza (PMR)",
+		slug: "friza-pmr",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD157",
+		name: "dian (GIBEI)",
+		slug: "dian-gibeI",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD157",
+		name: "alfredo (GIBEI)",
+		slug: "alfredo-gibeI",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD157",
+		name: "alza (GIBEI)",
+		slug: "alza-gibeI",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD157",
+		name: "dinda (GIBEI)",
+		slug: "dinda-gibeI",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD158",
+		name: "Ilham (GIBEI)",
+		slug: "ilham-gibeI",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD159",
+		name: "Gabriella (GIBEI)",
+		slug: "gabriella-gibeI",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD160",
+		name: "Okta (GIBEI)",
+		slug: "okta-gibeI",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD161",
+		name: "yasmin (GIBEI)",
+		slug: "yasmin-gibeI",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD162",
+		name: "wili (GIBEI)",
+		slug: "wili-gibeI",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD163",
+		name: "zidy (GIBEI)",
+		slug: "zidy-gibeI",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD164",
+		name: "nawang (GIBEI)",
+		slug: "nawang-gibeI",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD164",
+		name: "Candra(Mesin)",
+		slug: "candra-mesin",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD165",
+		name: "Rizky Abdi",
+		slug: "rizky-abdi",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD166",
+		name: "Mas Fahri ",
+		slug: "mas-fahri",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD167",
+		name: "Ulima & Ulil (SMP) ",
+		slug: "ulima-ulil-smp",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD168",
+		name: "Sandi (SMP) ",
+		slug: "sandi-smp",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD169",
+		name: "Syfa (SMP) ",
+		slug: "syfa-smp",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD170",
+		name: "rico (SMA)",
+		slug: "rico-sma",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD171",
+		name: "David Pras (IDN Blogger) ",
+		slug: "david-pras-idn-blogger",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD172",
+		name: "Eka Efendi (SMA) ",
+		slug: "eka-efendi-sma",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD173",
+		name: "Alfin (PMR) ",
+		slug: "alfin-pmr",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD174",
+		name: "siska (PMR) ",
+		slug: "siska-pmr",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD175",
+		name: "Rahmadani (PMR) ",
+		slug: "rahmadani-pmr",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD176",
+		name: "dani (smp) ",
+		slug: "dani-smp",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD177",
+		name: "hanung (polinema) ",
+		slug: "hanung-polinema",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD178",
+		name: "amelia(polinema) ",
+		slug: "amelia-polinema",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD179",
+		name: "mas Aji(kura-kura) ",
+		slug: "mas-aji-kura-kura",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD180",
+		name: "Dicky (kura-kura) ",
+		slug: "dicky-kura-kura",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD181",
+		name: "Mas agra (kura-kura) ",
+		slug: "Mas-agra-kura-kura",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD182",
+		name: "Mas yogi (pare) ",
+		slug: "mas-yogi-pare",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD183",
+		name: "Mas ichal ",
+		slug: "mas-ichal",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD184",
+		name: "Ichsan (Rohis) ",
+		slug: "ichsan-rohis",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD185",
+		name: "Dimas (San) ",
+		slug: "dimas-san",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD186",
+		name: "resti (San) ",
+		slug: "resti-san",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD187",
+		name: "Wildan Towil (San) ",
+		slug: "wildan-towil-san",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD188",
+		name: "Shofilullah (Polinema) ",
+		slug: "shofilullah-polinema",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD189",
+		name: "Mbak Mellyana (San) ",
+		slug: "mbak-mellyana-san",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD190",
+		name: "Sadewa (San) ",
+		slug: "sadewa-san",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD191",
+		name: "Deni(San) ",
+		slug: "deni-san",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD192",
+		name: "Deni(San) ",
+		slug: "deni-san",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD193",
+		name: "andini (San) ",
+		slug: "andini-san",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD194",
+		name: "yanuar (San) ",
+		slug: "yanuar-san",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD195",
+		name: "Fadhil ",
+		slug: "fadhil",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD196",
+		name: "dimas SMP ",
+		slug: "dimas-smp",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD197",
+		name: "Iyan ",
+		slug: "iyan",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD198",
+		name: "Arya ",
+		slug: "Arya ",
+		side: "yudha",
+		relation: null,
+		status: "pending"
 	}
 ];
 
@@ -7394,7 +7990,8 @@ const mapRow = (row) => ({
   name: row.name,
   attending: row.attending,
   message: row.message || "",
-  timestamp: row.created_at
+  timestamp: row.created_at,
+  guestSlug: row.guest_slug || void 0
 });
 const readJsonEntries = async () => {
   try {
@@ -7411,7 +8008,7 @@ const listRsvpEntries = async () => {
   var _a;
   if (isSupabaseConfigured()) {
     const supabase = await getSupabase();
-    const { data, error } = await supabase.from(TABLE).select("id, name, attending, message, created_at").order("created_at", { ascending: false });
+    const { data, error } = await supabase.from(TABLE).select("id, name, attending, message, created_at, guest_slug").order("created_at", { ascending: false });
     if (error) {
       console.error("[rsvpStore.listRsvpEntries]", error);
       throw error;
@@ -7422,14 +8019,16 @@ const listRsvpEntries = async () => {
   return entries.slice().reverse();
 };
 const createRsvpEntry = async (input) => {
+  var _a;
   const payload = {
     name: input.name.trim(),
     attending: Boolean(input.attending),
-    message: (input.message || "").trim()
+    message: (input.message || "").trim(),
+    guest_slug: ((_a = input.guestSlug) == null ? void 0 : _a.trim()) || null
   };
   if (isSupabaseConfigured()) {
     const supabase = await getSupabase();
-    const { data, error } = await supabase.from(TABLE).insert(payload).select("id, name, attending, message, created_at");
+    const { data, error } = await supabase.from(TABLE).insert(payload).select("id, name, attending, message, created_at, guest_slug");
     if (error) {
       console.error("[rsvpStore.createRsvpEntry]", error);
       throw error;
@@ -7449,7 +8048,10 @@ const createRsvpEntry = async (input) => {
   }
   const entry = {
     id: `rsvp_${Date.now()}`,
-    ...payload,
+    name: payload.name,
+    attending: payload.attending,
+    message: payload.message,
+    guestSlug: payload.guest_slug || void 0,
     timestamp: (/* @__PURE__ */ new Date()).toISOString()
   };
   const existing = await readJsonEntries();
@@ -7887,5 +8489,5 @@ function setupGracefulShutdown(listener, nitroApp) {
   });
 }
 
-export { getResponseStatus as A, trapUnhandledNodeErrors as a, useNitroApp as b, defineEventHandler as c, destr as d, createError$1 as e, findGuestByCode as f, getQuery as g, findGuestBySlug as h, findGuestByName as i, isSupabaseConfigured as j, isServerlessProduction as k, listGuests as l, listMessageEntries as m, listRsvpEntries as n, createRsvpEntry as o, getErrorMessage as p, buildAssetsURL as q, readBody as r, setupGracefulShutdown as s, toNodeListener as t, useRuntimeConfig as u, publicAssetsURL as v, encodePath as w, defineRenderHandler as x, getRouteRules as y, getResponseStatusText as z };
+export { getResponseStatus as A, trapUnhandledNodeErrors as a, useNitroApp as b, defineEventHandler as c, destr as d, createError$1 as e, findGuestByCode as f, getQuery as g, findGuestBySlug as h, findGuestByName as i, isSupabaseConfigured as j, isServerlessProduction as k, listGuests as l, listMessageEntries as m, listRsvpEntries as n, createRsvpEntry as o, getErrorMessage as p, buildAssetsURL as q, readBody as r, setupGracefulShutdown as s, toNodeListener as t, useRuntimeConfig as u, publicAssetsURL as v, encodePath as w, defineRenderHandler as x, getRouteRules as y, getResponseStatusText as z };;globalThis.__timing__.logEnd('Load chunks/_/nitro');
 //# sourceMappingURL=nitro.mjs.map

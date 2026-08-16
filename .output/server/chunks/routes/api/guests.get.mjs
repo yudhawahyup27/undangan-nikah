@@ -1,4 +1,4 @@
-import { c as defineEventHandler, g as getQuery, f as findGuestByCode, e as createError, h as findGuestBySlug, i as findGuestByName, l as listGuests } from '../../_/nitro.mjs';
+globalThis.__timing__.logStart('Load chunks/routes/api/guests.get');import { c as defineEventHandler, g as getQuery, f as findGuestByCode, e as createError, h as findGuestBySlug, i as findGuestByName, l as listGuests } from '../../_/nitro.mjs';
 import 'fs/promises';
 import 'path';
 import 'node:http';
@@ -38,5 +38,5 @@ const guests_get = defineEventHandler((event) => {
   return listGuests();
 });
 
-export { guests_get as default };
+export { guests_get as default };;globalThis.__timing__.logEnd('Load chunks/routes/api/guests.get');
 //# sourceMappingURL=guests.get.mjs.map

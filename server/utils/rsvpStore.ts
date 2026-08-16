@@ -7,12 +7,14 @@ export type RsvpEntry = {
   attending: boolean
   message: string
   timestamp: string
+  guestSlug?: string
 }
 
 export type CreateRsvpInput = {
   name: string
   attending: boolean
   message?: string
+  guestSlug?: string
 }
 
 const TABLE = 'rsvp'
@@ -24,6 +26,7 @@ type RsvpRow = {
   attending: boolean
   message: string | null
   created_at: string
+  guest_slug: string | null
 }
 
 const mapRow = (row: RsvpRow): RsvpEntry => ({
@@ -32,6 +35,7 @@ const mapRow = (row: RsvpRow): RsvpEntry => ({
   attending: row.attending,
   message: row.message || '',
   timestamp: row.created_at,
+  guestSlug: row.guest_slug || undefined,
 })
 
 const readJsonEntries = async (): Promise<RsvpEntry[]> => {
@@ -52,7 +56,7 @@ export const listRsvpEntries = async (): Promise<RsvpEntry[]> => {
     const supabase = await getSupabase()
     const { data, error } = await supabase
       .from(TABLE)
-      .select('id, name, attending, message, created_at')
+      .select('id, name, attending, message, created_at, guest_slug')
       .order('created_at', { ascending: false })
 
     if (error) {
@@ -72,6 +76,7 @@ export const createRsvpEntry = async (input: CreateRsvpInput): Promise<RsvpEntry
     name: input.name.trim(),
     attending: Boolean(input.attending),
     message: (input.message || '').trim(),
+    guest_slug: input.guestSlug?.trim() || null,
   }
 
   if (isSupabaseConfigured()) {
@@ -79,7 +84,7 @@ export const createRsvpEntry = async (input: CreateRsvpInput): Promise<RsvpEntry
     const { data, error } = await supabase
       .from(TABLE)
       .insert(payload)
-      .select('id, name, attending, message, created_at')
+      .select('id, name, attending, message, created_at, guest_slug')
 
     if (error) {
       console.error('[rsvpStore.createRsvpEntry]', error)
@@ -104,7 +109,10 @@ export const createRsvpEntry = async (input: CreateRsvpInput): Promise<RsvpEntry
 
   const entry: RsvpEntry = {
     id: `rsvp_${Date.now()}`,
-    ...payload,
+    name: payload.name,
+    attending: payload.attending,
+    message: payload.message,
+    guestSlug: payload.guest_slug || undefined,
     timestamp: new Date().toISOString(),
   }
 

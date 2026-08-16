@@ -1,4 +1,4 @@
-import { c as defineEventHandler, m as listMessageEntries } from '../../_/nitro.mjs';
+globalThis.__timing__.logStart('Load chunks/routes/api/messages.get');import { c as defineEventHandler, m as listMessageEntries } from '../../_/nitro.mjs';
 import 'fs/promises';
 import 'path';
 import 'node:http';
@@ -21,5 +21,5 @@ const messages_get = defineEventHandler(async () => {
   }
 });
 
-export { messages_get as default };
+export { messages_get as default };;globalThis.__timing__.logEnd('Load chunks/routes/api/messages.get');
 //# sourceMappingURL=messages.get.mjs.map
