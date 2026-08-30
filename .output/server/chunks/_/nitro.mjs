@@ -4220,7 +4220,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "3eb2ef39-e4d5-4436-829d-78e567779d30",
+    "buildId": "502ad71b-761e-47d1-b0bc-1cdffc538a3b",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -4636,12 +4636,19 @@ const assets = {
     "size": 324,
     "path": "../public/audio/README.txt"
   },
-  "/_nuxt/BCbLNzGw.js": {
+  "/_nuxt/BD2zXxLz.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"f7-n1VVZ4LoHePT/F+3jucM1LRKWq4\"",
-    "mtime": "2026-08-30T16:36:37.663Z",
-    "size": 247,
-    "path": "../public/_nuxt/BCbLNzGw.js"
+    "etag": "\"27a-Jw0I+bFWE5QZ1D+ChtgygCoF2uY\"",
+    "mtime": "2026-08-30T16:42:00.046Z",
+    "size": 634,
+    "path": "../public/_nuxt/BD2zXxLz.js"
+  },
+  "/_nuxt/BsmJ_A1U.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"249f-X8PWh1VvCu8jROaeMGmwoxMRW/o\"",
+    "mtime": "2026-08-30T16:42:00.044Z",
+    "size": 9375,
+    "path": "../public/_nuxt/BsmJ_A1U.js"
   },
   "/audio/ucapan pembukaan.ogg": {
     "type": "audio/ogg",
@@ -4650,75 +4657,75 @@ const assets = {
     "size": 33776,
     "path": "../public/audio/ucapan pembukaan.ogg"
   },
-  "/_nuxt/BZ0Hp0pR.js": {
+  "/_nuxt/DsQCJTGe.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"d40-ZL2VgvekTrNFCY3fuPVmhBu9aiQ\"",
-    "mtime": "2026-08-30T16:36:37.663Z",
+    "etag": "\"d40-ujY0eynUZ17CQN0wCAgUSrA223c\"",
+    "mtime": "2026-08-30T16:42:00.044Z",
     "size": 3392,
-    "path": "../public/_nuxt/BZ0Hp0pR.js"
+    "path": "../public/_nuxt/DsQCJTGe.js"
   },
-  "/_nuxt/CGsQBd1T.js": {
+  "/_nuxt/CWscuZLy.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"b9-lt5rQt+FDHiN89VQ2PSiXPLbmPk\"",
-    "mtime": "2026-08-30T16:36:37.663Z",
+    "etag": "\"b9-DoqZMZ7+91qGpZPJrxY/UWZnISU\"",
+    "mtime": "2026-08-30T16:42:00.044Z",
     "size": 185,
-    "path": "../public/_nuxt/CGsQBd1T.js"
+    "path": "../public/_nuxt/CWscuZLy.js"
   },
   "/_nuxt/BrDuEirF.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"aa1b-ZuSbf+8O1nb2sXocoItz8Np2CMw\"",
-    "mtime": "2026-08-30T16:36:37.673Z",
+    "mtime": "2026-08-30T16:42:00.046Z",
     "size": 43547,
     "path": "../public/_nuxt/BrDuEirF.js"
   },
-  "/_nuxt/Cpff0790.js": {
+  "/_nuxt/DFemi1H4.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"249f-lC2Cn46hS5QBkzQYbFzxt6hnbhg\"",
-    "mtime": "2026-08-30T16:36:37.663Z",
-    "size": 9375,
-    "path": "../public/_nuxt/Cpff0790.js"
-  },
-  "/_nuxt/DHFNmQqb.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"27a-BY5Uy4d+8Zv0RA7pdSR5gNI8Xak\"",
-    "mtime": "2026-08-30T16:36:37.664Z",
-    "size": 634,
-    "path": "../public/_nuxt/DHFNmQqb.js"
-  },
-  "/_nuxt/DVu0p5X3.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"19d-AjEHMc/EqlfcMLmAeZMuJmICehU\"",
-    "mtime": "2026-08-30T16:36:37.664Z",
-    "size": 413,
-    "path": "../public/_nuxt/DVu0p5X3.js"
-  },
-  "/_nuxt/entry.BAAZwy3w.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"4c3e-OScJX94VQmQ8xXEZ946bXctyVwo\"",
-    "mtime": "2026-08-30T16:36:37.658Z",
-    "size": 19518,
-    "path": "../public/_nuxt/entry.BAAZwy3w.css"
+    "etag": "\"12e6f-urGh6JHs7DMivljfZeill7fzed8\"",
+    "mtime": "2026-08-30T16:42:00.046Z",
+    "size": 77423,
+    "path": "../public/_nuxt/DFemi1H4.js"
   },
   "/_nuxt/error-404.DL_4WIao.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"dca-KnjyV0UbpsrliiJzZx69defY74k\"",
-    "mtime": "2026-08-30T16:36:37.658Z",
+    "mtime": "2026-08-30T16:42:00.036Z",
     "size": 3530,
     "path": "../public/_nuxt/error-404.DL_4WIao.css"
   },
   "/_nuxt/error-500.I1Dtv2V5.css": {
     "type": "text/css; charset=utf-8",
     "etag": "\"75a-vEGyJqldBVJrnMfcLsrGaHcxYl0\"",
-    "mtime": "2026-08-30T16:36:37.658Z",
+    "mtime": "2026-08-30T16:42:00.044Z",
     "size": 1882,
     "path": "../public/_nuxt/error-500.I1Dtv2V5.css"
   },
-  "/_nuxt/InvitationView.7JRVczYI.css": {
+  "/_nuxt/entry.BAAZwy3w.css": {
     "type": "text/css; charset=utf-8",
-    "etag": "\"400d-pt9nNfy5nf4GcGCOkbntQwdBso4\"",
-    "mtime": "2026-08-30T16:36:37.658Z",
-    "size": 16397,
-    "path": "../public/_nuxt/InvitationView.7JRVczYI.css"
+    "etag": "\"4c3e-OScJX94VQmQ8xXEZ946bXctyVwo\"",
+    "mtime": "2026-08-30T16:42:00.043Z",
+    "size": 19518,
+    "path": "../public/_nuxt/entry.BAAZwy3w.css"
+  },
+  "/_nuxt/ir1PPiRA.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"19d-DLq7985lh8bFtZibxVFje3+MyNM\"",
+    "mtime": "2026-08-30T16:42:00.045Z",
+    "size": 413,
+    "path": "../public/_nuxt/ir1PPiRA.js"
+  },
+  "/_nuxt/InvitationView.CGqsuba-.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"41b7-nRLZuRBSds95TKb2WFyZzNwvKdg\"",
+    "mtime": "2026-08-30T16:42:00.044Z",
+    "size": 16823,
+    "path": "../public/_nuxt/InvitationView.CGqsuba-.css"
+  },
+  "/_nuxt/DxLi8XlS.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"f7-8RawN1aOzaqzRtyHZSp80ak958E\"",
+    "mtime": "2026-08-30T16:42:00.044Z",
+    "size": 247,
+    "path": "../public/_nuxt/DxLi8XlS.js"
   },
   "/images/photo-1.jpeg": {
     "type": "image/jpeg",
@@ -4734,6 +4741,20 @@ const assets = {
     "size": 72098,
     "path": "../public/images/photo-2.jpeg"
   },
+  "/images/README.txt": {
+    "type": "text/plain; charset=utf-8",
+    "etag": "\"1b9-Oa+WW1yvVxOaY94/hdqrxiSRH14\"",
+    "mtime": "2026-06-11T05:36:05.414Z",
+    "size": 441,
+    "path": "../public/images/README.txt"
+  },
+  "/_nuxt/builds/latest.json": {
+    "type": "application/json",
+    "etag": "\"47-BR2yw52JI8AqXnpREZKUAz/+Vbw\"",
+    "mtime": "2026-08-30T16:42:00.517Z",
+    "size": 71,
+    "path": "../public/_nuxt/builds/latest.json"
+  },
   "/images/photo-3.jpeg": {
     "type": "image/jpeg",
     "etag": "\"2632a-rhsSzurn8ortycwLcFFOOOYC8Fo\"",
@@ -4748,47 +4769,19 @@ const assets = {
     "size": 184441,
     "path": "../public/images/photo-4.jpeg"
   },
-  "/images/README.txt": {
-    "type": "text/plain; charset=utf-8",
-    "etag": "\"1b9-Oa+WW1yvVxOaY94/hdqrxiSRH14\"",
-    "mtime": "2026-06-11T05:36:05.414Z",
-    "size": 441,
-    "path": "../public/images/README.txt"
-  },
-  "/_nuxt/builds/latest.json": {
+  "/_nuxt/builds/meta/502ad71b-761e-47d1-b0bc-1cdffc538a3b.json": {
     "type": "application/json",
-    "etag": "\"47-e0OQES41NpBGczTVRuD8Eeh/H+o\"",
-    "mtime": "2026-08-30T16:36:38.856Z",
-    "size": 71,
-    "path": "../public/_nuxt/builds/latest.json"
-  },
-  "/_nuxt/builds/meta/3eb2ef39-e4d5-4436-829d-78e567779d30.json": {
-    "type": "application/json",
-    "etag": "\"58-Wn+6VPBvl7MvoXzet2jZlSRxte0\"",
-    "mtime": "2026-08-30T16:36:38.869Z",
+    "etag": "\"58-Fq1Q+6Lj29v2w8BZTfLNjWjHy20\"",
+    "mtime": "2026-08-30T16:42:00.519Z",
     "size": 88,
-    "path": "../public/_nuxt/builds/meta/3eb2ef39-e4d5-4436-829d-78e567779d30.json"
+    "path": "../public/_nuxt/builds/meta/502ad71b-761e-47d1-b0bc-1cdffc538a3b.json"
   },
   "/_nuxt/D1zK5Eov.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"a6275-MN3K7klplmAH9Kor6Ev0aSgJoUQ\"",
-    "mtime": "2026-08-30T16:36:37.675Z",
+    "mtime": "2026-08-30T16:42:00.047Z",
     "size": 680565,
     "path": "../public/_nuxt/D1zK5Eov.js"
-  },
-  "/_nuxt/builds/meta/dev.json": {
-    "type": "application/json",
-    "etag": "\"37-SFkIzcz7hsG4OvRsxMtzOujXBL0\"",
-    "mtime": "2026-08-30T16:36:14.402Z",
-    "size": 55,
-    "path": "../public/_nuxt/builds/meta/dev.json"
-  },
-  "/_nuxt/DrVyqQAU.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"12b71-QJQk8ejYBLCTLAxvhNaruVViOo4\"",
-    "mtime": "2026-08-30T16:36:37.664Z",
-    "size": 76657,
-    "path": "../public/_nuxt/DrVyqQAU.js"
   },
   "/audio/lagu.mp3": {
     "type": "audio/mpeg",
@@ -4800,16 +4793,16 @@ const assets = {
   "/_nuxt/CgAXP8uT.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"111eb-x7jd1OLVKHvjv+ouUDXfxR6f5gk\"",
-    "mtime": "2026-08-30T16:36:37.664Z",
+    "mtime": "2026-08-30T16:42:00.046Z",
     "size": 70123,
     "path": "../public/_nuxt/CgAXP8uT.js"
   },
-  "/_nuxt/CMBVRfSv.js": {
+  "/_nuxt/MZ6Zz5e5.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"2d273-U1JCD/V5HR7B5eGCUyQFws/aqqA\"",
-    "mtime": "2026-08-30T16:36:37.663Z",
+    "etag": "\"2d273-0CsPm2YzI/se3nXYaSwPMY8E7K0\"",
+    "mtime": "2026-08-30T16:42:00.044Z",
     "size": 184947,
-    "path": "../public/_nuxt/CMBVRfSv.js"
+    "path": "../public/_nuxt/MZ6Zz5e5.js"
   }
 };
 
@@ -8069,20 +8062,20 @@ const createRsvpEntry = async (input) => {
   if (isSupabaseConfigured()) {
     const supabase = await getSupabase();
     const guest = input.guestSlug ? findGuestBySlug(input.guestSlug) : null;
-    const matchName = (guest == null ? void 0 : guest.name) || payload.name;
+    const savedName = (guest == null ? void 0 : guest.name) || payload.name;
     const updatePayload = {
-      name: payload.name,
+      name: savedName,
       attending: payload.attending,
       message: payload.message
     };
-    const { data: existingByName, error: nameLookupError } = await supabase.from(TABLE).select("id").ilike("name", matchName).order("created_at", { ascending: false }).limit(1);
+    const { data: existingByName, error: nameLookupError } = await supabase.from(TABLE).select("id").ilike("name", savedName).order("created_at", { ascending: false }).limit(1);
     if (!nameLookupError && ((_a = existingByName == null ? void 0 : existingByName[0]) == null ? void 0 : _a.id)) {
       const { data: data2, error: error2 } = await supabase.from(TABLE).update(updatePayload).eq("id", existingByName[0].id).select("id, name, attending, message, created_at");
       if (error2) throw error2;
       const row2 = data2 == null ? void 0 : data2[0];
       if (row2) return mapRow(row2);
     }
-    const { data, error } = await supabase.from(TABLE).insert(payload).select("id, name, attending, message, created_at");
+    const { data, error } = await supabase.from(TABLE).insert(updatePayload).select("id, name, attending, message, created_at");
     if (error) {
       console.error("[rsvpStore.createRsvpEntry]", error);
       throw error;

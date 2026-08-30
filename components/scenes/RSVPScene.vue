@@ -15,6 +15,14 @@
         <div class="status-mark">✓ HADIR</div>
         <p class="status-copy">Terima kasih, kehadiranmu sudah tercatat.</p>
         <p class="status-copy">Sampai bertemu di hari bahagia kami.</p>
+        <div class="booth-panel mt-8">
+          <p class="field-label">Photo Booth</p>
+          <h3 class="booth-title">Siap mengabadikan momen?</h3>
+          <p class="status-copy mb-5">Abadikan momen spesialmu di hari bahagia Yudha & Ima.</p>
+          <a class="btn-primary booth-link" href="https://booth.ywp.my.id" target="_blank" rel="noopener noreferrer">
+            Abadikan Momen
+          </a>
+        </div>
         <button type="button" class="choice-btn mt-7" @click="editConfirmation">Ubah Konfirmasi</button>
       </div>
 
@@ -22,6 +30,13 @@
         <div class="status-mark">TIDAK HADIR</div>
         <p class="status-copy">Terima kasih sudah mengabari kami.</p>
         <p class="status-copy">Walaupun belum bisa hadir secara langsung, doa dan ucapanmu tetap berarti bagi kami.</p>
+        <div class="booth-panel mt-8">
+          <p class="field-label">Memory Booth</p>
+          <h3 class="booth-title">Tetap titipkan kenangan untuk kami.</h3>
+          <a class="btn-primary booth-link mt-5" href="https://booth.ywp.my.id" target="_blank" rel="noopener noreferrer">
+            Kirim Kenangan
+          </a>
+        </div>
         <button type="button" class="choice-btn mt-7" @click="editConfirmation">Ubah Konfirmasi</button>
       </div>
 
@@ -236,6 +251,31 @@ onMounted(async () => {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.15rem;
   line-height: 1.7;
+}
+
+.booth-panel {
+  border: 1px solid rgba(201, 168, 76, 0.16);
+  border-radius: 8px;
+  background: rgba(201, 168, 76, 0.04);
+  padding: 1.25rem;
+}
+
+.booth-title {
+  color: var(--color-cream);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.booth-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  width: 100%;
+  text-decoration: none;
+  white-space: normal;
 }
 
 .rsvp-input {

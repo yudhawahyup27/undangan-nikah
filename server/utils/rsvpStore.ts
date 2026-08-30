@@ -79,10 +79,10 @@ export const createRsvpEntry = async (input: CreateRsvpInput): Promise<RsvpEntry
   if (isSupabaseConfigured()) {
     const supabase = await getSupabase()
     const guest = input.guestSlug ? findGuestBySlug(input.guestSlug) : null
-    const matchName = guest?.name || payload.name
+    const savedName = guest?.name || payload.name
 
     const updatePayload = {
-      name: payload.name,
+      name: savedName,
       attending: payload.attending,
       message: payload.message,
     }
@@ -90,7 +90,7 @@ export const createRsvpEntry = async (input: CreateRsvpInput): Promise<RsvpEntry
     const { data: existingByName, error: nameLookupError } = await supabase
       .from(TABLE)
       .select('id')
-      .ilike('name', matchName)
+      .ilike('name', savedName)
       .order('created_at', { ascending: false })
       .limit(1)
 
@@ -108,7 +108,7 @@ export const createRsvpEntry = async (input: CreateRsvpInput): Promise<RsvpEntry
 
     const { data, error } = await supabase
       .from(TABLE)
-      .insert(payload)
+      .insert(updatePayload)
       .select('id, name, attending, message, created_at')
 
     if (error) {
@@ -165,19 +165,15 @@ export const listMessageEntries = async (): Promise<RsvpEntry[]> => {
 export const getRsvpStatusBySlug = async (slug: string): Promise<{ id: string | null; name: string | null; attending: boolean | null; message: string } | null> => {
   if (!slug) return null
   
-  // Try to find guest by slug from guests.json
   const guest = findGuestBySlug(slug)
   
   if (!guest) return null
   
-  // Find RSVP entry matching this guest
   const entries = await listRsvpEntries()
   
-  // First try to match by guestSlug if it exists
   const normalizedGuestName = guest.name.toLowerCase().trim()
   const entry = entries.find(e => e.name.toLowerCase().trim() === normalizedGuestName)
   
-  // If found, return the RSVP status
   if (entry) {
     return {
       id: entry.id,
@@ -187,7 +183,6 @@ export const getRsvpStatusBySlug = async (slug: string): Promise<{ id: string | 
     }
   }
   
-  // Guest found but no RSVP yet
   return {
     id: guest.slug,
     name: guest.name,
