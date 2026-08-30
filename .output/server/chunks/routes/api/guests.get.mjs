@@ -1,4 +1,5 @@
-globalThis.__timing__.logStart('Load chunks/routes/api/guests.get');import { c as defineEventHandler, g as getQuery, f as findGuestByCode, e as createError, h as findGuestBySlug, i as findGuestByName, l as listGuests } from '../../_/nitro.mjs';
+globalThis.__timing__.logStart('Load chunks/routes/api/guests.get');import { c as defineEventHandler, f as getQuery, h as findGuestByCode, e as createError, i as findGuestBySlug, j as findGuestByName, l as listGuests } from '../../_/nitro.mjs';
+import 'crypto';
 import 'fs/promises';
 import 'path';
 import 'node:http';

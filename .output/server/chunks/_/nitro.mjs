@@ -1,4 +1,5 @@
-import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};globalThis.__timing__.logStart('Load chunks/_/nitro');import { readFile as readFile$1, writeFile as writeFile$1 } from 'fs/promises';
+import process from 'node:process';globalThis._importMeta_=globalThis._importMeta_||{url:"file:///_entry.js",env:process.env};globalThis.__timing__.logStart('Load chunks/_/nitro');import { createHmac } from 'crypto';
+import { readFile as readFile$1, writeFile as writeFile$1 } from 'fs/promises';
 import { join as join$1 } from 'path';
 import http from 'node:http';
 import https from 'node:https';
@@ -4219,7 +4220,7 @@ function _expandFromEnv(value) {
 const _inlineRuntimeConfig = {
   "app": {
     "baseURL": "/",
-    "buildId": "679eba49-40f2-407c-ae03-1a3073438a51",
+    "buildId": "3eb2ef39-e4d5-4436-829d-78e567779d30",
     "buildAssetsDir": "/_nuxt/",
     "cdnURL": ""
   },
@@ -4635,12 +4636,89 @@ const assets = {
     "size": 324,
     "path": "../public/audio/README.txt"
   },
+  "/_nuxt/BCbLNzGw.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"f7-n1VVZ4LoHePT/F+3jucM1LRKWq4\"",
+    "mtime": "2026-08-30T16:36:37.663Z",
+    "size": 247,
+    "path": "../public/_nuxt/BCbLNzGw.js"
+  },
   "/audio/ucapan pembukaan.ogg": {
     "type": "audio/ogg",
     "etag": "\"83f0-Vn097/jJibqQVfJtBrywdTjMZaM\"",
     "mtime": "2026-06-11T04:56:38.840Z",
     "size": 33776,
     "path": "../public/audio/ucapan pembukaan.ogg"
+  },
+  "/_nuxt/BZ0Hp0pR.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"d40-ZL2VgvekTrNFCY3fuPVmhBu9aiQ\"",
+    "mtime": "2026-08-30T16:36:37.663Z",
+    "size": 3392,
+    "path": "../public/_nuxt/BZ0Hp0pR.js"
+  },
+  "/_nuxt/CGsQBd1T.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"b9-lt5rQt+FDHiN89VQ2PSiXPLbmPk\"",
+    "mtime": "2026-08-30T16:36:37.663Z",
+    "size": 185,
+    "path": "../public/_nuxt/CGsQBd1T.js"
+  },
+  "/_nuxt/BrDuEirF.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"aa1b-ZuSbf+8O1nb2sXocoItz8Np2CMw\"",
+    "mtime": "2026-08-30T16:36:37.673Z",
+    "size": 43547,
+    "path": "../public/_nuxt/BrDuEirF.js"
+  },
+  "/_nuxt/Cpff0790.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"249f-lC2Cn46hS5QBkzQYbFzxt6hnbhg\"",
+    "mtime": "2026-08-30T16:36:37.663Z",
+    "size": 9375,
+    "path": "../public/_nuxt/Cpff0790.js"
+  },
+  "/_nuxt/DHFNmQqb.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"27a-BY5Uy4d+8Zv0RA7pdSR5gNI8Xak\"",
+    "mtime": "2026-08-30T16:36:37.664Z",
+    "size": 634,
+    "path": "../public/_nuxt/DHFNmQqb.js"
+  },
+  "/_nuxt/DVu0p5X3.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": "\"19d-AjEHMc/EqlfcMLmAeZMuJmICehU\"",
+    "mtime": "2026-08-30T16:36:37.664Z",
+    "size": 413,
+    "path": "../public/_nuxt/DVu0p5X3.js"
+  },
+  "/_nuxt/entry.BAAZwy3w.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"4c3e-OScJX94VQmQ8xXEZ946bXctyVwo\"",
+    "mtime": "2026-08-30T16:36:37.658Z",
+    "size": 19518,
+    "path": "../public/_nuxt/entry.BAAZwy3w.css"
+  },
+  "/_nuxt/error-404.DL_4WIao.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"dca-KnjyV0UbpsrliiJzZx69defY74k\"",
+    "mtime": "2026-08-30T16:36:37.658Z",
+    "size": 3530,
+    "path": "../public/_nuxt/error-404.DL_4WIao.css"
+  },
+  "/_nuxt/error-500.I1Dtv2V5.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"75a-vEGyJqldBVJrnMfcLsrGaHcxYl0\"",
+    "mtime": "2026-08-30T16:36:37.658Z",
+    "size": 1882,
+    "path": "../public/_nuxt/error-500.I1Dtv2V5.css"
+  },
+  "/_nuxt/InvitationView.7JRVczYI.css": {
+    "type": "text/css; charset=utf-8",
+    "etag": "\"400d-pt9nNfy5nf4GcGCOkbntQwdBso4\"",
+    "mtime": "2026-08-30T16:36:37.658Z",
+    "size": 16397,
+    "path": "../public/_nuxt/InvitationView.7JRVczYI.css"
   },
   "/images/photo-1.jpeg": {
     "type": "image/jpeg",
@@ -4677,110 +4755,40 @@ const assets = {
     "size": 441,
     "path": "../public/images/README.txt"
   },
-  "/_nuxt/B1LIdUDx.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"b9-6TORCkoYucLn6qJrMcS0kF9zr8E\"",
-    "mtime": "2026-08-16T07:03:24.693Z",
-    "size": 185,
-    "path": "../public/_nuxt/B1LIdUDx.js"
-  },
-  "/_nuxt/Bjqrshi_.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"19d-rF1C55tjRvJaWE6iDV9RzavUiNc\"",
-    "mtime": "2026-08-16T07:03:24.692Z",
-    "size": 413,
-    "path": "../public/_nuxt/Bjqrshi_.js"
-  },
-  "/_nuxt/BiV-shLi.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"d40-Jb0p9CnrCSlJSrstK5aitJNSY8o\"",
-    "mtime": "2026-08-16T07:03:24.693Z",
-    "size": 3392,
-    "path": "../public/_nuxt/BiV-shLi.js"
-  },
-  "/_nuxt/C2tdr64X.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"249f-vnntH9BH4ud4iUdEqA5OWsksDHA\"",
-    "mtime": "2026-08-16T07:03:24.692Z",
-    "size": 9375,
-    "path": "../public/_nuxt/C2tdr64X.js"
-  },
-  "/_nuxt/BrDuEirF.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"aa1b-ZuSbf+8O1nb2sXocoItz8Np2CMw\"",
-    "mtime": "2026-08-16T07:03:24.693Z",
-    "size": 43547,
-    "path": "../public/_nuxt/BrDuEirF.js"
-  },
-  "/_nuxt/DGPWu_4b.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"f7-+XwOLmroja4P4S81LovOydlOgrY\"",
-    "mtime": "2026-08-16T07:03:24.692Z",
-    "size": 247,
-    "path": "../public/_nuxt/DGPWu_4b.js"
-  },
-  "/_nuxt/DKrAAKaY.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": "\"27a-OxzFuiBmh/V6y8GYAc0EhNP/g5M\"",
-    "mtime": "2026-08-16T07:03:24.693Z",
-    "size": 634,
-    "path": "../public/_nuxt/DKrAAKaY.js"
-  },
-  "/_nuxt/entry.CnvpvC6K.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"495e-BiHNLak6oU+LlBSctbQpCxD5EW4\"",
-    "mtime": "2026-08-16T07:03:24.686Z",
-    "size": 18782,
-    "path": "../public/_nuxt/entry.CnvpvC6K.css"
-  },
-  "/_nuxt/error-404.DL_4WIao.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"dca-KnjyV0UbpsrliiJzZx69defY74k\"",
-    "mtime": "2026-08-16T07:03:24.692Z",
-    "size": 3530,
-    "path": "../public/_nuxt/error-404.DL_4WIao.css"
-  },
-  "/_nuxt/error-500.I1Dtv2V5.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"75a-vEGyJqldBVJrnMfcLsrGaHcxYl0\"",
-    "mtime": "2026-08-16T07:03:24.692Z",
-    "size": 1882,
-    "path": "../public/_nuxt/error-500.I1Dtv2V5.css"
-  },
-  "/_nuxt/InvitationView.B-_xTLre.css": {
-    "type": "text/css; charset=utf-8",
-    "etag": "\"3d8c-5jyAZczdKwKp6+Ugj3r0yLypeAo\"",
-    "mtime": "2026-08-16T07:03:24.692Z",
-    "size": 15756,
-    "path": "../public/_nuxt/InvitationView.B-_xTLre.css"
-  },
   "/_nuxt/builds/latest.json": {
     "type": "application/json",
-    "etag": "\"47-IvvTYy9VXVXftk8aPFVbQTV0JYw\"",
-    "mtime": "2026-08-16T07:03:25.383Z",
+    "etag": "\"47-e0OQES41NpBGczTVRuD8Eeh/H+o\"",
+    "mtime": "2026-08-30T16:36:38.856Z",
     "size": 71,
     "path": "../public/_nuxt/builds/latest.json"
   },
-  "/_nuxt/builds/meta/679eba49-40f2-407c-ae03-1a3073438a51.json": {
+  "/_nuxt/builds/meta/3eb2ef39-e4d5-4436-829d-78e567779d30.json": {
     "type": "application/json",
-    "etag": "\"58-IGgeoCMCeJh3e5mmrglkHba3/Ng\"",
-    "mtime": "2026-08-16T07:03:25.384Z",
+    "etag": "\"58-Wn+6VPBvl7MvoXzet2jZlSRxte0\"",
+    "mtime": "2026-08-30T16:36:38.869Z",
     "size": 88,
-    "path": "../public/_nuxt/builds/meta/679eba49-40f2-407c-ae03-1a3073438a51.json"
+    "path": "../public/_nuxt/builds/meta/3eb2ef39-e4d5-4436-829d-78e567779d30.json"
   },
   "/_nuxt/D1zK5Eov.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"a6275-MN3K7klplmAH9Kor6Ev0aSgJoUQ\"",
-    "mtime": "2026-08-16T07:03:24.698Z",
+    "mtime": "2026-08-30T16:36:37.675Z",
     "size": 680565,
     "path": "../public/_nuxt/D1zK5Eov.js"
   },
-  "/_nuxt/_jl-Wl2x.js": {
+  "/_nuxt/builds/meta/dev.json": {
+    "type": "application/json",
+    "etag": "\"37-SFkIzcz7hsG4OvRsxMtzOujXBL0\"",
+    "mtime": "2026-08-30T16:36:14.402Z",
+    "size": 55,
+    "path": "../public/_nuxt/builds/meta/dev.json"
+  },
+  "/_nuxt/DrVyqQAU.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"13674-OtydPFAUDPOVigxj49RgwXhnShQ\"",
-    "mtime": "2026-08-16T07:03:24.693Z",
-    "size": 79476,
-    "path": "../public/_nuxt/_jl-Wl2x.js"
+    "etag": "\"12b71-QJQk8ejYBLCTLAxvhNaruVViOo4\"",
+    "mtime": "2026-08-30T16:36:37.664Z",
+    "size": 76657,
+    "path": "../public/_nuxt/DrVyqQAU.js"
   },
   "/audio/lagu.mp3": {
     "type": "audio/mpeg",
@@ -4792,16 +4800,16 @@ const assets = {
   "/_nuxt/CgAXP8uT.js": {
     "type": "text/javascript; charset=utf-8",
     "etag": "\"111eb-x7jd1OLVKHvjv+ouUDXfxR6f5gk\"",
-    "mtime": "2026-08-16T07:03:24.694Z",
+    "mtime": "2026-08-30T16:36:37.664Z",
     "size": 70123,
     "path": "../public/_nuxt/CgAXP8uT.js"
   },
-  "/_nuxt/CsA96CrL.js": {
+  "/_nuxt/CMBVRfSv.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": "\"2d273-Bx/P5d0LCGW0DK1uWpkseHZGAyg\"",
-    "mtime": "2026-08-16T07:03:24.693Z",
+    "etag": "\"2d273-U1JCD/V5HR7B5eGCUyQFws/aqqA\"",
+    "mtime": "2026-08-30T16:36:37.663Z",
     "size": 184947,
-    "path": "../public/_nuxt/CsA96CrL.js"
+    "path": "../public/_nuxt/CMBVRfSv.js"
   }
 };
 
@@ -5048,6 +5056,24 @@ function publicAssetsURL(...path) {
 	const app = useRuntimeConfig().app;
 	const publicBase = app.cdnURL || app.baseURL;
 	return path.length ? joinRelativeURL(publicBase, ...path) : publicBase;
+}
+
+const BOOTH_TOKEN_SECRET = process.env.BOOTH_TOKEN_SECRET || "default-secret-change-in-production";
+const BOOTH_TOKEN_EXPIRY_HOURS = 24;
+function generateBoothToken(data) {
+  const now = Date.now();
+  const expiryTime = now + BOOTH_TOKEN_EXPIRY_HOURS * 60 * 60 * 1e3;
+  const payload = {
+    id: data.guestId,
+    name: data.name,
+    attending: data.attending,
+    iat: now,
+    exp: expiryTime
+  };
+  const payloadStr = JSON.stringify(payload);
+  const payloadB64 = Buffer.from(payloadStr).toString("base64url");
+  const signature = createHmac("sha256", BOOTH_TOKEN_SECRET).update(payloadB64).digest("base64url");
+  return `${payloadB64}.${signature}`;
 }
 
 const guestsData = [
@@ -6413,8 +6439,8 @@ const guestsData = [
 	},
 	{
 		code: "YUD016",
-		name: "Malisa (Kantor)",
-		slug: "malisa-kantor",
+		name: "claudias (manggala)",
+		slug: "claudias-manggala",
 		side: "yudha",
 		relation: "TY",
 		status: "pending"
@@ -7253,8 +7279,8 @@ const guestsData = [
 	},
 	{
 		code: "YUD121",
-		name: "Dhima (SAN)",
-		slug: "dhima-san",
+		name: "dimas manggala",
+		slug: "dimas-manggala",
 		side: "yudha",
 		relation: null,
 		status: "pending"
@@ -7614,7 +7640,7 @@ const guestsData = [
 	{
 		code: "YUD162",
 		name: "wili (GIBEI)",
-		slug: "wili-gibeI",
+		slug: "wili-gibei",
 		side: "yudha",
 		relation: null,
 		status: "pending"
@@ -7869,8 +7895,8 @@ const guestsData = [
 	},
 	{
 		code: "YUD193",
-		name: "andini (San) ",
-		slug: "andini-san",
+		name: "Mas Amin ",
+		slug: "mas-amin",
 		side: "yudha",
 		relation: null,
 		status: "pending"
@@ -7911,6 +7937,22 @@ const guestsData = [
 		code: "YUD198",
 		name: "Arya ",
 		slug: "Arya ",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD199",
+		name: "Mas Drajat ",
+		slug: "Mas-Drajat ",
+		side: "yudha",
+		relation: null,
+		status: "pending"
+	},
+	{
+		code: "YUD200",
+		name: "Mas teo ",
+		slug: "Mas-Teo ",
 		side: "yudha",
 		relation: null,
 		status: "pending"
@@ -7990,8 +8032,7 @@ const mapRow = (row) => ({
   name: row.name,
   attending: row.attending,
   message: row.message || "",
-  timestamp: row.created_at,
-  guestSlug: row.guest_slug || void 0
+  timestamp: row.created_at
 });
 const readJsonEntries = async () => {
   try {
@@ -8008,7 +8049,7 @@ const listRsvpEntries = async () => {
   var _a;
   if (isSupabaseConfigured()) {
     const supabase = await getSupabase();
-    const { data, error } = await supabase.from(TABLE).select("id, name, attending, message, created_at, guest_slug").order("created_at", { ascending: false });
+    const { data, error } = await supabase.from(TABLE).select("id, name, attending, message, created_at").order("created_at", { ascending: false });
     if (error) {
       console.error("[rsvpStore.listRsvpEntries]", error);
       throw error;
@@ -8022,13 +8063,26 @@ const createRsvpEntry = async (input) => {
   var _a;
   const payload = {
     name: input.name.trim(),
-    attending: Boolean(input.attending),
-    message: (input.message || "").trim(),
-    guest_slug: ((_a = input.guestSlug) == null ? void 0 : _a.trim()) || null
+    attending: input.attending === true,
+    message: (input.message || "").trim()
   };
   if (isSupabaseConfigured()) {
     const supabase = await getSupabase();
-    const { data, error } = await supabase.from(TABLE).insert(payload).select("id, name, attending, message, created_at, guest_slug");
+    const guest = input.guestSlug ? findGuestBySlug(input.guestSlug) : null;
+    const matchName = (guest == null ? void 0 : guest.name) || payload.name;
+    const updatePayload = {
+      name: payload.name,
+      attending: payload.attending,
+      message: payload.message
+    };
+    const { data: existingByName, error: nameLookupError } = await supabase.from(TABLE).select("id").ilike("name", matchName).order("created_at", { ascending: false }).limit(1);
+    if (!nameLookupError && ((_a = existingByName == null ? void 0 : existingByName[0]) == null ? void 0 : _a.id)) {
+      const { data: data2, error: error2 } = await supabase.from(TABLE).update(updatePayload).eq("id", existingByName[0].id).select("id, name, attending, message, created_at");
+      if (error2) throw error2;
+      const row2 = data2 == null ? void 0 : data2[0];
+      if (row2) return mapRow(row2);
+    }
+    const { data, error } = await supabase.from(TABLE).insert(payload).select("id, name, attending, message, created_at");
     if (error) {
       console.error("[rsvpStore.createRsvpEntry]", error);
       throw error;
@@ -8051,17 +8105,48 @@ const createRsvpEntry = async (input) => {
     name: payload.name,
     attending: payload.attending,
     message: payload.message,
-    guestSlug: payload.guest_slug || void 0,
     timestamp: (/* @__PURE__ */ new Date()).toISOString()
   };
   const existing = await readJsonEntries();
-  existing.push(entry);
+  const existingIndex = existing.findIndex(
+    (item) => item.name.toLowerCase().trim() === entry.name.toLowerCase().trim()
+  );
+  if (existingIndex >= 0) {
+    existing[existingIndex] = { ...existing[existingIndex], ...entry, id: existing[existingIndex].id };
+  } else {
+    existing.push(entry);
+  }
   await writeJsonEntries(existing);
-  return entry;
+  return existingIndex >= 0 ? existing[existingIndex] : entry;
 };
 const listMessageEntries = async () => {
   const entries = await listRsvpEntries();
-  return entries.filter((entry) => entry.message.length > 0);
+  return entries.filter((entry) => {
+    const msg = (entry.message || "").trim();
+    return msg.length > 0;
+  });
+};
+const getRsvpStatusBySlug = async (slug) => {
+  if (!slug) return null;
+  const guest = findGuestBySlug(slug);
+  if (!guest) return null;
+  const entries = await listRsvpEntries();
+  const normalizedGuestName = guest.name.toLowerCase().trim();
+  const entry = entries.find((e) => e.name.toLowerCase().trim() === normalizedGuestName);
+  if (entry) {
+    return {
+      id: entry.id,
+      name: entry.name,
+      attending: entry.attending === true ? true : entry.attending === false ? false : null,
+      message: entry.message
+    };
+  }
+  return {
+    id: guest.slug,
+    name: guest.name,
+    attending: null,
+    message: ""
+  };
 };
 
 const _Y76z0a = lazyEventHandler(() => {
@@ -8082,18 +8167,22 @@ const _Y76z0a = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
+const _lazy_VznU_g = () => import('../routes/api/booth-token.post.mjs');
 const _lazy_eL1oQ8 = () => import('../routes/api/guests.get.mjs');
 const _lazy_C38VIC = () => import('../routes/api/health.get.mjs');
 const _lazy_2AX1a9 = () => import('../routes/api/messages.get.mjs');
+const _lazy_GLOTe5 = () => import('../routes/api/rsvp-status.get.mjs');
 const _lazy_8fmYPf = () => import('../routes/api/rsvp.get.mjs');
 const _lazy_P8r2ZQ = () => import('../routes/api/rsvp.post.mjs');
 const _lazy_ZlUySw = () => import('../routes/renderer.mjs');
 
 const handlers = [
   { route: '', handler: _tp8H4f, lazy: false, middleware: true, method: undefined },
+  { route: '/api/booth-token', handler: _lazy_VznU_g, lazy: true, middleware: false, method: "post" },
   { route: '/api/guests', handler: _lazy_eL1oQ8, lazy: true, middleware: false, method: "get" },
   { route: '/api/health', handler: _lazy_C38VIC, lazy: true, middleware: false, method: "get" },
   { route: '/api/messages', handler: _lazy_2AX1a9, lazy: true, middleware: false, method: "get" },
+  { route: '/api/rsvp-status', handler: _lazy_GLOTe5, lazy: true, middleware: false, method: "get" },
   { route: '/api/rsvp', handler: _lazy_8fmYPf, lazy: true, middleware: false, method: "get" },
   { route: '/api/rsvp', handler: _lazy_P8r2ZQ, lazy: true, middleware: false, method: "post" },
   { route: '/__nuxt_error', handler: _lazy_ZlUySw, lazy: true, middleware: false, method: undefined },
@@ -8489,5 +8578,5 @@ function setupGracefulShutdown(listener, nitroApp) {
   });
 }
 
-export { getResponseStatus as A, trapUnhandledNodeErrors as a, useNitroApp as b, defineEventHandler as c, destr as d, createError$1 as e, findGuestByCode as f, getQuery as g, findGuestBySlug as h, findGuestByName as i, isSupabaseConfigured as j, isServerlessProduction as k, listGuests as l, listMessageEntries as m, listRsvpEntries as n, createRsvpEntry as o, getErrorMessage as p, buildAssetsURL as q, readBody as r, setupGracefulShutdown as s, toNodeListener as t, useRuntimeConfig as u, publicAssetsURL as v, encodePath as w, defineRenderHandler as x, getRouteRules as y, getResponseStatusText as z };;globalThis.__timing__.logEnd('Load chunks/_/nitro');
+export { getRouteRules as A, getResponseStatusText as B, getResponseStatus as C, trapUnhandledNodeErrors as a, useNitroApp as b, defineEventHandler as c, destr as d, createError$1 as e, getQuery as f, generateBoothToken as g, findGuestByCode as h, findGuestBySlug as i, findGuestByName as j, isSupabaseConfigured as k, listGuests as l, isServerlessProduction as m, listMessageEntries as n, getRsvpStatusBySlug as o, listRsvpEntries as p, createRsvpEntry as q, readBody as r, setupGracefulShutdown as s, toNodeListener as t, useRuntimeConfig as u, getErrorMessage as v, buildAssetsURL as w, publicAssetsURL as x, encodePath as y, defineRenderHandler as z };;globalThis.__timing__.logEnd('Load chunks/_/nitro');
 //# sourceMappingURL=nitro.mjs.map

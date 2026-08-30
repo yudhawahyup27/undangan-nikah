@@ -1,4 +1,5 @@
-globalThis.__timing__.logStart('Load chunks/routes/api/rsvp.post');import { c as defineEventHandler, r as readBody, e as createError, o as createRsvpEntry, p as getErrorMessage } from '../../_/nitro.mjs';
+globalThis.__timing__.logStart('Load chunks/routes/api/rsvp.post');import { c as defineEventHandler, r as readBody, e as createError, q as createRsvpEntry, v as getErrorMessage } from '../../_/nitro.mjs';
+import 'crypto';
 import 'fs/promises';
 import 'path';
 import 'node:http';

@@ -1,259 +1,207 @@
 <template>
-  <section id="rsvp-scene" class="scene relative py-32 px-8" style="min-height:100vh; overflow:hidden">
-    <!-- Subtle grid pattern -->
-    <div class="absolute inset-0 pointer-events-none" style="
-      background-image: linear-gradient(rgba(201,168,76,0.03) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(201,168,76,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-    "/>
+  <section id="rsvp-scene" class="scene relative py-32 px-6" style="min-height:100vh">
+    <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 50% 45%, rgba(201,168,76,0.06) 0%, transparent 62%)" />
 
-    <!-- Title -->
-    <div ref="titleRef" class="text-center mb-16 relative" style="z-index:2">
-      <p class="font-josefin text-xs tracking-[0.5em] text-gold/50 uppercase mb-4">RSVP</p>
-      <h2 class="font-cormorant font-light text-cream" style="font-size:clamp(2.2rem,5vw,4rem)">
-        Konfirmasi <em class="text-gold/80">Kehadiran</em>
-      </h2>
+    <div ref="titleRef" class="text-center mb-10 relative" style="z-index:2">
+      <p class="font-josefin text-xs tracking-[0.5em] text-gold/50 uppercase mb-4">Konfirmasi Kehadiran</p>
+      <h2 class="font-cormorant font-light text-cream" style="font-size:clamp(2.2rem,5vw,4rem)">RSVP</h2>
       <div class="section-divider mt-6" />
     </div>
 
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 relative" style="z-index:2">
-      <!-- Form -->
-      <div ref="formRef" class="glass-card p-8 md:p-10">
-        <h3 class="font-cormorant text-cream mb-8" style="font-size:1.4rem">
-          Isi Konfirmasi Anda
-        </h3>
+    <div ref="formRef" class="rsvp-card glass-card w-full max-w-[620px] p-6 sm:p-8 relative" style="z-index:2">
+      <div v-if="loadingStatus" class="status-copy text-center">Memuat konfirmasi...</div>
 
-        <div v-if="guestAttendanceLabel" class="mb-6 rounded border border-gold/20 bg-gold/5 px-4 py-3">
-          <p class="font-josefin text-[0.62rem] tracking-[0.2em] uppercase text-gold/60">Status Kehadiran Anda</p>
-          <p class="mt-1 font-cormorant text-cream/85">{{ guestAttendanceLabel }}</p>
-        </div>
-
-        <form @submit.prevent="handleSubmit" class="space-y-6">
-          <!-- Name -->
-          <div>
-            <label class="font-josefin text-xs tracking-[0.3em] text-gold/60 uppercase block mb-2">Nama Lengkap</label>
-            <input
-              v-model="form.name"
-              type="text"
-              class="form-input"
-              placeholder="Masukkan nama Anda"
-              required
-            />
-          </div>
-
-          <!-- Attending -->
-          <div>
-            <label class="font-josefin text-xs tracking-[0.3em] text-gold/60 uppercase block mb-3">Kehadiran</label>
-            <div class="flex gap-3">
-              <button
-                type="button"
-                class="radio-option flex-1 text-center"
-                :class="{ selected: form.attending === true }"
-                @click="selectAttending(true)"
-              >
-                ✓ &nbsp; Akan Hadir
-              </button>
-              <button
-                type="button"
-                class="radio-option flex-1 text-center"
-                :class="{ selected: form.attending === false }"
-                @click="selectAttending(false)"
-              >
-                ✗ &nbsp; Tidak Bisa Hadir
-              </button>
-            </div>
-          </div>
-
-          <!-- Message -->
-          <div>
-            <label class="font-josefin text-xs tracking-[0.3em] text-gold/60 uppercase block mb-2">Ucapan & Doa</label>
-            <textarea
-              v-model="form.message"
-              class="form-input resize-none"
-              rows="4"
-              placeholder="Tuliskan ucapan dan doa terbaik Anda..."
-            />
-          </div>
-
-          <!-- Submit -->
-          <button
-            type="submit"
-            class="btn-primary w-full"
-            :disabled="isSubmitting"
-          >
-            <span v-if="!isSubmitting">Kirim Konfirmasi</span>
-            <span v-else>Mengirim...</span>
-          </button>
-
-          <!-- Success -->
-          <div v-if="submitSuccess" class="text-center py-4">
-            <p class="font-cormorant text-gold/80 italic" style="font-size:1rem; line-height:1.7">
-              {{ successMessage }}
-            </p>
-          </div>
-        </form>
+      <div v-else-if="!editing && currentStatus === true" class="text-center">
+        <div class="status-mark">✓ HADIR</div>
+        <p class="status-copy">Terima kasih, kehadiranmu sudah tercatat.</p>
+        <p class="status-copy">Sampai bertemu di hari bahagia kami.</p>
+        <button type="button" class="choice-btn mt-7" @click="editConfirmation">Ubah Konfirmasi</button>
       </div>
 
-      <!-- Messages feed -->
-      <div ref="messagesRef">
-        <h3 class="font-cormorant text-cream mb-8" style="font-size:1.4rem">
-          Ucapan & Doa
-        </h3>
-
-        <div class="space-y-4 max-h-[500px] overflow-y-auto pr-2" style="scrollbar-width:thin; scrollbar-color: rgba(201,168,76,0.3) transparent">
-          <div
-            v-for="entry in entries"
-            :key="entry.id"
-            class="message-card glass-card p-6"
-          >
-            <div class="flex items-start gap-4">
-              <div class="avatar flex-shrink-0">
-                {{ entry.name.charAt(0).toUpperCase() }}
-              </div>
-              <div class="min-w-0 flex-1">
-                <div class="flex flex-wrap items-center gap-2 mb-2">
-                  <p class="font-josefin text-xs tracking-[0.2em] text-gold/70 uppercase">{{ entry.name }}</p>
-                  <span
-                    class="attendance-badge"
-                    :class="entry.attending ? 'attendance-badge--yes' : 'attendance-badge--no'"
-                  >
-                    {{ entry.attending ? '✓ Akan Hadir' : '✗ Tidak Bisa Hadir' }}
-                  </span>
-                </div>
-                <p
-                  v-if="entry.message"
-                  class="font-cormorant text-cream/70"
-                  style="font-size:1rem; line-height:1.7"
-                >
-                  {{ entry.message }}
-                </p>
-                <p v-else class="font-cormorant text-cream/35 italic" style="font-size:0.95rem">
-                  Konfirmasi kehadiran tanpa ucapan.
-                </p>
-                <p class="font-josefin text-xs text-cream/25 mt-2">{{ formatDate(entry.timestamp) }}</p>
-              </div>
-            </div>
-          </div>
-
-          <div v-if="entries.length === 0" class="text-center py-8">
-            <p class="font-cormorant text-cream/30 italic">Belum ada ucapan. Jadilah yang pertama!</p>
-          </div>
-        </div>
+      <div v-else-if="!editing && currentStatus === false" class="text-center">
+        <div class="status-mark">TIDAK HADIR</div>
+        <p class="status-copy">Terima kasih sudah mengabari kami.</p>
+        <p class="status-copy">Walaupun belum bisa hadir secara langsung, doa dan ucapanmu tetap berarti bagi kami.</p>
+        <button type="button" class="choice-btn mt-7" @click="editConfirmation">Ubah Konfirmasi</button>
       </div>
+
+      <form v-else @submit.prevent="submitRsvp">
+        <p class="status-copy mb-5 text-center">Apakah kamu akan hadir di hari bahagia kami?</p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+          <button type="button" class="choice-btn" :class="{ active: form.attending === true }" @click="form.attending = true">Ya, Saya Akan Hadir</button>
+          <button type="button" class="choice-btn" :class="{ active: form.attending === false }" @click="form.attending = false">Maaf, Saya Belum Bisa Hadir</button>
+        </div>
+
+        <label class="field-label" for="rsvp-name">Nama</label>
+        <input id="rsvp-name" v-model.trim="form.name" class="rsvp-input" type="text" autocomplete="name" required>
+
+        <label class="field-label mt-6" for="rsvp-message">Ucapan & Doa untuk Yudha & Ima</label>
+        <textarea id="rsvp-message" v-model="form.message" class="rsvp-input min-h-[120px] resize-none" maxlength="500" placeholder="Tulis doa atau ucapan..." />
+
+        <button class="btn-primary w-full mt-7" type="submit" :disabled="submitting">
+          {{ submitting ? 'Mengirim...' : 'Kirim Konfirmasi' }}
+        </button>
+      </form>
+    </div>
+
+    <div ref="messagesRef" class="w-full max-w-[720px] mt-12 relative" style="z-index:2">
+      <h3 class="font-cormorant text-cream/80 text-center mb-5" style="font-size:1.5rem">Ucapan & Doa</h3>
+      <p v-if="loadingMessages" class="text-center font-cormorant text-cream/40">Memuat ucapan...</p>
+      <p v-else-if="messagesError" class="text-center font-cormorant text-cream/40">Ucapan belum dapat dimuat.</p>
+      <div v-else-if="messages.length > 0" class="space-y-4 max-h-[500px] overflow-y-auto pr-2">
+        <article v-for="item in messages" :key="item.id" class="message-item">
+          <div class="flex items-center justify-between gap-4 mb-2">
+            <p class="font-josefin text-gold text-sm">{{ item.name }}</p>
+            <p class="font-josefin text-cream/30 text-xs">{{ formatDate(item.timestamp) }}</p>
+          </div>
+          <p class="font-cormorant text-cream/70 leading-relaxed">{{ item.message }}</p>
+        </article>
+      </div>
+      <p v-else class="text-center font-cormorant text-cream/40">Belum ada ucapan. Jadilah yang pertama!</p>
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, onMounted, watch } from 'vue'
+import { onMounted, reactive, ref, watch } from 'vue'
 import { useToast } from '~/composables/useToast'
-import { getRandomRsvpResponse } from '~/composables/useRsvpResponses'
 
-type RsvpEntry = {
+type RsvpMessage = {
   id: string
   name: string
-  attending: boolean
+  attending: boolean | null
   message: string
   timestamp: string
-  guestSlug?: string
 }
+
+type RsvpStatus = {
+  id: string | null
+  name: string | null
+  attending: boolean | null
+  message: string
+}
+
+const { guestName, guestSlug } = useGuest()
+const { show: showToast } = useToast()
 
 const titleRef = ref<HTMLElement | null>(null)
 const formRef = ref<HTMLElement | null>(null)
 const messagesRef = ref<HTMLElement | null>(null)
+const submitting = ref(false)
+const loadingStatus = ref(false)
+const loadingMessages = ref(false)
+const messagesError = ref(false)
+const editing = ref(false)
+const currentStatus = ref<boolean | null>(null)
+const messages = ref<RsvpMessage[]>([])
 
-const form = reactive({ name: '', attending: true as boolean | null, message: '' })
-const isSubmitting = ref(false)
-const submitSuccess = ref(false)
-const successMessage = ref('')
-const entries = ref<RsvpEntry[]>([])
-const { guestName, guestSlug } = useGuest()
-const { show: showToast } = useToast()
-
-const guestAttendance = computed<boolean | null>(() => {
-  if (!guestSlug.value) return null
-  return entries.value.find(entry => entry.guestSlug === guestSlug.value)?.attending ?? null
+const form = reactive({
+  name: '',
+  attending: null as boolean | null,
+  message: '',
 })
-
-const guestAttendanceLabel = computed(() => {
-  if (guestAttendance.value === null) return 'Belum dikonfirmasi'
-  return guestAttendance.value ? '✓ Akan Hadir' : '✗ Tidak Bisa Hadir'
-})
-
-const selectAttending = (attending: boolean) => {
-  form.attending = attending
-  submitSuccess.value = false
-}
-
-const pickSuccessMessage = (attending: boolean) => getRandomRsvpResponse(attending)
 
 watch(guestName, (name) => {
   if (name && !form.name) form.name = name
 }, { immediate: true })
 
-const formatDate = (ts: string) => {
+const restoreStatus = async () => {
+  if (!guestSlug.value) return
+  loadingStatus.value = true
   try {
-    return new Date(ts).toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' })
-  } catch { return '' }
-}
-
-const fetchEntries = async () => {
-  try {
-    const res = await fetch('/api/rsvp')
-    if (res.ok) entries.value = await res.json()
-  } catch {}
-}
-
-const handleSubmit = async () => {
-  if (form.attending === null) return
-  isSubmitting.value = true
-  try {
-    const res = await fetch('/api/rsvp', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ ...form, guestSlug: guestSlug.value })
-    })
-    if (res.ok) {
-      const attending = form.attending!
-      successMessage.value = pickSuccessMessage(attending)
-      submitSuccess.value = true
-      showToast(successMessage.value, 4000)
-      form.name = ''
-      form.attending = true
-      form.message = ''
-      await fetchEntries()
-    } else {
-      const error = await res.json().catch(() => null)
-      showToast(error?.statusMessage || error?.message || 'Konfirmasi gagal dikirim.', 4000)
-    }
+    const status = await $fetch<RsvpStatus>(`/api/rsvp-status?slug=${encodeURIComponent(guestSlug.value)}`)
+    currentStatus.value = status.attending === true ? true : status.attending === false ? false : null
+    form.name = status.name || guestName.value || form.name
+    form.attending = currentStatus.value
+    form.message = status.message || ''
+    editing.value = currentStatus.value === null
   } catch {
-    showToast('Tidak dapat menghubungi server. Silakan coba lagi.', 4000)
+    currentStatus.value = null
+    editing.value = true
   } finally {
-    isSubmitting.value = false
+    loadingStatus.value = false
+  }
+}
+
+const loadMessages = async () => {
+  loadingMessages.value = true
+  messagesError.value = false
+  try {
+    const data = await $fetch<RsvpMessage[]>('/api/messages')
+    messages.value = data.filter(item => (item.message || '').trim().length > 0)
+  } catch {
+    messages.value = []
+    messagesError.value = true
+  } finally {
+    loadingMessages.value = false
+  }
+}
+
+const editConfirmation = () => {
+  form.attending = currentStatus.value
+  editing.value = true
+}
+
+const submitRsvp = async () => {
+  if (!form.name || form.attending === null) {
+    showToast('Lengkapi nama dan status kehadiran')
+    return
+  }
+
+  submitting.value = true
+  try {
+    const response = await $fetch<{ success: boolean; data: RsvpMessage }>('/api/rsvp', {
+      method: 'POST',
+      body: {
+        name: form.name,
+        attending: form.attending,
+        message: form.message,
+        guestSlug: guestSlug.value,
+      },
+    })
+
+    currentStatus.value = response.data.attending === true ? true : response.data.attending === false ? false : null
+    form.message = response.data.message
+    editing.value = currentStatus.value === null
+    showToast(currentStatus.value ? 'Terima kasih, kehadiranmu sudah tercatat.' : 'Terima kasih sudah mengabari kami.')
+    await loadMessages()
+  } catch {
+    showToast('RSVP gagal dikirim')
+  } finally {
+    submitting.value = false
+  }
+}
+
+const formatDate = (value: string) => {
+  try {
+    return new Intl.DateTimeFormat('id-ID', { day: '2-digit', month: 'short' }).format(new Date(value))
+  } catch {
+    return ''
   }
 }
 
 onMounted(async () => {
-  await fetchEntries()
+  await Promise.all([restoreStatus(), loadMessages()])
   if (!process.client) return
+
   const { gsap } = await import('gsap')
   const { ScrollTrigger } = await import('gsap/ScrollTrigger')
   gsap.registerPlugin(ScrollTrigger)
 
-  const scene = document.getElementById('rsvp-scene')!
-  ;[titleRef.value, formRef.value, messagesRef.value].filter(Boolean).forEach((el, i) => {
+  const scene = document.getElementById('rsvp-scene')
+  if (!scene) return
+
+  ;[titleRef.value, formRef.value, messagesRef.value].filter(Boolean).forEach((el, index) => {
     gsap.fromTo(el,
-      { opacity: 0, y: 60 },
+      { opacity: 0, y: 45 },
       {
-        opacity: 1, y: 0,
-        duration: 1.1,
-        delay: i * 0.15,
+        opacity: 1,
+        y: 0,
+        duration: 0.9,
+        delay: index * 0.08,
         ease: 'power3.out',
-        scrollTrigger: {
-          trigger: scene,
-          start: 'top 80%',
-          toggleActions: 'play none none none'
-        }
+        scrollTrigger: { trigger: scene, start: 'top 80%', toggleActions: 'play none none none' },
       }
     )
   })
@@ -261,46 +209,85 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-.avatar {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  background: rgba(201,168,76,0.12);
-  border: 1px solid rgba(201,168,76,0.25);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.rsvp-card {
+  border-radius: 8px;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: rgba(201, 168, 76, 0.65);
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.8rem;
-  color: var(--color-gold);
-  flex-shrink: 0;
-}
-.message-card {
-  transition: border-color 0.3s ease;
-}
-.message-card:hover {
-  border-color: rgba(201,168,76,0.3);
-}
-.attendance-badge {
-  display: inline-flex;
-  align-items: center;
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.62rem;
-  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  padding: 3px 10px;
-  border-radius: 100px;
-  border: 1px solid transparent;
-  white-space: nowrap;
 }
-.attendance-badge--yes {
-  color: #8FAF8A;
-  background: rgba(143, 175, 138, 0.12);
-  border-color: rgba(143, 175, 138, 0.35);
+
+.status-mark {
+  color: var(--color-gold);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: clamp(1.35rem, 6vw, 2rem);
+  letter-spacing: 0.18em;
+  margin-bottom: 1rem;
 }
-.attendance-badge--no {
-  color: rgba(245, 238, 215, 0.45);
+
+.status-copy {
+  color: rgba(245, 238, 215, 0.62);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+.rsvp-input {
+  width: 100%;
   background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(245, 238, 215, 0.15);
+  border: 1px solid rgba(201, 168, 76, 0.18);
+  border-radius: 6px;
+  color: var(--color-cream);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  outline: none;
+  padding: 0.9rem 1rem;
+}
+
+.rsvp-input:focus {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(201, 168, 76, 0.55);
+}
+
+.choice-btn {
+  min-height: 48px;
+  border: 1px solid rgba(201, 168, 76, 0.2);
+  border-radius: 6px;
+  background: rgba(201, 168, 76, 0.04);
+  color: rgba(245, 238, 215, 0.7);
+  cursor: pointer;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.76rem;
+  letter-spacing: 0.1em;
+  padding: 0.85rem 1rem;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  white-space: normal;
+}
+
+.choice-btn.active,
+.choice-btn:hover {
+  background: rgba(201, 168, 76, 0.14);
+  border-color: rgba(201, 168, 76, 0.62);
+  color: var(--color-gold);
+}
+
+.btn-primary:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.message-item {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid rgba(201, 168, 76, 0.12);
+  border-radius: 8px;
+  padding: 1rem;
 }
 </style>

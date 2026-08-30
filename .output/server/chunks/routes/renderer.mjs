@@ -1,9 +1,10 @@
 globalThis.__timing__.logStart('Load chunks/routes//renderer');import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'vue-bundle-renderer/runtime';
-import { q as buildAssetsURL, v as publicAssetsURL, u as useRuntimeConfig, w as encodePath, x as defineRenderHandler, g as getQuery, e as createError, y as getRouteRules, z as getResponseStatusText, A as getResponseStatus, b as useNitroApp } from '../_/nitro.mjs';
+import { w as buildAssetsURL, x as publicAssetsURL, u as useRuntimeConfig, y as encodePath, z as defineRenderHandler, f as getQuery, e as createError, A as getRouteRules, B as getResponseStatusText, C as getResponseStatus, b as useNitroApp } from '../_/nitro.mjs';
 import { createHead as createHead$1, propsToString, renderSSRHead } from 'unhead/server';
 import { stringify, uneval } from 'devalue';
 import { isRef, toValue } from 'vue';
 import { DeprecationsPlugin, PromisesPlugin, TemplateParamsPlugin, AliasSortingPlugin } from 'unhead/plugins';
+import 'crypto';
 import 'fs/promises';
 import 'path';
 import 'node:http';

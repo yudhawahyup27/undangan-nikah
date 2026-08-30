@@ -22,6 +22,7 @@ export const GiftScene: typeof import("../components/scenes/GiftScene.vue")['def
 export const IntroScene: typeof import("../components/scenes/IntroScene.vue")['default']
 export const LoveStoryScene: typeof import("../components/scenes/LoveStoryScene.vue")['default']
 export const OpeningScene: typeof import("../components/scenes/OpeningScene.vue")['default']
+export const PhotoBoothScene: typeof import("../components/scenes/PhotoBoothScene.vue")['default']
 export const QuizScene: typeof import("../components/scenes/QuizScene.vue")['default']
 export const RSVPScene: typeof import("../components/scenes/RSVPScene.vue")['default']
 export const StatsScene: typeof import("../components/scenes/StatsScene.vue")['default']
@@ -59,6 +60,7 @@ export const LazyGiftScene: LazyComponent<typeof import("../components/scenes/Gi
 export const LazyIntroScene: LazyComponent<typeof import("../components/scenes/IntroScene.vue")['default']>
 export const LazyLoveStoryScene: LazyComponent<typeof import("../components/scenes/LoveStoryScene.vue")['default']>
 export const LazyOpeningScene: LazyComponent<typeof import("../components/scenes/OpeningScene.vue")['default']>
+export const LazyPhotoBoothScene: LazyComponent<typeof import("../components/scenes/PhotoBoothScene.vue")['default']>
 export const LazyQuizScene: LazyComponent<typeof import("../components/scenes/QuizScene.vue")['default']>
 export const LazyRSVPScene: LazyComponent<typeof import("../components/scenes/RSVPScene.vue")['default']>
 export const LazyStatsScene: LazyComponent<typeof import("../components/scenes/StatsScene.vue")['default']>

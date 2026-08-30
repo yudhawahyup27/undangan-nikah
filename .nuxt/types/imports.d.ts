@@ -144,6 +144,7 @@ declare global {
   const useNuxtApp: typeof import('../../node_modules/nuxt/dist/app/nuxt').useNuxtApp
   const useNuxtData: typeof import('../../node_modules/nuxt/dist/app/composables/asyncData').useNuxtData
   const useParallax: typeof import('../../composables/useGSAP').useParallax
+  const usePhotoBoothState: typeof import('../../composables/usePhotoBoothState').usePhotoBoothState
   const usePreviewMode: typeof import('../../node_modules/nuxt/dist/app/composables/preview').usePreviewMode
   const useRequestEvent: typeof import('../../node_modules/nuxt/dist/app/composables/ssr').useRequestEvent
   const useRequestFetch: typeof import('../../node_modules/nuxt/dist/app/composables/ssr').useRequestFetch
@@ -233,6 +234,9 @@ declare global {
   // @ts-ignore
   export type { Guest } from '../../composables/useGuest'
   import('../../composables/useGuest')
+  // @ts-ignore
+  export type { PhotoBoothMode, PhotoBoothState } from '../../composables/usePhotoBoothState'
+  import('../../composables/usePhotoBoothState')
   // @ts-ignore
   export type { QuizAnswer, QuizQuestion } from '../../composables/useQuizGame'
   import('../../composables/useQuizGame')
@@ -387,6 +391,7 @@ declare module 'vue' {
     readonly useNuxtApp: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/nuxt')['useNuxtApp']>
     readonly useNuxtData: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/asyncData')['useNuxtData']>
     readonly useParallax: UnwrapRef<typeof import('../../composables/useGSAP')['useParallax']>
+    readonly usePhotoBoothState: UnwrapRef<typeof import('../../composables/usePhotoBoothState')['usePhotoBoothState']>
     readonly usePreviewMode: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/preview')['usePreviewMode']>
     readonly useRequestEvent: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['useRequestEvent']>
     readonly useRequestFetch: UnwrapRef<typeof import('../../node_modules/nuxt/dist/app/composables/ssr')['useRequestFetch']>

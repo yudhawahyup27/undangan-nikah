@@ -22,6 +22,7 @@ interface _GlobalComponents {
   IntroScene: typeof import("../../components/scenes/IntroScene.vue")['default']
   LoveStoryScene: typeof import("../../components/scenes/LoveStoryScene.vue")['default']
   OpeningScene: typeof import("../../components/scenes/OpeningScene.vue")['default']
+  PhotoBoothScene: typeof import("../../components/scenes/PhotoBoothScene.vue")['default']
   QuizScene: typeof import("../../components/scenes/QuizScene.vue")['default']
   RSVPScene: typeof import("../../components/scenes/RSVPScene.vue")['default']
   StatsScene: typeof import("../../components/scenes/StatsScene.vue")['default']
@@ -59,6 +60,7 @@ interface _GlobalComponents {
   LazyIntroScene: LazyComponent<typeof import("../../components/scenes/IntroScene.vue")['default']>
   LazyLoveStoryScene: LazyComponent<typeof import("../../components/scenes/LoveStoryScene.vue")['default']>
   LazyOpeningScene: LazyComponent<typeof import("../../components/scenes/OpeningScene.vue")['default']>
+  LazyPhotoBoothScene: LazyComponent<typeof import("../../components/scenes/PhotoBoothScene.vue")['default']>
   LazyQuizScene: LazyComponent<typeof import("../../components/scenes/QuizScene.vue")['default']>
   LazyRSVPScene: LazyComponent<typeof import("../../components/scenes/RSVPScene.vue")['default']>
   LazyStatsScene: LazyComponent<typeof import("../../components/scenes/StatsScene.vue")['default']>

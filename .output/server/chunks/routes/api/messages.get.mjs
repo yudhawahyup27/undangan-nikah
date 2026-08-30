@@ -1,4 +1,5 @@
-globalThis.__timing__.logStart('Load chunks/routes/api/messages.get');import { c as defineEventHandler, m as listMessageEntries } from '../../_/nitro.mjs';
+globalThis.__timing__.logStart('Load chunks/routes/api/messages.get');import { c as defineEventHandler, n as listMessageEntries, e as createError } from '../../_/nitro.mjs';
+import 'crypto';
 import 'fs/promises';
 import 'path';
 import 'node:http';
@@ -17,7 +18,10 @@ const messages_get = defineEventHandler(async () => {
     return await listMessageEntries();
   } catch (error) {
     console.error("[messages.get]", error);
-    return [];
+    throw createError({
+      statusCode: 500,
+      message: "Ucapan belum dapat dimuat"
+    });
   }
 });
 

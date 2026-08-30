@@ -3,6 +3,9 @@ export default defineEventHandler(async () => {
     return await listMessageEntries()
   } catch (error) {
     console.error('[messages.get]', error)
-    return []
+    throw createError({
+      statusCode: 500,
+      message: 'Ucapan belum dapat dimuat',
+    })
   }
 })

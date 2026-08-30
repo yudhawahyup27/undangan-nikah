@@ -49,6 +49,7 @@ declare global {
   const fromNodeMiddleware: typeof import('../../node_modules/h3').fromNodeMiddleware
   const fromPlainHandler: typeof import('../../node_modules/h3').fromPlainHandler
   const fromWebHandler: typeof import('../../node_modules/h3').fromWebHandler
+  const generateBoothToken: typeof import('../../server/utils/boothToken').generateBoothToken
   const getCookie: typeof import('../../node_modules/h3').getCookie
   const getErrorMessage: typeof import('../../server/utils/supabase').getErrorMessage
   const getHeader: typeof import('../../node_modules/h3').getHeader
@@ -72,6 +73,7 @@ declare global {
   const getRouteRules: typeof import('../../node_modules/nitropack/dist/runtime/internal/route-rules').getRouteRules
   const getRouterParam: typeof import('../../node_modules/h3').getRouterParam
   const getRouterParams: typeof import('../../node_modules/h3').getRouterParams
+  const getRsvpStatusBySlug: typeof import('../../server/utils/rsvpStore').getRsvpStatusBySlug
   const getSession: typeof import('../../node_modules/h3').getSession
   const getSupabase: typeof import('../../server/utils/supabase').getSupabase
   const getSupabaseConfig: typeof import('../../server/utils/supabase').getSupabaseConfig
@@ -139,6 +141,7 @@ declare global {
   const useRuntimeConfig: typeof import('../../node_modules/nitropack/dist/runtime/internal/config').useRuntimeConfig
   const useSession: typeof import('../../node_modules/h3').useSession
   const useStorage: typeof import('../../node_modules/nitropack/dist/runtime/internal/storage').useStorage
+  const verifyBoothToken: typeof import('../../server/utils/boothToken').verifyBoothToken
   const writeEarlyHints: typeof import('../../node_modules/h3').writeEarlyHints
 }
 // for type re-export
@@ -146,6 +149,9 @@ declare global {
   // @ts-ignore
   export type { EventHandler, EventHandlerRequest, EventHandlerResponse, EventHandlerObject, H3EventContext } from '../../node_modules/h3'
   import('../../node_modules/h3')
+  // @ts-ignore
+  export type { BoothTokenPayload } from '../../server/utils/boothToken'
+  import('../../server/utils/boothToken')
   // @ts-ignore
   export type { Guest } from '../../server/utils/guests'
   import('../../server/utils/guests')
@@ -168,6 +174,7 @@ export { defineNitroErrorHandler } from 'nitropack/runtime/internal/error/utils'
 export { buildAssetsURL as __buildAssetsURL, publicAssetsURL as __publicAssetsURL } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/node_modules/@nuxt/nitro-server/dist/runtime/utils/paths';
 export { defineAppConfig } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/node_modules/@nuxt/nitro-server/dist/runtime/utils/config';
 export { useImage } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/node_modules/@nuxt/image/dist/runtime/server/utils/image';
+export { generateBoothToken, verifyBoothToken } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/server/utils/boothToken';
 export { normalizeGuestKey, findGuestByCode, findGuestBySlug, findGuestByName, listGuests } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/server/utils/guests';
-export { listRsvpEntries, createRsvpEntry, listMessageEntries } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/server/utils/rsvpStore';
+export { listRsvpEntries, createRsvpEntry, listMessageEntries, getRsvpStatusBySlug } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/server/utils/rsvpStore';
 export { getSupabaseConfig, isSupabaseConfigured, getSupabase, isServerlessProduction, getErrorMessage } from 'C:/Users/ogi-developer/OneDrive/Pictures/wedding-invitation-fixed/undangan-nikah/server/utils/supabase';

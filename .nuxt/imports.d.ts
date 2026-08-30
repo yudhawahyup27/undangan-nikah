@@ -32,6 +32,7 @@ export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composab
 export { defineLazyHydrationComponent } from '#app/composables/lazy-hydration';
 export { useGSAP, useParallax, useTextReveal } from '../composables/useGSAP';
 export { useGuest, Guest } from '../composables/useGuest';
+export { usePhotoBoothState, PhotoBoothMode, PhotoBoothState } from '../composables/usePhotoBoothState';
 export { QUIZ_ROUND_SIZE, BRIDE_LABEL, GROOM_LABEL, BRIDE_NAME, GROOM_NAME, quizQuestionPool, shuffleArray, pickRandomQuestions, getResultMessage, answerLabel, QuizAnswer, QuizQuestion } from '../composables/useQuizGame';
 export { RSVP_ATTENDING_MESSAGES, RSVP_NOT_ATTENDING_MESSAGES, getRandomRsvpResponse } from '../composables/useRsvpResponses';
 export { useStarField } from '../composables/useThree';

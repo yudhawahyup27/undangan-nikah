@@ -1,13 +1,13 @@
 import { readFile, writeFile } from 'fs/promises'
 import { join } from 'path'
+import { findGuestBySlug } from './guests'
 
 export type RsvpEntry = {
   id: string
   name: string
-  attending: boolean
+  attending: boolean | null
   message: string
   timestamp: string
-  guestSlug?: string
 }
 
 export type CreateRsvpInput = {
@@ -23,10 +23,9 @@ const JSON_PATH = join(process.cwd(), 'server/data/rsvp.json')
 type RsvpRow = {
   id: string
   name: string
-  attending: boolean
+  attending: boolean | null
   message: string | null
   created_at: string
-  guest_slug: string | null
 }
 
 const mapRow = (row: RsvpRow): RsvpEntry => ({
@@ -35,7 +34,6 @@ const mapRow = (row: RsvpRow): RsvpEntry => ({
   attending: row.attending,
   message: row.message || '',
   timestamp: row.created_at,
-  guestSlug: row.guest_slug || undefined,
 })
 
 const readJsonEntries = async (): Promise<RsvpEntry[]> => {
@@ -56,7 +54,7 @@ export const listRsvpEntries = async (): Promise<RsvpEntry[]> => {
     const supabase = await getSupabase()
     const { data, error } = await supabase
       .from(TABLE)
-      .select('id, name, attending, message, created_at, guest_slug')
+      .select('id, name, attending, message, created_at')
       .order('created_at', { ascending: false })
 
     if (error) {
@@ -74,17 +72,44 @@ export const listRsvpEntries = async (): Promise<RsvpEntry[]> => {
 export const createRsvpEntry = async (input: CreateRsvpInput): Promise<RsvpEntry> => {
   const payload = {
     name: input.name.trim(),
-    attending: Boolean(input.attending),
+    attending: input.attending === true,
     message: (input.message || '').trim(),
-    guest_slug: input.guestSlug?.trim() || null,
   }
 
   if (isSupabaseConfigured()) {
     const supabase = await getSupabase()
+    const guest = input.guestSlug ? findGuestBySlug(input.guestSlug) : null
+    const matchName = guest?.name || payload.name
+
+    const updatePayload = {
+      name: payload.name,
+      attending: payload.attending,
+      message: payload.message,
+    }
+
+    const { data: existingByName, error: nameLookupError } = await supabase
+      .from(TABLE)
+      .select('id')
+      .ilike('name', matchName)
+      .order('created_at', { ascending: false })
+      .limit(1)
+
+    if (!nameLookupError && existingByName?.[0]?.id) {
+      const { data, error } = await supabase
+        .from(TABLE)
+        .update(updatePayload)
+        .eq('id', existingByName[0].id)
+        .select('id, name, attending, message, created_at')
+
+      if (error) throw error
+      const row = (data as RsvpRow[] | null)?.[0]
+      if (row) return mapRow(row)
+    }
+
     const { data, error } = await supabase
       .from(TABLE)
       .insert(payload)
-      .select('id, name, attending, message, created_at, guest_slug')
+      .select('id, name, attending, message, created_at')
 
     if (error) {
       console.error('[rsvpStore.createRsvpEntry]', error)
@@ -112,18 +137,61 @@ export const createRsvpEntry = async (input: CreateRsvpInput): Promise<RsvpEntry
     name: payload.name,
     attending: payload.attending,
     message: payload.message,
-    guestSlug: payload.guest_slug || undefined,
     timestamp: new Date().toISOString(),
   }
 
   const existing = await readJsonEntries()
-  existing.push(entry)
+  const existingIndex = existing.findIndex((item) =>
+    item.name.toLowerCase().trim() === entry.name.toLowerCase().trim()
+  )
+  if (existingIndex >= 0) {
+    existing[existingIndex] = { ...existing[existingIndex], ...entry, id: existing[existingIndex].id }
+  } else {
+    existing.push(entry)
+  }
   await writeJsonEntries(existing)
 
-  return entry
+  return existingIndex >= 0 ? existing[existingIndex] : entry
 }
 
 export const listMessageEntries = async (): Promise<RsvpEntry[]> => {
   const entries = await listRsvpEntries()
-  return entries.filter(entry => entry.message.length > 0)
+  return entries.filter(entry => {
+    const msg = (entry.message || '').trim()
+    return msg.length > 0
+  })
+}
+
+export const getRsvpStatusBySlug = async (slug: string): Promise<{ id: string | null; name: string | null; attending: boolean | null; message: string } | null> => {
+  if (!slug) return null
+  
+  // Try to find guest by slug from guests.json
+  const guest = findGuestBySlug(slug)
+  
+  if (!guest) return null
+  
+  // Find RSVP entry matching this guest
+  const entries = await listRsvpEntries()
+  
+  // First try to match by guestSlug if it exists
+  const normalizedGuestName = guest.name.toLowerCase().trim()
+  const entry = entries.find(e => e.name.toLowerCase().trim() === normalizedGuestName)
+  
+  // If found, return the RSVP status
+  if (entry) {
+    return {
+      id: entry.id,
+      name: entry.name,
+      attending: entry.attending === true ? true : entry.attending === false ? false : null,
+      message: entry.message,
+    }
+  }
+  
+  // Guest found but no RSVP yet
+  return {
+    id: guest.slug,
+    name: guest.name,
+    attending: null,
+    message: '',
+  }
 }

@@ -1,6 +1,7 @@
 import process from 'node:process';globalThis._importMeta_={url:import.meta.url,env:process.env};import './timing.js';globalThis.__timing__.logStart('Nitro Start');import { Server as Server$1 } from 'node:http';
 import { Server } from 'node:https';
 import { t as toNodeListener, d as destr, u as useRuntimeConfig, a as trapUnhandledNodeErrors, s as setupGracefulShutdown, b as useNitroApp } from './chunks/_/nitro.mjs';
+import 'crypto';
 import 'fs/promises';
 import 'path';
 import 'node:events';

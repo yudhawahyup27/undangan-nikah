@@ -10,12 +10,7 @@ create table if not exists public.rsvp (
   created_at timestamptz not null default now()
 );
 
--- Aman dijalankan pada tabel RSVP yang sudah ada.
-alter table public.rsvp add column if not exists guest_slug text;
-
 create index if not exists rsvp_created_at_idx on public.rsvp (created_at desc);
-create index if not exists rsvp_guest_slug_created_at_idx
-  on public.rsvp (guest_slug, created_at desc);
 
 alter table public.rsvp enable row level security;
 
