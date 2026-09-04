@@ -54,7 +54,7 @@
       </article>
 
       <!-- Statistik Pengantin -->
-      <article class="stats-card glass-card stats-card--wide">
+      <!-- <article class="stats-card glass-card stats-card--wide">
         <div class="stats-card-head">
           <span class="stats-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -89,10 +89,10 @@
             </div>
           </div>
         </div>
-      </article>
+      </article> -->
 
       <!-- Fakta Menarik -->
-      <article class="stats-card glass-card">
+      <!-- <article class="stats-card glass-card">
         <div class="stats-card-head">
           <span class="stats-icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
@@ -117,7 +117,7 @@
         <button type="button" class="stats-btn mt-6" @click="nextFact">
           Fakta Berikutnya
         </button>
-      </article>
+      </article> -->
 
       <!-- Target Hari Ini -->
       <article class="stats-card glass-card">

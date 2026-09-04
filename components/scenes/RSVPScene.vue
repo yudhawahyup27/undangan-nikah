@@ -2,6 +2,18 @@
   <section id="rsvp-scene" class="scene relative py-32 px-6" style="min-height:100vh">
     <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 50% 45%, rgba(201,168,76,0.06) 0%, transparent 62%)" />
 
+    <a href="#photo-booth" class="booth-widget" @click.prevent="scrollToPhotoBooth">
+      <svg class="booth-widget-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M9 3h6l1.5 2H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3.5L9 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+        <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.5" />
+      </svg>
+      <span>
+        <strong class="booth-widget-title">Photo Booth</strong>
+        <span class="booth-widget-copy">Abadikan momen spesialmu bersama kami</span>
+      </span>
+      <span class="booth-widget-arrow" aria-hidden="true">&#8594;</span>
+    </a>
+
     <div ref="titleRef" class="text-center mb-10 relative" style="z-index:2">
       <p class="font-josefin text-xs tracking-[0.5em] text-gold/50 uppercase mb-4">Konfirmasi Kehadiran</p>
       <h2 class="font-cormorant font-light text-cream" style="font-size:clamp(2.2rem,5vw,4rem)">RSVP</h2>
@@ -196,6 +208,13 @@ const formatDate = (value: string) => {
   }
 }
 
+const scrollToPhotoBooth = () => {
+  const photoBoothSection = document.getElementById('photo-booth')
+  if (photoBoothSection) {
+    photoBoothSection.scrollIntoView({ behavior: 'smooth' })
+  }
+}
+
 onMounted(async () => {
   await Promise.all([restoreStatus(), loadMessages()])
   if (!process.client) return
@@ -226,6 +245,59 @@ onMounted(async () => {
 <style scoped>
 .rsvp-card {
   border-radius: 8px;
+}
+
+.booth-widget {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: min(620px, 100%);
+  margin: 0 auto 2.5rem;
+  padding: 0.9rem 1.1rem;
+  border: 1px solid rgba(201, 168, 76, 0.28);
+  border-radius: 8px;
+  background: rgba(201, 168, 76, 0.07);
+  color: var(--color-cream);
+  text-decoration: none;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.booth-widget:hover {
+  border-color: rgba(201, 168, 76, 0.6);
+  background: rgba(201, 168, 76, 0.12);
+  transform: translateY(-2px);
+}
+
+.booth-widget-icon,
+.booth-widget-arrow {
+  color: var(--color-gold);
+  flex: 0 0 auto;
+}
+
+.booth-widget-title,
+.booth-widget-copy {
+  display: block;
+}
+
+.booth-widget-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.booth-widget-copy {
+  margin-top: 0.25rem;
+  color: rgba(245, 238, 215, 0.6);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+}
+
+.booth-widget-arrow {
+  margin-left: auto;
+  font-size: 1.25rem;
 }
 
 .field-label {

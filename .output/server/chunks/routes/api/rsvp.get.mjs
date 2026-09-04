@@ -1,4 +1,4 @@
-globalThis.__timing__.logStart('Load chunks/routes/api/rsvp.get');import { c as defineEventHandler, p as listRsvpEntries } from '../../_/nitro.mjs';
+import { c as defineEventHandler, p as listRsvpEntries } from '../../_/nitro.mjs';
 import 'crypto';
 import 'fs/promises';
 import 'path';
@@ -22,5 +22,5 @@ const rsvp_get = defineEventHandler(async () => {
   }
 });
 
-export { rsvp_get as default };;globalThis.__timing__.logEnd('Load chunks/routes/api/rsvp.get');
+export { rsvp_get as default };
 //# sourceMappingURL=rsvp.get.mjs.map

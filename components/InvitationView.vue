@@ -21,10 +21,11 @@
     >
       <IntroScene />
       <LoveStoryScene />
-      <EventScene />
+      <!-- <QuizScene /> -->
+      <PhotoBoothScene />
       <GalleryScene />
-      <QuizScene />
       <StatsScene />
+      <EventScene />
       <RSVPScene />
       <GiftScene />
       <ClosingScene />

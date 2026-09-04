@@ -15,6 +15,9 @@ declare module "nitropack/types" {
     '/api/messages': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/messages.get').default>>>>
     }
+    '/api/photo-booth-gallery': {
+      'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/photo-booth-gallery.get').default>>>>
+    }
     '/api/rsvp-status': {
       'get': Simplify<Serialize<Awaited<ReturnType<typeof import('../../server/api/rsvp-status.get').default>>>>
     }
