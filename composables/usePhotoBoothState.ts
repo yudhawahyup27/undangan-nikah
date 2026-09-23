@@ -72,9 +72,8 @@ export function usePhotoBoothState() {
   }
 
   const getBoothUrl = (baseUrl: string = 'https://wedding-photo-box-ten.vercel.app') => {
-    const slugQuery = guestSlug.value ? `&slug=${encodeURIComponent(guestSlug.value)}` : ''
-    if (!token.value) return `${baseUrl}/?slug=${encodeURIComponent(guestSlug.value || '')}`
-    return `${baseUrl}/start?t=${encodeURIComponent(token.value)}${slugQuery}`
+    const slug = guestSlug.value ? `/${encodeURIComponent(guestSlug.value)}` : ''
+    return `${baseUrl}${slug}`
   }
 
   watch(guestSlug, (slug) => {

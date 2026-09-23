@@ -45,7 +45,7 @@
           <div class="mt-8 inline-flex items-center gap-4 justify-center lg:justify-start text-left text-cream/55">
             <div class="qr-card shadow-[0_0_0_1px_rgba(201,168,76,0.2)]">
               <img
-                :src="getQrCodeUrl(boothUrlWithToken || photoBoothState.getBoothUrl())"
+                :src="getQrCodeUrl(photoBoothState.getBoothUrl())"
                 :alt="'QR code untuk membuka Photo Booth'"
                 class="qr-image"
                 loading="lazy"
@@ -96,7 +96,7 @@
           <div class="mt-8 inline-flex items-center gap-4 justify-center lg:justify-start text-left text-cream/55">
             <div class="qr-card shadow-[0_0_0_1px_rgba(201,168,76,0.2)]">
               <img
-                :src="getQrCodeUrl(boothUrlWithToken || photoBoothState.getBoothUrl())"
+                :src="getQrCodeUrl(photoBoothState.getBoothUrl())"
                 :alt="'QR code untuk membuka Memory Booth'"
                 class="qr-image"
                 loading="lazy"
@@ -136,7 +136,7 @@
               KONFIRMASI KEHADIRAN
             </a>
             <a
-              :href="PHOTO_BOOTH_URL"
+              :href="photoBoothState.getBoothUrl()"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Buka Photo Booth"
@@ -188,7 +188,7 @@
 
     <!-- Floating Action Button -->
     <button
-      v-if="!photoBoothState.isUnconfirmed && boothUrlWithToken"
+      v-if="!photoBoothState.isUnconfirmed"
       @click="openPhotoBooth"
       :disabled="generatingToken"
       aria-label="Buka Photo Booth"
@@ -204,37 +204,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, watch, onMounted } from 'vue'
+import { ref } from 'vue'
 import { usePhotoBoothState } from '~/composables/usePhotoBoothState'
 
 const photoBoothState = usePhotoBoothState()
 const generatingToken = ref(false)
-const boothUrlWithToken = ref<string | null>(null)
 
 const getQrCodeUrl = (url: string) => {
   if (!url) return ''
   return `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(url)}`
 }
 
-const openPhotoBooth = async () => {
-  if (generatingToken.value) return
-
-  // Open synchronously so mobile browsers do not block the new tab after await.
-  const boothWindow = window.open(photoBoothState.getBoothUrl(), '_blank')
-  if (!boothWindow) return
-
-  if (!photoBoothState.state.value) return
-
-  generatingToken.value = true
-  try {
-    const token = await photoBoothState.generateBoothToken()
-    if (token) {
-      boothUrlWithToken.value = photoBoothState.getBoothUrl()
-      boothWindow.location.href = boothUrlWithToken.value
-    }
-  } finally {
-    generatingToken.value = false
-  }
+const openPhotoBooth = () => {
+  window.open(photoBoothState.getBoothUrl(), '_blank')
 }
 
 const scrollToRsvp = () => {
@@ -244,25 +226,6 @@ const scrollToRsvp = () => {
   }
 }
 
-// Generate token when attending state is confirmed
-watch(() => photoBoothState.isAttending || photoBoothState.isNotAttending, async (isConfirmed) => {
-  if (isConfirmed && photoBoothState.state.value && !boothUrlWithToken.value) {
-    const token = await photoBoothState.generateBoothToken()
-    if (token) {
-      boothUrlWithToken.value = photoBoothState.getBoothUrl()
-    }
-  }
-})
-
-onMounted(async () => {
-  // Generate token immediately if already attending/not attending
-  if ((photoBoothState.isAttending.value || photoBoothState.isNotAttending.value) && photoBoothState.state.value) {
-    const token = await photoBoothState.generateBoothToken()
-    if (token) {
-      boothUrlWithToken.value = photoBoothState.getBoothUrl()
-    }
-  }
-})
 </script>
 
 <style scoped>

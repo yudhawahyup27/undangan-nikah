@@ -110,7 +110,7 @@ type RsvpStatus = {
 }
 
 const { guestName, guestSlug } = useGuest()
-const photoBoothUrl = computed(() => `https://wedding-photo-box-ten.vercel.app/?slug=${encodeURIComponent(guestSlug.value || '')}`)
+const photoBoothUrl = computed(() => `https://wedding-photo-box-ten.vercel.app/${encodeURIComponent(guestSlug.value || '')}`)
 const { show: showToast } = useToast()
 
 const titleRef = ref<HTMLElement | null>(null)
