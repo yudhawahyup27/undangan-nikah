@@ -45,7 +45,7 @@
           <div class="mt-8 inline-flex items-center gap-4 justify-center lg:justify-start text-left text-cream/55">
             <div class="qr-card shadow-[0_0_0_1px_rgba(201,168,76,0.2)]">
               <img
-                :src="getQrCodeUrl(boothUrlWithToken || PHOTO_BOOTH_URL)"
+                :src="getQrCodeUrl(boothUrlWithToken || photoBoothState.getBoothUrl())"
                 :alt="'QR code untuk membuka Photo Booth'"
                 class="qr-image"
                 loading="lazy"
@@ -96,7 +96,7 @@
           <div class="mt-8 inline-flex items-center gap-4 justify-center lg:justify-start text-left text-cream/55">
             <div class="qr-card shadow-[0_0_0_1px_rgba(201,168,76,0.2)]">
               <img
-                :src="getQrCodeUrl(boothUrlWithToken || PHOTO_BOOTH_URL)"
+                :src="getQrCodeUrl(boothUrlWithToken || photoBoothState.getBoothUrl())"
                 :alt="'QR code untuk membuka Memory Booth'"
                 class="qr-image"
                 loading="lazy"
@@ -210,7 +210,6 @@ import { usePhotoBoothState } from '~/composables/usePhotoBoothState'
 const photoBoothState = usePhotoBoothState()
 const generatingToken = ref(false)
 const boothUrlWithToken = ref<string | null>(null)
-const PHOTO_BOOTH_URL = 'https://wedding-photo-box-ten.vercel.app'
 
 const getQrCodeUrl = (url: string) => {
   if (!url) return ''
@@ -221,7 +220,7 @@ const openPhotoBooth = async () => {
   if (generatingToken.value) return
 
   // Open synchronously so mobile browsers do not block the new tab after await.
-  const boothWindow = window.open(PHOTO_BOOTH_URL, '_blank')
+  const boothWindow = window.open(photoBoothState.getBoothUrl(), '_blank')
   if (!boothWindow) return
 
   if (!photoBoothState.state.value) return

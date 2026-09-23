@@ -31,7 +31,7 @@
           <p class="field-label">Photo Booth</p>
           <h3 class="booth-title">Siap mengabadikan momen?</h3>
           <p class="status-copy mb-5">Abadikan momen spesialmu di hari bahagia Yudha & Ima.</p>
-          <a class="btn-primary booth-link" href="https://booth.ywp.my.id" target="_blank" rel="noopener noreferrer">
+          <a class="btn-primary booth-link" :href="photoBoothUrl" target="_blank" rel="noopener noreferrer">
             Abadikan Momen
           </a>
         </div>
@@ -45,7 +45,7 @@
         <div class="booth-panel mt-8">
           <p class="field-label">Memory Booth</p>
           <h3 class="booth-title">Tetap titipkan kenangan untuk kami.</h3>
-          <a class="btn-primary booth-link mt-5" href="https://booth.ywp.my.id" target="_blank" rel="noopener noreferrer">
+          <a class="btn-primary booth-link mt-5" :href="photoBoothUrl" target="_blank" rel="noopener noreferrer">
             Kirim Kenangan
           </a>
         </div>
@@ -91,7 +91,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, reactive, ref, watch } from 'vue'
+import { computed, onMounted, reactive, ref, watch } from 'vue'
 import { useToast } from '~/composables/useToast'
 
 type RsvpMessage = {
@@ -110,6 +110,7 @@ type RsvpStatus = {
 }
 
 const { guestName, guestSlug } = useGuest()
+const photoBoothUrl = computed(() => `https://wedding-photo-box-ten.vercel.app/?slug=${encodeURIComponent(guestSlug.value || '')}`)
 const { show: showToast } = useToast()
 
 const titleRef = ref<HTMLElement | null>(null)
