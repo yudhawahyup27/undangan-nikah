@@ -15,6 +15,7 @@ export default defineNuxtConfig({
       '',
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://nikah.ywp.my.id',
+      photoBoothUrl: process.env.NUXT_PUBLIC_PHOTO_BOOTH_URL || 'https://wedding-photo-box-ten.vercel.app',
     },
   },
   modules: ['@nuxtjs/tailwindcss', '@nuxt/image'],

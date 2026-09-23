@@ -11,6 +11,7 @@ export type PhotoBoothState = {
 
 export function usePhotoBoothState() {
   const { guestSlug } = useGuest()
+  const config = useRuntimeConfig()
   const state = ref<PhotoBoothState | null>(null)
   const loading = ref(false)
   const error = ref<string | null>(null)
@@ -71,7 +72,7 @@ export function usePhotoBoothState() {
     }
   }
 
-  const getBoothUrl = (baseUrl: string = 'https://booth.ywp.my.id') => {
+  const getBoothUrl = (baseUrl: string = config.public.photoBoothUrl) => {
     if (!token.value) return baseUrl
     return `${baseUrl}/start?t=${encodeURIComponent(token.value)}`
   }
