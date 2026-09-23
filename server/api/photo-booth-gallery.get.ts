@@ -6,8 +6,9 @@ type PhotoRow = Record<string, unknown>
 const PHOTO_TABLES = [
   'photo_session_assets',
 ]
+const PHOTO_BUCKET = 'photo-booth'
 
-const getPhotoUrl = (row: PhotoRow) => {
+const getDirectPhotoUrl = (row: PhotoRow) => {
   for (const key of [
     'url',
     'photo_url',
@@ -21,22 +22,45 @@ const getPhotoUrl = (row: PhotoRow) => {
     if (typeof row[key] === 'string' && /^https?:\/\//.test(row[key])) return row[key]
   }
 
-  const path = ['storage_path', 'file_path', 'path'].find((key) => typeof row[key] === 'string' && row[key])
+  return null
+}
+
+const getStoragePath = (row: PhotoRow) => {
+  return ['storage_path', 'file_path', 'path'].find((key) => typeof row[key] === 'string' && row[key])
+}
+
+const resolvePhotoUrl = async (row: PhotoRow, supabase: Awaited<ReturnType<typeof getSupabase>>) => {
+  const directUrl = getDirectPhotoUrl(row)
+  if (directUrl) return directUrl
+
+  const storagePathKey = getStoragePath(row)
+  if (!storagePathKey) return null
+
+  const storagePath = String(row[storagePathKey]).replace(/^\//, '')
+  const explicitBucket = typeof row.bucket_name === 'string'
+    ? row.bucket_name
+    : typeof row.bucket === 'string'
+      ? row.bucket
+      : PHOTO_BUCKET
+
   const config = getSupabaseConfig()
-  if (path && config) {
-    const bucket = typeof row.bucket_name === 'string'
-      ? row.bucket_name
-      : typeof row.bucket === 'string'
-        ? row.bucket
-        : 'photo-session-assets'
-    return `${config.url}/storage/v1/object/public/${bucket}/${String(row[path]).replace(/^\//, '')}`
+  if (config) {
+    return `${config.url}/storage/v1/object/public/${explicitBucket}/${storagePath}`
+  }
+
+  const buckets = [explicitBucket]
+
+  for (const bucket of buckets) {
+    const { data, error } = await supabase.storage
+      .from(bucket)
+      .createSignedUrl(storagePath, 3600)
+    if (!error && data?.signedUrl) return data.signedUrl
   }
 
   return null
 }
 
-const mapPhoto = (row: PhotoRow, index: number) => {
-  const url = getPhotoUrl(row)
+const mapPhoto = (row: PhotoRow, index: number, url: string | null) => {
   if (!url) return null
 
   return {
@@ -69,9 +93,9 @@ export default defineEventHandler(async () => {
       continue
     }
 
-    const photos = (data as PhotoRow[])
+    const photos = (await Promise.all((data as PhotoRow[])
       .filter((row) => row.asset_type === 'final')
-      .map(mapPhoto)
+      .map(async (row, index) => mapPhoto(row, index, await resolvePhotoUrl(row, supabase)))))
       .filter((photo): photo is NonNullable<ReturnType<typeof mapPhoto>> => Boolean(photo))
 
     if (photos.length) return photos
