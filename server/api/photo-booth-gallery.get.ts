@@ -5,9 +5,6 @@ type PhotoRow = Record<string, unknown>
 
 const PHOTO_TABLES = [
   'photo_session_assets',
-  'photo_booth_gallery',
-  'photo_booth_photos',
-  'booth_photos',
 ]
 
 const getPhotoUrl = (row: PhotoRow) => {
@@ -72,9 +69,12 @@ export default defineEventHandler(async () => {
       continue
     }
 
-    return (data as PhotoRow[])
+    const photos = (data as PhotoRow[])
+      .filter((row) => row.asset_type === 'final')
       .map(mapPhoto)
       .filter((photo): photo is NonNullable<ReturnType<typeof mapPhoto>> => Boolean(photo))
+
+    if (photos.length) return photos
   }
 
   return []

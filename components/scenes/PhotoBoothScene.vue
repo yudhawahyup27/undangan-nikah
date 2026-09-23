@@ -135,6 +135,15 @@
               </svg>
               KONFIRMASI KEHADIRAN
             </a>
+            <a
+              :href="PHOTO_BOOTH_URL"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Buka Photo Booth"
+              class="btn-primary inline-flex items-center justify-center gap-3 w-full sm:w-auto"
+            >
+              BUKA PHOTO BOOTH
+            </a>
           </div>
 
           <div class="mt-8 inline-flex items-center gap-4 justify-center lg:justify-start text-left text-cream/55">
@@ -201,6 +210,7 @@ import { usePhotoBoothState } from '~/composables/usePhotoBoothState'
 const photoBoothState = usePhotoBoothState()
 const generatingToken = ref(false)
 const boothUrlWithToken = ref<string | null>(null)
+const PHOTO_BOOTH_URL = 'https://wedding-photo-box-ten.vercel.app'
 
 const getQrCodeUrl = (url: string) => {
   if (!url) return ''
@@ -208,14 +218,20 @@ const getQrCodeUrl = (url: string) => {
 }
 
 const openPhotoBooth = async () => {
-  if (generatingToken.value || !photoBoothState.state.value) return
+  if (generatingToken.value) return
+
+  // Open synchronously so mobile browsers do not block the new tab after await.
+  const boothWindow = window.open(PHOTO_BOOTH_URL, '_blank')
+  if (!boothWindow) return
+
+  if (!photoBoothState.state.value) return
 
   generatingToken.value = true
   try {
     const token = await photoBoothState.generateBoothToken()
     if (token) {
       boothUrlWithToken.value = photoBoothState.getBoothUrl()
-      window.open(boothUrlWithToken.value, '_blank')
+      boothWindow.location.href = boothUrlWithToken.value
     }
   } finally {
     generatingToken.value = false
