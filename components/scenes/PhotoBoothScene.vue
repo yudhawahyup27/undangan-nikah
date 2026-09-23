@@ -45,7 +45,7 @@
           <div class="mt-8 inline-flex items-center gap-4 justify-center lg:justify-start text-left text-cream/55">
             <div class="qr-card shadow-[0_0_0_1px_rgba(201,168,76,0.2)]">
               <img
-                :src="getQrCodeUrl(boothUrlWithToken)"
+                :src="getQrCodeUrl(boothUrlWithToken || PHOTO_BOOTH_URL)"
                 :alt="'QR code untuk membuka Photo Booth'"
                 class="qr-image"
                 loading="lazy"
@@ -96,7 +96,7 @@
           <div class="mt-8 inline-flex items-center gap-4 justify-center lg:justify-start text-left text-cream/55">
             <div class="qr-card shadow-[0_0_0_1px_rgba(201,168,76,0.2)]">
               <img
-                :src="getQrCodeUrl(boothUrlWithToken)"
+                :src="getQrCodeUrl(boothUrlWithToken || PHOTO_BOOTH_URL)"
                 :alt="'QR code untuk membuka Memory Booth'"
                 class="qr-image"
                 loading="lazy"
