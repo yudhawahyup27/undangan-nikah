@@ -1542,7 +1542,7 @@
     "side": "yudha",
     "relation": "TY",
     "status": "pending"
-  },
+  },f
   {
     "code": "YUD039",
     "name": "Irena (Pramuka)",
@@ -2902,6 +2902,15 @@
       "code": "YUD200",
       "name": "Mas teo ",
       "slug": "Mas-Teo ",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    }
+    ,
+    {
+      "code": "YUD200",
+      "name": "Bang Kamil (Kalibata)  ",
+      "slug": "bang-kamil-kalibata ",
       "side": "yudha",
       "relation": null,
       "status": "pending"
