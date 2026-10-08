@@ -1542,7 +1542,7 @@
     "side": "yudha",
     "relation": "TY",
     "status": "pending"
-  },f
+  },
   {
     "code": "YUD039",
     "name": "Irena (Pramuka)",
@@ -2917,8 +2917,8 @@
     },
     {
       "code": "YUD202",
-      "name": "Risky (Polinema)  ",
-      "slug": "risky-polinema ",
+      "name": "Risky (Polinema)",
+      "slug": "risky-polinemaa",
       "side": "yudha",
       "relation": null,
       "status": "pending"
