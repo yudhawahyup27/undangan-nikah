@@ -2963,5 +2963,13 @@
       "side": "yudha",
       "relation": null,
       "status": "pending"
+    },
+    {
+      "code": "YUD207",
+      "name": "Faisal (Polinema)",
+      "slug": "faisal-polinema",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
     }
 ]
