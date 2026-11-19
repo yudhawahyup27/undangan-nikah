@@ -2923,4 +2923,20 @@
       "relation": null,
       "status": "pending"
     }
+    ,{
+      "code": "YUD023",
+      "name": "Diva SMP",
+      "slug": "diva-smp",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    }
+    ,{
+      "code": "YUD024",
+      "name": "felicia (Kantor)",
+      "slug": "felicia-kantor",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    }
 ]
