@@ -2498,7 +2498,7 @@
   {
     "code": "YUD157",
     "name": "dian (GIBEI)",
-    "slug": "dian-gibeI",
+    "slug": "dian-gibei",
     "side": "yudha",
     "relation": null,
     "status": "pending"
@@ -2522,7 +2522,7 @@
   {
     "code": "YUD157",
     "name": "dinda (GIBEI)",
-    "slug": "dinda-gibeI",
+    "slug": "dinda-gibei",
     "side": "yudha",
     "relation": null,
     "status": "pending"
@@ -2530,7 +2530,7 @@
   {
     "code": "YUD158",
     "name": "Ilham (GIBEI)",
-    "slug": "ilham-gibeI",
+    "slug": "ilham-gibei",
     "side": "yudha",
     "relation": null,
     "status": "pending"
@@ -2538,7 +2538,7 @@
   {
     "code": "YUD159",
     "name": "Gabriella (GIBEI)",
-    "slug": "gabriella-gibeI",
+    "slug": "gabriella-gibei",
     "side": "yudha",
     "relation": null,
     "status": "pending"
@@ -2546,14 +2546,14 @@
   {
     "code": "YUD160",
     "name": "Okta (GIBEI)",
-    "slug": "okta-gibeI",
+    "slug": "okta-gibei",
     "side": "yudha",
     "relation": null,
     "status": "pending"
   },{
     "code": "YUD161",
     "name": "yasmin (GIBEI)",
-    "slug": "yasmin-gibeI",
+    "slug": "yasmin-gibei",
     "side": "yudha",
     "relation": null,
     "status": "pending"
@@ -2569,7 +2569,7 @@
     {
       "code": "YUD163",
       "name": "zidy (GIBEI)",
-      "slug": "zidy-gibeI",
+      "slug": "zidy-gibei",
       "side": "yudha",
       "relation": null,
       "status": "pending"
@@ -2577,7 +2577,7 @@
   {
     "code": "YUD164",
     "name": "nawang (GIBEI)",
-    "slug": "nawang-gibeI",
+    "slug": "nawang-gibei",
     "side": "yudha",
     "relation": null,
     "status": "pending"
