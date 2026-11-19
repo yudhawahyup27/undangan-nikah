@@ -1353,8 +1353,8 @@
   },
   {
     "code": "YUD015",
-    "name": "Prasss (Kantor)",
-    "slug": "prasss-kantor",
+    "name": "Prasetyo (Kantor)",
+    "slug": "prasetyo-kantor",
     "side": "yudha",
     "relation": "TY",
     "status": "pending"
@@ -2602,7 +2602,7 @@
   ,
   {
     "code": "YUD166",
-    "name": "Mas Fahri ",
+    "name": "Mas Fahri",
     "slug": "mas-fahri",
     "side": "yudha",
     "relation": null,
@@ -2611,7 +2611,7 @@
   ,
   {
     "code": "YUD167",
-    "name": "Ulima & Ulil (SMP) ",
+    "name": "Ulima & Ulil (SMP)",
     "slug": "ulima-ulil-smp",
     "side": "yudha",
     "relation": null,
@@ -2620,7 +2620,7 @@
   ,
   {
     "code": "YUD168",
-    "name": "Sandi (SMP) ",
+    "name": "Sandi (SMP)",
     "slug": "sandi-smp",
     "side": "yudha",
     "relation": null,
@@ -2628,7 +2628,7 @@
   },
   {
     "code": "YUD169",
-    "name": "Syfa (SMP) ",
+    "name": "Syfa (SMP)",
     "slug": "syfa-smp",
     "side": "yudha",
     "relation": null,
@@ -2644,7 +2644,7 @@
   },
   {
     "code": "YUD171",
-    "name": "David Pras (IDN Blogger) ",
+    "name": "David Pras (IDN Blogger)",
     "slug": "david-pras-idn-blogger",
     "side": "yudha",
     "relation": null,
@@ -2652,7 +2652,7 @@
   },
   {
     "code": "YUD172",
-    "name": "Eka Efendi (SMA) ",
+    "name": "Eka Efendi (SMA)",
     "slug": "eka-efendi-sma",
     "side": "yudha",
     "relation": null,
@@ -2661,7 +2661,7 @@
   ,
   {
     "code": "YUD173",
-    "name": "Alfin (PMR) ",
+    "name": "Alfin (PMR)",
     "slug": "alfin-pmr",
     "side": "yudha",
     "relation": null,
@@ -2670,7 +2670,7 @@
   ,
   {
     "code": "YUD174",
-    "name": "siska (PMR) ",
+    "name": "siska (PMR)",
     "slug": "siska-pmr",
     "side": "yudha",
     "relation": null,
@@ -2679,7 +2679,7 @@
   ,
   {
     "code": "YUD175",
-    "name": "Rahmadani (PMR) ",
+    "name": "Rahmadani (PMR)",
     "slug": "rahmadani-pmr",
     "side": "yudha",
     "relation": null,
@@ -2688,7 +2688,7 @@
   ,
   {
     "code": "YUD176",
-    "name": "dani (smp) ",
+    "name": "dani (smp)",
     "slug": "dani-smp",
     "side": "yudha",
     "relation": null,
@@ -2696,7 +2696,7 @@
   },
   {
     "code": "YUD177",
-    "name": "hanung (polinema) ",
+    "name": "hanung (polinema)",
     "slug": "hanung-polinema",
     "side": "yudha",
     "relation": null,
@@ -2705,7 +2705,7 @@
   ,
   {
     "code": "YUD178",
-    "name": "amelia(polinema) ",
+    "name": "amelia(polinema)",
     "slug": "amelia-polinema",
     "side": "yudha",
     "relation": null,
@@ -2713,7 +2713,7 @@
   },
   {
     "code": "YUD179",
-    "name": "mas Aji(kura-kura) ",
+    "name": "mas Aji(kura-kura)",
     "slug": "mas-aji-kura-kura",
     "side": "yudha",
     "relation": null,
@@ -2721,7 +2721,7 @@
   },
   {
     "code": "YUD180",
-    "name": "Dicky (kura-kura) ",
+    "name": "Dicky (kura-kura)",
     "slug": "dicky-kura-kura",
     "side": "yudha",
     "relation": null,
@@ -2729,7 +2729,7 @@
   },
   {
     "code": "YUD181",
-    "name": "Mas agra (kura-kura) ",
+    "name": "Mas agra (kura-kura)",
     "slug": "Mas-agra-kura-kura",
     "side": "yudha",
     "relation": null,
@@ -2738,7 +2738,7 @@
   ,
   {
     "code": "YUD182",
-    "name": "Mas yogi (pare) ",
+    "name": "Mas yogi (pare)",
     "slug": "mas-yogi-pare",
     "side": "yudha",
     "relation": null,
@@ -2747,7 +2747,7 @@
   ,
   {
     "code": "YUD183",
-    "name": "Mas ichal ",
+    "name": "Mas ichal",
     "slug": "mas-ichal",
     "side": "yudha",
     "relation": null,
@@ -2756,7 +2756,7 @@
   ,
   {
     "code": "YUD184",
-    "name": "Ichsan (Rohis) ",
+    "name": "Ichsan (Rohis)",
     "slug": "ichsan-rohis",
     "side": "yudha",
     "relation": null,
@@ -2765,7 +2765,7 @@
   ,
   {
     "code": "YUD185",
-    "name": "Dimas (San) ",
+    "name": "Dimas (San)",
     "slug": "dimas-san",
     "side": "yudha",
     "relation": null,
@@ -2774,7 +2774,7 @@
   ,
   {
     "code": "YUD186",
-    "name": "resti (San) ",
+    "name": "resti (San)",
     "slug": "resti-san",
     "side": "yudha",
     "relation": null,
@@ -2783,7 +2783,7 @@
   ,
   {
     "code": "YUD187",
-    "name": "Wildan Towil (San) ",
+    "name": "Wildan Towil (San)",
     "slug": "wildan-towil-san",
     "side": "yudha",
     "relation": null,
@@ -2792,7 +2792,7 @@
   ,
   {
     "code": "YUD188",
-    "name": "Shofilullah (Polinema) ",
+    "name": "Shofilullah (Polinema)",
     "slug": "shofilullah-polinema",
     "side": "yudha",
     "relation": null,
@@ -2801,7 +2801,7 @@
   ,
   {
     "code": "YUD189",
-    "name": "Mbak Mellyana (San) ",
+    "name": "Mbak Mellyana (San)",
     "slug": "mbak-mellyana-san",
     "side": "yudha",
     "relation": null,
@@ -2810,7 +2810,7 @@
   ,
   {
     "code": "YUD190",
-    "name": "Sadewa (San) ",
+    "name": "Sadewa (San)",
     "slug": "sadewa-san",
     "side": "yudha",
     "relation": null,
@@ -2819,7 +2819,7 @@
   ,
   {
     "code": "YUD191",
-    "name": "Deni(San) ",
+    "name": "Deni(San)",
     "slug": "deni-san",
     "side": "yudha",
     "relation": null,
@@ -2828,7 +2828,7 @@
   ,
   {
     "code": "YUD192",
-    "name": "Deni(San) ",
+    "name": "Deni(San)",
     "slug": "deni-san",
     "side": "yudha",
     "relation": null,
@@ -2837,7 +2837,7 @@
     ,
     {
       "code": "YUD193",
-      "name": "Mas Amin ",
+      "name": "Mas Amin",
       "slug": "mas-amin",
       "side": "yudha",
       "relation": null,
@@ -2846,7 +2846,7 @@
     ,
     {
       "code": "YUD194",
-      "name": "yanuar (San) ",
+      "name": "yanuar (San)",
       "slug": "yanuar-san",
       "side": "yudha",
       "relation": null,
@@ -2855,7 +2855,7 @@
     ,
     {
       "code": "YUD195",
-      "name": "Fadhil ",
+      "name": "Fadhil",
       "slug": "fadhil",
       "side": "yudha",
       "relation": null,
@@ -2864,7 +2864,7 @@
     ,
     {
       "code": "YUD196",
-      "name": "dimas SMP ",
+      "name": "dimas SMP",
       "slug": "dimas-smp",
       "side": "yudha",
       "relation": null,
@@ -2873,7 +2873,7 @@
     ,
     {
       "code": "YUD197",
-      "name": "Iyan ",
+      "name": "Iyan",
       "slug": "iyan",
       "side": "yudha",
       "relation": null,
@@ -2891,8 +2891,8 @@
     ,
     {
       "code": "YUD199",
-      "name": "Mas Drajat ",
-      "slug": "Mas-Drajat ",
+      "name": "Mas Drajat",
+      "slug": "Mas-Drajat",
       "side": "yudha",
       "relation": null,
       "status": "pending"
@@ -2900,8 +2900,8 @@
     ,
     {
       "code": "YUD200",
-      "name": "Mas teo ",
-      "slug": "Mas-Teo ",
+      "name": "Mas teo",
+      "slug": "Mas-Teo",
       "side": "yudha",
       "relation": null,
       "status": "pending"
@@ -2909,8 +2909,8 @@
     ,
     {
       "code": "YUD201",
-      "name": "Bang Kamil (Kalibata)  ",
-      "slug": "bang-kamil-kalibata ",
+      "name": "Bang Kamil (Kalibata) ",
+      "slug": "bang-kamil-kalibata",
       "side": "yudha",
       "relation": null,
       "status": "pending"
@@ -2924,7 +2924,7 @@
       "status": "pending"
     }
     ,{
-      "code": "YUD023",
+      "code": "YUD203",
       "name": "Diva SMP",
       "slug": "diva-smp",
       "side": "yudha",
@@ -2932,7 +2932,7 @@
       "status": "pending"
     }
     ,{
-      "code": "YUD024",
+      "code": "YUD204",
       "name": "felicia (Kantor)",
       "slug": "felicia-kantor",
       "side": "yudha",
@@ -2940,7 +2940,7 @@
       "status": "pending"
     },
     {
-      "code": "YUD025",
+      "code": "YUD0205",
       "name": "Kris (kantor)",
       "slug": "kris-kantor",
       "side": "yudha",
@@ -2949,9 +2949,17 @@
     }
     ,
     {
-      "code": "YUD025",
+      "code": "YUD205",
       "name": "Ferdian (kantor)",
       "slug": "ferdian-kantor",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    },
+    {
+      "code": "YUD206",
+      "name": "Mbak Nisa(kantor)",
+      "slug": "Mbak-Nisa-kantor",
       "side": "yudha",
       "relation": null,
       "status": "pending"
