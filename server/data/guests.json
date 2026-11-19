@@ -2971,5 +2971,13 @@
       "side": "yudha",
       "relation": null,
       "status": "pending"
+    },
+     {
+      "code": "YUD207",
+      "name": "Dea  (Polinema)",
+      "slug": "dea-polinema",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
     }
 ]
