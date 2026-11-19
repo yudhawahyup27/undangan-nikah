@@ -22,8 +22,8 @@
       <IntroScene />
       <LoveStoryScene />
       <!-- <QuizScene /> -->
-      <PhotoBoothScene />
-      <GalleryScene />
+      <!-- <PhotoBoothScene /> -->
+      <!-- <GalleryScene /> -->
       <StatsScene />
       <EventScene />
       <RSVPScene />

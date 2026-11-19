@@ -1,7 +1,7 @@
 <template>
   <section id="rsvp-scene" class="scene relative py-32 px-6" style="min-height:100vh">
     <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(ellipse at 50% 45%, rgba(201,168,76,0.06) 0%, transparent 62%)" />
-
+<!-- 
     <a href="#photo-booth" class="booth-widget" @click.prevent="scrollToPhotoBooth">
       <svg class="booth-widget-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path d="M9 3h6l1.5 2H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3.5L9 3z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
@@ -12,7 +12,7 @@
         <span class="booth-widget-copy">Abadikan momen spesialmu bersama kami</span>
       </span>
       <span class="booth-widget-arrow" aria-hidden="true">&#8594;</span>
-    </a>
+    </a> -->
 
     <div ref="titleRef" class="text-center mb-10 relative" style="z-index:2">
       <p class="font-josefin text-xs tracking-[0.5em] text-gold/50 uppercase mb-4">Konfirmasi Kehadiran</p>
@@ -23,34 +23,70 @@
     <div ref="formRef" class="rsvp-card glass-card w-full max-w-[620px] p-6 sm:p-8 relative" style="z-index:2">
       <div v-if="loadingStatus" class="status-copy text-center">Memuat konfirmasi...</div>
 
-      <div v-else-if="!editing && currentStatus === true" class="text-center">
-        <div class="status-mark">✓ HADIR</div>
-        <p class="status-copy">Terima kasih, kehadiranmu sudah tercatat.</p>
-        <p class="status-copy">Sampai bertemu di hari bahagia kami.</p>
-        <div class="booth-panel mt-8">
-          <p class="field-label">Photo Booth</p>
-          <h3 class="booth-title">Siap mengabadikan momen?</h3>
-          <p class="status-copy mb-5">Abadikan momen spesialmu di hari bahagia Yudha & Ima.</p>
-          <a class="btn-primary booth-link" :href="photoBoothUrl" target="_blank" rel="noopener noreferrer">
-            Abadikan Momen
-          </a>
-        </div>
-        <button type="button" class="choice-btn mt-7" @click="editConfirmation">Ubah Konfirmasi</button>
-      </div>
+      
+<div v-else-if="!editing && currentStatus === true" class="text-center">
+  <div class="status-mark">✓ HADIR</div>
 
-      <div v-else-if="!editing && currentStatus === false" class="text-center">
-        <div class="status-mark">TIDAK HADIR</div>
-        <p class="status-copy">Terima kasih sudah mengabari kami.</p>
-        <p class="status-copy">Walaupun belum bisa hadir secara langsung, doa dan ucapanmu tetap berarti bagi kami.</p>
-        <div class="booth-panel mt-8">
-          <p class="field-label">Memory Booth</p>
-          <h3 class="booth-title">Tetap titipkan kenangan untuk kami.</h3>
-          <a class="btn-primary booth-link mt-5" :href="photoBoothUrl" target="_blank" rel="noopener noreferrer">
-            Kirim Kenangan
-          </a>
-        </div>
-        <button type="button" class="choice-btn mt-7" @click="editConfirmation">Ubah Konfirmasi</button>
-      </div>
+  <h3 class="booth-title mt-6">
+    Sampai Bertemu di Hari Bahagia Kami!
+  </h3>
+
+  <p class="status-copy mt-4">
+    Terima kasih telah mengonfirmasi kehadiranmu.
+    Kehadiranmu akan menjadi bagian indah dari
+    cerita bahagia kami.
+  </p>
+
+  <p class="status-copy mt-3">
+    Kami tak sabar berbagi senyum, tawa,
+    dan kebahagiaan bersama di hari istimewa nanti.
+  </p>
+
+  <p class="status-copy mt-5">
+    Dengan penuh cinta,<br />
+    <strong>Yudha & Ima ♡</strong>
+  </p>
+
+  <button
+    type="button"
+    class="choice-btn mt-7"
+    @click="editConfirmation"
+  >
+    Ubah Konfirmasi
+  </button>
+</div>
+
+<div v-else-if="!editing && currentStatus === false" class="text-center">
+  <div class="status-mark">TIDAK HADIR</div>
+
+  <h3 class="booth-title mt-6">
+    Terima Kasih atas Doa dan Kasih Sayangmu
+  </h3>
+
+  <p class="status-copy mt-4">
+    Terima kasih telah memberikan kabar.
+    Meski belum bisa hadir secara langsung,
+    doa dan dukunganmu tetap sangat berarti bagi kami.
+  </p>
+
+  <p class="status-copy mt-3">
+    Semoga kebahagiaan dan doa baik ini
+    selalu menyertai kita semua.
+  </p>
+
+  <p class="status-copy mt-5">
+    Dengan penuh cinta,<br />
+    <strong>Yudha & Ima ♡</strong>
+  </p>
+
+  <button
+    type="button"
+    class="choice-btn mt-7"
+    @click="editConfirmation"
+  >
+    Ubah Konfirmasi
+  </button>
+</div>
 
       <form v-else @submit.prevent="submitRsvp">
         <p class="status-copy mb-5 text-center">Apakah kamu akan hadir di hari bahagia kami?</p>
