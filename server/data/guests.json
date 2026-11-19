@@ -2938,5 +2938,22 @@
       "side": "yudha",
       "relation": null,
       "status": "pending"
+    },
+    {
+      "code": "YUD025",
+      "name": "Kris (kantor)",
+      "slug": "kris-kantor",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
+    }
+    ,
+    {
+      "code": "YUD025",
+      "name": "Ferdian (kantor)",
+      "slug": "ferdian-kantor",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
     }
 ]
