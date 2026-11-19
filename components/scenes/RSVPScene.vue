@@ -89,11 +89,12 @@
 </div>
 
       <form v-else @submit.prevent="submitRsvp">
-        <p class="status-copy mb-5 text-center">Apakah kamu akan hadir di hari bahagia kami?</p>
+        <p id="rsvp-attendance" class="status-copy mb-5 text-center">Apakah kamu akan hadir di hari bahagia kami?</p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-          <button type="button" class="choice-btn" :class="{ active: form.attending === true }" :aria-pressed="form.attending === true" @click="form.attending = true">Ya, Saya Akan Hadir</button>
-          <button type="button" class="choice-btn" :class="{ active: form.attending === false }" :aria-pressed="form.attending === false" @click="form.attending = false">Maaf, Saya Belum Bisa Hadir</button>
+        <div class="attendance-slider mb-6" role="group" aria-labelledby="rsvp-attendance">
+          <span class="attendance-thumb" :class="{ 'is-visible': form.attending !== null, 'is-right': form.attending === false }" aria-hidden="true" />
+          <button type="button" class="choice-btn" :aria-pressed="form.attending === true" @click="form.attending = true">Hadir</button>
+          <button type="button" class="choice-btn" :aria-pressed="form.attending === false" @click="form.attending = false">Tidak Hadir</button>
         </div>
 
         <label class="field-label" for="rsvp-name">Nama</label>
@@ -127,8 +128,8 @@
       <div :aria-busy="loadingMessages">
         <template v-if="loadingMessages">
           <p class="sr-only" role="status">Memuat ucapan...</p>
-          <div class="wishes-masonry" aria-hidden="true">
-            <div v-for="index in 6" :key="index" class="wish-card wish-skeleton">
+          <div class="wishes-slider" aria-hidden="true">
+            <div v-for="index in 3" :key="index" class="wish-card wish-skeleton">
               <span class="skeleton-line skeleton-name" />
               <span v-for="line in (index % 3) + 2" :key="line" class="skeleton-line" />
               <span class="skeleton-line skeleton-date" />
@@ -141,10 +142,13 @@
           <button type="button" class="choice-btn mt-5" @click="loadMessages">Coba Lagi</button>
         </div>
         <template v-else-if="messages.length">
-          <div class="wishes-masonry">
+          <div id="wish-slides" :key="wishSort" ref="wishesSlider" class="wishes-slider" role="group" aria-label="Geser kartu ucapan" tabindex="0" @scroll.passive="lastWishScroll = Date.now()">
             <article v-for="item in visibleMessages" :key="item.id" class="wish-card" tabindex="-1">
               <span class="wish-quote" aria-hidden="true">“</span>
               <h4 class="wish-name">{{ item.name }}</h4>
+              <span v-if="typeof item.attending === 'boolean'" class="wish-attendance" :class="{ 'is-attending': item.attending }">
+                {{ item.attending ? 'Hadir' : 'Tidak Hadir' }}
+              </span>
               <p class="wish-message">{{ item.message }}</p>
               <footer class="wish-footer">
                 <time :datetime="item.timestamp">{{ formatDate(item.timestamp) }}</time>
@@ -156,6 +160,13 @@
             </article>
           </div>
           <div class="wishes-more">
+            <div v-if="visibleMessages.length > 1" class="wishes-navigation">
+              <button type="button" class="choice-btn" aria-label="Ucapan sebelumnya" aria-controls="wish-slides" @click="moveWishes(-1)">←</button>
+              <button type="button" class="choice-btn" aria-label="Ucapan berikutnya" aria-controls="wish-slides" @click="moveWishes(1)">→</button>
+              <button v-if="!reduceWishMotion" type="button" class="choice-btn" aria-controls="wish-slides" @click="wishAutoplay = !wishAutoplay">
+                {{ wishAutoplay ? 'Jeda' : 'Putar otomatis' }}
+              </button>
+            </div>
             <p role="status">{{ visibleMessages.length }} dari {{ messages.length }} ucapan</p>
             <button v-if="visibleCount < messages.length" type="button" class="btn-primary" @click="loadMoreWishes">Muat Lebih Banyak</button>
           </div>
@@ -195,6 +206,11 @@ const { show: showToast } = useToast()
 const titleRef = ref<HTMLElement | null>(null)
 const formRef = ref<HTMLElement | null>(null)
 const messagesRef = ref<HTMLElement | null>(null)
+const wishesSlider = ref<HTMLElement | null>(null)
+const wishAutoplay = ref(true)
+const reduceWishMotion = ref(false)
+const wishSlideInterval = 6000
+let lastWishScroll = 0
 const submitting = ref(false)
 const loadingStatus = ref(false)
 const loadingMessages = ref(true)
@@ -216,6 +232,41 @@ const visibleMessages = computed(() => [...messages.value].sort((a, b) => {
 }).slice(0, visibleCount.value))
 
 watch(wishSort, () => { visibleCount.value = 6 })
+
+const moveWishes = (direction: -1 | 1) => {
+  const slider = wishesSlider.value
+  if (!slider || slider.children.length < 2) return
+
+  const stride = (slider.children[1] as HTMLElement).offsetLeft - (slider.children[0] as HTMLElement).offsetLeft
+  const count = slider.children.length
+  const currentIndex = Math.round(slider.scrollLeft / stride)
+  const nextIndex = (currentIndex + direction + count) % count
+  slider.scrollTo({
+    left: nextIndex * stride,
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
+  })
+}
+
+watch(wishesSlider, (slider, _, onCleanup) => {
+  if (!slider) return
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)')
+  const pointerCanHover = window.matchMedia('(hover: hover)')
+  const updateMotion = () => { reduceWishMotion.value = reducedMotion.matches }
+  updateMotion()
+  reducedMotion.addEventListener('change', updateMotion)
+
+  const timer = window.setInterval(() => {
+    if (!wishAutoplay.value || reduceWishMotion.value || document.hidden) return
+    if (slider.matches(':focus-within') || (pointerCanHover.matches && slider.matches(':hover'))) return
+    if (Date.now() - lastWishScroll < 1500) return
+    moveWishes(1)
+  }, wishSlideInterval)
+
+  onCleanup(() => {
+    window.clearInterval(timer)
+    reducedMotion.removeEventListener('change', updateMotion)
+  })
+})
 
 const loadMoreWishes = async () => {
   const firstNewIndex = visibleMessages.value.length
@@ -518,12 +569,39 @@ onMounted(async () => {
   white-space: normal;
 }
 
-.choice-btn.active,
 .choice-btn:hover {
   background: rgba(201, 168, 76, 0.14);
   border-color: rgba(201, 168, 76, 0.62);
   color: var(--color-gold);
 }
+
+.attendance-slider {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: 0.25rem;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 6px;
+}
+.attendance-slider .choice-btn {
+  position: relative;
+  padding-inline: 0.5rem;
+  border-color: transparent;
+  background: transparent;
+}
+.attendance-slider .choice-btn[aria-pressed='true'] { color: var(--color-gold-light); }
+.attendance-thumb {
+  position: absolute;
+  inset: 0.25rem auto 0.25rem 0.25rem;
+  width: calc(50% - 0.25rem);
+  border: 1px solid rgba(201, 168, 76, 0.62);
+  border-radius: 6px;
+  background: rgba(201, 168, 76, 0.14);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+.attendance-thumb.is-visible { opacity: 1; }
+.attendance-thumb.is-right { transform: translateX(100%); }
 
 .btn-primary:disabled {
   cursor: wait;
@@ -603,13 +681,22 @@ onMounted(async () => {
   font-size: 1rem;
   line-height: 1.5;
 }
-.wishes-masonry { columns: 1; column-gap: 1.25rem; }
+.wishes-slider {
+  position: relative;
+  display: grid;
+  max-width: 620px;
+  margin-inline: auto;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding-block: 0.5rem;
+  scroll-snap-type: x mandatory;
+}
 .wish-card {
   position: relative;
-  display: inline-block;
-  width: 100%;
-  break-inside: avoid;
-  margin-bottom: 1.25rem;
+  min-width: 0;
+  scroll-snap-align: start;
   padding: 1.5rem;
   border: 1px solid rgba(201, 168, 76, 0.25);
   border-radius: 8px;
@@ -642,6 +729,20 @@ onMounted(async () => {
   font-weight: 400;
   line-height: 1.7;
   color: var(--color-gold-light);
+}
+.wish-attendance {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 4px;
+  color: var(--color-cream);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.75rem;
+}
+.wish-attendance.is-attending {
+  color: var(--color-gold-light);
+  background: rgba(201, 168, 76, 0.14);
 }
 .wish-message {
   margin: 1rem 0 1.25rem;
@@ -684,11 +785,12 @@ onMounted(async () => {
   cursor: pointer;
 }
 .wish-heart:hover, .wish-heart[aria-pressed='true'] { background: rgba(201, 168, 76, 0.1); }
-.wishes-wall button:focus-visible, .wish-card:focus-visible, .choice-btn:focus-visible, .rsvp-input:focus-visible {
+.wishes-wall button:focus-visible, .wishes-slider:focus-visible, .wish-card:focus-visible, .choice-btn:focus-visible, .rsvp-input:focus-visible {
   outline: 2px solid var(--color-gold-light);
   outline-offset: 4px;
 }
 .wishes-more { text-align: center; margin-top: 1.5rem; }
+.wishes-navigation { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 1rem; }
 .wishes-more p { color: var(--color-cream); opacity: 0.75; margin-bottom: 1rem; font-size: 1rem; }
 .wishes-more .btn-primary { max-width: 100%; white-space: normal; padding-inline: 1.5rem; }
 .wishes-state {
@@ -713,10 +815,8 @@ onMounted(async () => {
 .skeleton-date { width: 35%; margin-top: 2rem; }
 @keyframes wish-fade-up { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes wish-pulse { to { opacity: 0.4; } }
-@media (min-width: 560px) { .wishes-masonry { columns: 2; } }
-@media (min-width: 1024px) { .wishes-masonry { columns: 3; } }
 @media (prefers-reduced-motion: reduce) {
-  .wish-card, .skeleton-line, .wish-filter, .booth-widget, .choice-btn, .btn-primary, .btn-primary::before {
+  .wish-card, .skeleton-line, .wish-filter, .attendance-thumb, .booth-widget, .choice-btn, .btn-primary, .btn-primary::before {
     animation: none;
     transition: none;
   }
