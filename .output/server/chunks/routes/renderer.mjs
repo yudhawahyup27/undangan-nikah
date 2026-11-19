@@ -1,5 +1,5 @@
-import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'vue-bundle-renderer/runtime';
-import { w as buildAssetsURL, x as publicAssetsURL, u as useRuntimeConfig, y as encodePath, z as defineRenderHandler, f as getQuery, e as createError, A as getRouteRules, B as getResponseStatusText, C as getResponseStatus, b as useNitroApp } from '../_/nitro.mjs';
+globalThis.__timing__.logStart('Load chunks/routes//renderer');import { createRenderer, getRequestDependencies, getPreloadLinks, getPrefetchLinks } from 'vue-bundle-renderer/runtime';
+import { y as buildAssetsURL, z as publicAssetsURL, u as useRuntimeConfig, A as encodePath, B as defineRenderHandler, f as getQuery, e as createError, C as getRouteRules, D as getResponseStatusText, E as getResponseStatus, b as useNitroApp } from '../_/nitro.mjs';
 import { createHead as createHead$1, propsToString, renderSSRHead } from 'unhead/server';
 import { stringify, uneval } from 'devalue';
 import { isRef, toValue } from 'vue';
@@ -359,5 +359,5 @@ function renderHTMLDocument(html) {
 	return "<!DOCTYPE html>" + `<html${joinAttrs(html.htmlAttrs)}>` + `<head>${joinTags(html.head)}</head>` + `<body${joinAttrs(html.bodyAttrs)}>${joinTags(html.bodyPrepend)}${joinTags(html.body)}${joinTags(html.bodyAppend)}</body>` + "</html>";
 }
 
-export { handler as default };
+export { handler as default };;globalThis.__timing__.logEnd('Load chunks/routes//renderer');
 //# sourceMappingURL=renderer.mjs.map

@@ -21,6 +21,8 @@ import { NuxtModule, ModuleDependencyMeta } from '@nuxt/schema'
   }
   interface SharedPublicRuntimeConfig {
    siteUrl: string,
+
+   photoBoothUrl: string,
   }
 declare module '@nuxt/schema' {
   interface ModuleDependencies {

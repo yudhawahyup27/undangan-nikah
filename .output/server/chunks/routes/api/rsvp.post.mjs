@@ -1,4 +1,4 @@
-import { c as defineEventHandler, r as readBody, e as createError, q as createRsvpEntry, v as getErrorMessage } from '../../_/nitro.mjs';
+globalThis.__timing__.logStart('Load chunks/routes/api/rsvp.post');import { c as defineEventHandler, r as readBody, e as createError, w as createRsvpEntry, x as getErrorMessage } from '../../_/nitro.mjs';
 import 'crypto';
 import 'fs/promises';
 import 'path';
@@ -38,5 +38,5 @@ const rsvp_post = defineEventHandler(async (event) => {
   }
 });
 
-export { rsvp_post as default };
+export { rsvp_post as default };;globalThis.__timing__.logEnd('Load chunks/routes/api/rsvp.post');
 //# sourceMappingURL=rsvp.post.mjs.map
