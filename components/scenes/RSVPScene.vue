@@ -129,10 +129,12 @@
         <template v-if="loadingMessages">
           <p class="sr-only" role="status">Memuat ucapan...</p>
           <div class="wishes-slider" aria-hidden="true">
-            <div v-for="index in 3" :key="index" class="wish-card wish-skeleton">
-              <span class="skeleton-line skeleton-name" />
-              <span v-for="line in (index % 3) + 2" :key="line" class="skeleton-line" />
-              <span class="skeleton-line skeleton-date" />
+            <div class="wish-slide">
+              <div v-for="index in 2" :key="index" class="wish-card wish-skeleton">
+                <span class="skeleton-line skeleton-name" />
+                <span v-for="line in 2" :key="line" class="skeleton-line" />
+                <span class="skeleton-line skeleton-date" />
+              </div>
             </div>
           </div>
         </template>
@@ -142,25 +144,31 @@
           <button type="button" class="choice-btn mt-5" @click="loadMessages">Coba Lagi</button>
         </div>
         <template v-else-if="messages.length">
-          <div id="wish-slides" :key="wishSort" ref="wishesSlider" class="wishes-slider" role="group" aria-label="Geser kartu ucapan" tabindex="0" @scroll.passive="lastWishScroll = Date.now()">
-            <article v-for="item in visibleMessages" :key="item.id" class="wish-card" tabindex="-1">
-              <span class="wish-quote" aria-hidden="true">“</span>
-              <h4 class="wish-name">{{ item.name }}</h4>
-              <span v-if="typeof item.attending === 'boolean'" class="wish-attendance" :class="{ 'is-attending': item.attending }">
-                {{ item.attending ? 'Hadir' : 'Tidak Hadir' }}
-              </span>
-              <p class="wish-message">{{ item.message }}</p>
-              <footer class="wish-footer">
-                <time :datetime="item.timestamp">{{ formatDate(item.timestamp) }}</time>
-                <button type="button" class="wish-heart" :aria-pressed="heartedIds.includes(item.id)" :aria-label="`Beri hati untuk ucapan ${item.name}`" aria-describedby="wish-heart-note" @click="toggleHeart(item.id)">
-                  <svg width="19" height="19" viewBox="0 0 24 24" :fill="heartedIds.includes(item.id) ? 'currentColor' : 'none'" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" /></svg>
-                  <span>{{ heartedIds.includes(item.id) ? 1 : 0 }}</span>
+          <div id="wish-slides" :key="wishSort" ref="wishesSlider" class="wishes-slider" role="group" aria-label="Geser kartu ucapan" tabindex="0" @scroll.passive="onWishScroll">
+            <div v-for="(slide, slideIndex) in wishSlides" :key="slideIndex" class="wish-slide">
+              <article v-for="{ item, preview } in slide" :key="item.id" class="wish-card" tabindex="-1">
+                <div class="wish-card-heading">
+                  <h4 class="wish-name">{{ item.name }}</h4>
+                  <span v-if="typeof item.attending === 'boolean'" class="wish-attendance" :class="{ 'is-attending': item.attending }">
+                    {{ item.attending ? 'Hadir' : 'Tidak Hadir' }}
+                  </span>
+                </div>
+                <p :id="`wish-message-${item.id}`" class="wish-message">{{ expandedWishId === item.id ? item.message : preview ?? item.message }}</p>
+                <button v-if="preview" type="button" class="wish-read-more" :aria-expanded="expandedWishId === item.id" :aria-controls="`wish-message-${item.id}`" @click="expandedWishId = expandedWishId === item.id ? null : item.id">
+                  {{ expandedWishId === item.id ? 'Ringkas' : 'Baca selengkapnya' }}
                 </button>
-              </footer>
-            </article>
+                <footer class="wish-footer">
+                  <time :datetime="item.timestamp">{{ formatDate(item.timestamp) }}</time>
+                  <button type="button" class="wish-heart" :aria-pressed="heartedIds.includes(item.id)" :aria-label="`Beri hati untuk ucapan ${item.name}`" aria-describedby="wish-heart-note" @click="toggleHeart(item.id)">
+                    <svg width="19" height="19" viewBox="0 0 24 24" :fill="heartedIds.includes(item.id) ? 'currentColor' : 'none'" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1.1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21l8.8-8.6a5.5 5.5 0 0 0 0-7.8Z" /></svg>
+                    <span>{{ heartedIds.includes(item.id) ? 1 : 0 }}</span>
+                  </button>
+                </footer>
+              </article>
+            </div>
           </div>
           <div class="wishes-more">
-            <div v-if="visibleMessages.length > 1" class="wishes-navigation">
+            <div v-if="wishSlides.length > 1" class="wishes-navigation">
               <button type="button" class="choice-btn" aria-label="Ucapan sebelumnya" aria-controls="wish-slides" @click="moveWishes(-1)">←</button>
               <button type="button" class="choice-btn" aria-label="Ucapan berikutnya" aria-controls="wish-slides" @click="moveWishes(1)">→</button>
               <button v-if="!reduceWishMotion" type="button" class="choice-btn" aria-controls="wish-slides" @click="wishAutoplay = !wishAutoplay">
@@ -207,6 +215,7 @@ const titleRef = ref<HTMLElement | null>(null)
 const formRef = ref<HTMLElement | null>(null)
 const messagesRef = ref<HTMLElement | null>(null)
 const wishesSlider = ref<HTMLElement | null>(null)
+const expandedWishId = ref<string | null>(null)
 const wishAutoplay = ref(true)
 const reduceWishMotion = ref(false)
 const wishSlideInterval = 6000
@@ -231,7 +240,37 @@ const visibleMessages = computed(() => [...messages.value].sort((a, b) => {
   return popularity || timestamp(b.timestamp) - timestamp(a.timestamp) || a.id.localeCompare(b.id)
 }).slice(0, visibleCount.value))
 
-watch(wishSort, () => { visibleCount.value = 6 })
+const wishSlides = computed(() => {
+  const cards = visibleMessages.value.map(item => {
+    const plainText = item.message.trim().replace(/\s+/g, ' ')
+    const characters = Array.from(plainText)
+    const previewLength = 110
+    const truncated = characters.length > previewLength
+    const compact = truncated || item.message.split(/\r?\n/).length > 3
+    const preview = compact
+      ? characters.slice(0, previewLength).join('').trimEnd() + (truncated ? '…' : '')
+      : null
+    return { item, preview }
+  })
+  return Array.from({ length: Math.ceil(cards.length / 2) }, (_, index) => cards.slice(index * 2, index * 2 + 2))
+})
+
+watch(wishSort, () => {
+  visibleCount.value = 6
+  expandedWishId.value = null
+})
+
+const onWishScroll = () => {
+  lastWishScroll = Date.now()
+  const slider = wishesSlider.value
+  if (!slider || expandedWishId.value === null) return
+
+  const expandedSlideIndex = wishSlides.value.findIndex(slide => slide.some(({ item }) => item.id === expandedWishId.value))
+  const expandedSlide = slider.children[expandedSlideIndex] as HTMLElement | undefined
+  if (!expandedSlide || Math.abs(slider.scrollLeft - expandedSlide.offsetLeft) > slider.clientWidth / 2) {
+    expandedWishId.value = null
+  }
+}
 
 const moveWishes = (direction: -1 | 1) => {
   const slider = wishesSlider.value
@@ -241,6 +280,7 @@ const moveWishes = (direction: -1 | 1) => {
   const count = slider.children.length
   const currentIndex = Math.round(slider.scrollLeft / stride)
   const nextIndex = (currentIndex + direction + count) % count
+  expandedWishId.value = null
   slider.scrollTo({
     left: nextIndex * stride,
     behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
@@ -256,7 +296,7 @@ watch(wishesSlider, (slider, _, onCleanup) => {
   reducedMotion.addEventListener('change', updateMotion)
 
   const timer = window.setInterval(() => {
-    if (!wishAutoplay.value || reduceWishMotion.value || document.hidden) return
+    if (!wishAutoplay.value || reduceWishMotion.value || document.hidden || expandedWishId.value !== null) return
     if (slider.matches(':focus-within') || (pointerCanHover.matches && slider.matches(':hover'))) return
     if (Date.now() - lastWishScroll < 1500) return
     moveWishes(1)
@@ -270,6 +310,7 @@ watch(wishesSlider, (slider, _, onCleanup) => {
 
 const loadMoreWishes = async () => {
   const firstNewIndex = visibleMessages.value.length
+  expandedWishId.value = null
   visibleCount.value += 6
   await nextTick()
   messagesRef.value?.querySelectorAll<HTMLElement>('article.wish-card')[firstNewIndex]?.focus()
@@ -278,6 +319,7 @@ const loadMoreWishes = async () => {
 const toggleHeart = (id: string) => {
   heartedIds.value = heartedIds.value.includes(id)
     ? heartedIds.value.filter(value => value !== id) : [...heartedIds.value, id]
+  if (wishSort.value === 'popular' && expandedWishId.value !== null) void nextTick(onWishScroll)
   try {
     localStorage.setItem(heartStorageKey, JSON.stringify(heartedIds.value))
   } catch {
@@ -324,6 +366,7 @@ const restoreStatus = async () => {
 
 const loadMessages = (): Promise<void> => {
   if (messagesRequest) return messagesRequest
+  expandedWishId.value = null
   loadingMessages.value = true
   messagesError.value = false
   messagesRequest = (async () => {
@@ -693,11 +736,17 @@ onMounted(async () => {
   padding-block: 0.5rem;
   scroll-snap-type: x mandatory;
 }
+.wish-slide {
+  display: grid;
+  align-self: start;
+  gap: 0.75rem;
+  min-width: 0;
+  scroll-snap-align: start;
+}
 .wish-card {
   position: relative;
   min-width: 0;
-  scroll-snap-align: start;
-  padding: 1.5rem;
+  padding: 0.75rem 1rem;
   border: 1px solid rgba(201, 168, 76, 0.25);
   border-radius: 8px;
   background: var(--color-deep-navy);
@@ -713,15 +762,12 @@ onMounted(async () => {
     box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
   }
 }
-.wish-quote {
-  display: block;
-  color: var(--color-gold);
-  opacity: 0.6;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 3rem;
-  line-height: 0.8;
-  margin-top: 0.5rem;
-  margin-bottom: 0.75rem;
+.wish-card-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.25rem 0.75rem;
 }
 .wish-name {
   font-family: 'Josefin Sans', sans-serif;
@@ -732,7 +778,6 @@ onMounted(async () => {
 }
 .wish-attendance {
   display: inline-block;
-  margin-top: 0.5rem;
   padding: 0.25rem 0.5rem;
   border: 1px solid rgba(201, 168, 76, 0.25);
   border-radius: 4px;
@@ -745,12 +790,19 @@ onMounted(async () => {
   background: rgba(201, 168, 76, 0.14);
 }
 .wish-message {
-  margin: 1rem 0 1.25rem;
+  margin: 0.5rem 0;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.25rem;
-  line-height: 1.65;
+  font-size: 1.125rem;
+  line-height: 1.45;
   white-space: pre-wrap;
   color: var(--color-cream);
+}
+.wish-read-more {
+  min-height: 44px;
+  color: var(--color-gold-light);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.75rem;
+  text-decoration: underline;
 }
 .wish-footer {
   display: flex;
@@ -759,7 +811,6 @@ onMounted(async () => {
   justify-content: space-between;
   gap: 0.5rem;
   border-top: 1px solid rgba(201, 168, 76, 0.16);
-  padding-top: 0.75rem;
 }
 .wish-footer time {
   font-family: 'Josefin Sans', sans-serif;
@@ -802,7 +853,7 @@ onMounted(async () => {
 }
 .wishes-state h4 { font-size: 1.6rem; font-weight: 400; margin-bottom: 0.75rem; }
 .wishes-state p { font-size: 1.15rem; line-height: 1.7; }
-.wish-skeleton { min-height: 210px; }
+.wish-skeleton { min-height: 140px; }
 .skeleton-line {
   display: block;
   height: 0.75rem;
