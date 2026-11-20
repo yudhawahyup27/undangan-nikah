@@ -2979,5 +2979,13 @@
       "side": "yudha",
       "relation": null,
       "status": "pending"
+    },
+     {
+      "code": "YUD208",
+      "name": "Pak Mardongan (Kantor)",
+      "slug": "pak-mardongan-kantor",
+      "side": "yudha",
+      "relation": null,
+      "status": "pending"
     }
 ]
