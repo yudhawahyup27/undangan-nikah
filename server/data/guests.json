@@ -1,4 +1,4 @@
-[
+ [
   {
     "code": "IMA001",
     "name": "Pak Galih (BPR)",
@@ -1239,6 +1239,486 @@
     "relation": null,
     "status": "pending"
   },
+  {
+    "code": "IMA156",
+    "name": "Anas",
+    "slug": "anas",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA157",
+    "name": "Caca",
+    "slug": "caca",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA158",
+    "name": "Suci Manajemen",
+    "slug": "suci-manajemen",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA159",
+    "name": "Lusi Manajemen",
+    "slug": "lusi-manajemen",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA160",
+    "name": "Salsa Manajemen",
+    "slug": "salsa-manajemen",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA161",
+    "name": "Vito Manajemen",
+    "slug": "vito-manajemen",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA162",
+    "name": "Rahma Manajemen",
+    "slug": "rahma-manajemen",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA163",
+    "name": "Dyah Manajemen",
+    "slug": "dyah-manajemen",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA164",
+    "name": "Galuh Manajemen",
+    "slug": "galuh-manajemen",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA165",
+    "name": "Dian Manajemen",
+    "slug": "dian-manajemen",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA166",
+    "name": "Mba Ayu FBII",
+    "slug": "mba-ayu-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA167",
+    "name": "Mba Lidya FBII",
+    "slug": "mba-lidya-fbii",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA168",
+    "name": "Alumni Coklaza",
+    "slug": "alumni-coklaza",
+    "side": "ima",
+    "relation": "TI",
+    "status": "pending"
+  },
+  {
+    "code": "IMA169",
+    "name": "Mba Erika dan Suami",
+    "slug": "mba-erika-dan-suami",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA170",
+    "name": "Lek Marinem",
+    "slug": "lek-marinem",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA171",
+    "name": "Lek Kitun dan Lek Pandi",
+    "slug": "lek-kitun-dan-lek-pandi",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA172",
+    "name": "Mba Menik",
+    "slug": "mba-menik",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA173",
+    "name": "Mbak Har",
+    "slug": "mbak-har",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA174",
+    "name": "Mbah Min dan Istri",
+    "slug": "mbah-min-dan-istri",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA175",
+    "name": "Mbak Dam dan Lek Yon",
+    "slug": "mbak-dam-dan-lek-yon",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA176",
+    "name": "Lek Harto",
+    "slug": "lek-harto",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA177",
+    "name": "Lek Sar",
+    "slug": "lek-sar",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA178",
+    "name": "Mbak Lastri",
+    "slug": "mbak-lastri",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA179",
+    "name": "Mbak Indah",
+    "slug": "mbak-indah",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA180",
+    "name": "Lek No",
+    "slug": "lek-no",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA181",
+    "name": "Buk Asih dan Pak Mamik",
+    "slug": "buk-asih-dan-pak-mamik",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA182",
+    "name": "Mbak Sandra dan Mas Angga",
+    "slug": "mbak-sandra-dan-mas-angga",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA183",
+    "name": "Nadia",
+    "slug": "nadia",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA184",
+    "name": "Mas Pur",
+    "slug": "mas-pur",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA185",
+    "name": "Pak Kamituwo",
+    "slug": "pak-kamituwo",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA186",
+    "name": "Mbah Mul",
+    "slug": "mbah-mul",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA187",
+    "name": "Buk Tin",
+    "slug": "buk-tin",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA188",
+    "name": "Pak Imam Azhari dan Istri",
+    "slug": "pak-imam-azhari-dan-istri",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA189",
+    "name": "Pak Sigit dan Istri",
+    "slug": "pak-sigit-dan-istri",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA190",
+    "name": "Bu Dewi",
+    "slug": "bu-dewi",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA191",
+    "name": "Mba Mita",
+    "slug": "mba-mita",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA192",
+    "name": "Lek Mariyah",
+    "slug": "lek-mariyah",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA193",
+    "name": "Lek Damini",
+    "slug": "lek-damini",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA194",
+    "name": "Lek Paikem",
+    "slug": "lek-paikem",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA195",
+    "name": "Lek Sademi",
+    "slug": "lek-sademi",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA196",
+    "name": "Lek Minem",
+    "slug": "lek-minem",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA197",
+    "name": "Lek Surat",
+    "slug": "lek-surat",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA198",
+    "name": "Lek Titek",
+    "slug": "lek-titek",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA199",
+    "name": "Lek Jamiran dan Istri",
+    "slug": "lek-jamiran-dan-istri",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA200",
+    "name": "Mbak Piyatun",
+    "slug": "mbak-piyatun",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA201",
+    "name": "Lek Nur",
+    "slug": "lek-nur",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA202",
+    "name": "novi sd",
+    "slug": "novi-sd-2",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA203",
+    "name": "Lek Mur",
+    "slug": "lek-mur",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA204",
+    "name": "Lek Yaudi",
+    "slug": "lek-yaudi",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA205",
+    "name": "Buk Dar, Mba Erna",
+    "slug": "buk-dar-mba-erna",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA206",
+    "name": "Mbah Man",
+    "slug": "mbah-man",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA207",
+    "name": "Mbak Ipa dan Suami",
+    "slug": "mbak-ipa-dan-suami",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA208",
+    "name": "Pak Har buah dan Istri",
+    "slug": "pak-har-buah-dan-istri",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA209",
+    "name": "Tisya",
+    "slug": "tisya",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA210",
+    "name": "Alexa",
+    "slug": "alexa",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA211",
+    "name": "Mba Elsa",
+    "slug": "mba-elsa",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA212",
+    "name": "Putri",
+    "slug": "putri",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA213",
+    "name": "Cikgu MeiMei",
+    "slug": "cikgu-meimei",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA214",
+    "name": "Mas Kiko (SSS)",
+    "slug": "mas-kiko-sss",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA215",
+    "name": "Mba Shinta (SSS)",
+    "slug": "mba-shinta-sss",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  }
   {
     "code": "YUD001",
     "name": "Pak rudi",
