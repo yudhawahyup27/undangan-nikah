@@ -2031,6 +2031,14 @@
     "relation": "Wali Asuh",
     "status": "pending"
   },
+   {
+    "code": "IMA255",
+    "name": "sella",
+    "slug": "sella",
+    "side": "ima",
+    "relation": "Wali Asuh",
+    "status": "pending"
+  },
   {
     "code": "YUD001",
     "name": "Pak rudi",
