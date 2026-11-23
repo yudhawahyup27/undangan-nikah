@@ -1718,6 +1718,317 @@
     "side": "ima",
     "relation": null,
     "status": "pending"
+  },{
+    "code": "IMA216",
+    "name": "Bu Sunarmi - Wali Asrama",
+    "slug": "bu-sunarmi-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA217",
+    "name": "Bu Widi - Wali Asrama",
+    "slug": "bu-widi-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA218",
+    "name": "Pak Eko Warasno - Wali Asrama",
+    "slug": "pak-eko-warasno-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA219",
+    "name": "Pak Nur Salim - Wali Asrama",
+    "slug": "pak-nur-salim-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA220",
+    "name": "Bu Emira - Wali Asrama",
+    "slug": "bu-emira-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA221",
+    "name": "Bu Prisel - Wali Asrama",
+    "slug": "bu-prisel-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA222",
+    "name": "Pak Andik - Wali Asrama",
+    "slug": "pak-andik-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA223",
+    "name": "Pak Andika - Wali Asrama",
+    "slug": "pak-andika-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA224",
+    "name": "Bu Amma - Wali Asrama",
+    "slug": "bu-amma-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA225",
+    "name": "Bu Dian - Wali Asrama",
+    "slug": "bu-dian-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA226",
+    "name": "Bu Rinda - Wali Asrama",
+    "slug": "bu-rinda-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA227",
+    "name": "Bu Riski - Wali Asrama",
+    "slug": "bu-riski-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA228",
+    "name": "Pak Atta - Wali Asrama",
+    "slug": "pak-atta-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA229",
+    "name": "Pak Hartor - Wali Asrama",
+    "slug": "pak-hartor-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA230",
+    "name": "Pak Iqbal - Wali Asrama",
+    "slug": "pak-iqbal-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA231",
+    "name": "Pak Nuki - Wali Asrama",
+    "slug": "pak-nuki-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA232",
+    "name": "Pak Rijal - Wali Asrama",
+    "slug": "pak-rijal-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA233",
+    "name": "Pak Rio - Wali Asrama",
+    "slug": "pak-rio-wali-asrama",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA234",
+    "name": "Bu Desy - Wali Asuh",
+    "slug": "bu-desy-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA235",
+    "name": "Bu Ayu - Wali Asuh",
+    "slug": "bu-ayu-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA236",
+    "name": "Bu Ayusti - Wali Asuh",
+    "slug": "bu-ayusti-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA237",
+    "name": "Bu Dina - Wali Asuh",
+    "slug": "bu-dina-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA238",
+    "name": "Bu Laili - Wali Asuh",
+    "slug": "bu-laili-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA239",
+    "name": "Bu Nirmala - Wali Asuh",
+    "slug": "bu-nirmala-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA240",
+    "name": "Bu Nova - Wali Asuh",
+    "slug": "bu-nova-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA241",
+    "name": "Bu Ratna Benita - Wali Asuh",
+    "slug": "bu-ratna-benita-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA242",
+    "name": "Bu Aufa - Wali Asuh",
+    "slug": "bu-aufa-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA243",
+    "name": "Bu Amel - Wali Asuh",
+    "slug": "bu-amel-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA244",
+    "name": "Bu Ilma - Wali Asuh",
+    "slug": "bu-ilma-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA245",
+    "name": "Bu Agis - Wali Asuh",
+    "slug": "bu-agis-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA246",
+    "name": "Bu April - Wali Asuh",
+    "slug": "bu-april-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA247",
+    "name": "Bu Erisa - Wali Asuh",
+    "slug": "bu-erisa-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA248",
+    "name": "Bu Fara - Wali Asuh",
+    "slug": "bu-fara-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA249",
+    "name": "Bu Ingrid - Wali Asuh",
+    "slug": "bu-ingrid-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA250",
+    "name": "Bu Riris - Wali Asuh",
+    "slug": "bu-riris-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA251",
+    "name": "Bu Sanya - Wali Asuh",
+    "slug": "bu-sanya-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA252",
+    "name": "Bu Nabella - Wali Asuh",
+    "slug": "bu-nabella-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA253",
+    "name": "Bu Rahma - Wali Asuh",
+    "slug": "bu-rahma-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
+  },
+  {
+    "code": "IMA254",
+    "name": "Bu Olivia - Wali Asuh",
+    "slug": "bu-olivia-wali-asuh",
+    "side": "ima",
+    "relation": null,
+    "status": "pending"
   },
   {
     "code": "YUD001",
