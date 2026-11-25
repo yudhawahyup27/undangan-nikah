@@ -2040,6 +2040,38 @@
     "status": "pending"
   },
   {
+    "code": "IMA256",
+    "name": "riski",
+    "slug": "riski",
+    "side": "ima",
+    "relation": "",
+    "status": "pending"
+  },
+  {
+    "code": "IMA257",
+    "name": "Ibu Riski Sekeluarga",
+    "slug": "ibu-riski-sekeluarga",
+    "side": "ima",
+    "relation": "",
+    "status": "pending"
+  },
+  {
+    "code": "IMA258",
+    "name": "Ibu Najim Sekeluarga",
+    "slug": "ibu-najim-sekeluarga",
+    "side": "ima",
+    "relation": "",
+    "status": "pending"
+  },
+  {
+    "code": "IMA259",
+    "name": "Najim",
+    "slug": "najim",
+    "side": "ima",
+    "relation": "",
+    "status": "pending"
+  },
+  {
     "code": "YUD001",
     "name": "Pak rudi",
     "slug": "pak-rudi",
