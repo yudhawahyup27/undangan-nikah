@@ -92,6 +92,7 @@ interface Bank { bank: string; name: string; number: string; copied: boolean }
 const banks = reactive<Bank[]>([
   { bank: 'BCA', name: 'Yudha Wahyu Pratama', number: '6580775568', copied: false },
   { bank: 'BCA', name: 'Nur Kotimah', number: '0332872131', copied: false },
+  { bank: 'BNI', name: 'Nur Kotimah', number: '2134232572', copied: false },
 ])
 
 const { show: showToast } = useToast()
